@@ -141,8 +141,10 @@ const filteredPortfolio = computed(() => {
 
 const leftExperiences = computed(() => experiences.filter((_, idx) => idx % 2 === 0));
 const rightExperiences = computed(() => experiences.filter((_, idx) => idx % 2 !== 0));
+const experienceVisible = ref(false);
 
 let sectionObserver = null;
+let experienceObserver = null;
 
 const setupSectionObserver = () => {
   const sections = document.querySelectorAll('section[id]');
@@ -157,19 +159,44 @@ const setupSectionObserver = () => {
   sections.forEach(sec => sectionObserver?.observe(sec));
 };
 
+const setupExperienceObserver = () => {
+  const experienceSection = document.getElementById('experience');
+  if (!experienceSection) return;
+
+  experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        experienceVisible.value = true;
+        experienceObserver?.disconnect();
+        experienceObserver = null;
+      }
+    });
+  }, { threshold: 0.15 });
+
+  experienceObserver.observe(experienceSection);
+};
+
 onMounted(() => {
   // Defer non-critical observer work to keep the initial paint path lighter.
   if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(() => setupSectionObserver(), { timeout: 1200 });
+    window.requestIdleCallback(() => {
+      setupSectionObserver();
+      setupExperienceObserver();
+    }, { timeout: 1200 });
     return;
   }
 
-  setTimeout(setupSectionObserver, 200);
+  setTimeout(() => {
+    setupSectionObserver();
+    setupExperienceObserver();
+  }, 200);
 });
 
 onBeforeUnmount(() => {
   sectionObserver?.disconnect();
   sectionObserver = null;
+  experienceObserver?.disconnect();
+  experienceObserver = null;
 });
 
 const scrollTo = (id) => {
@@ -372,7 +399,7 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Experience Section -->
-      <section class="py-24 bg-surface cv-auto" id="experience">
+      <section :class="['py-24 bg-surface cv-auto', { 'experience-visible': experienceVisible }]" id="experience">
         <div class="max-w-6xl mx-auto px-8">
           <div class="text-center mb-14">
             <h2 class="font-headline text-3xl md:text-4xl font-bold mb-2 tracking-tight">Work Experience</h2>
@@ -388,7 +415,8 @@ const handleInquiry = async () => {
                 <article
                   v-for="(exp, idx) in leftExperiences"
                   :key="`left-${idx}-${exp.company}`"
-                  class="relative md:pr-10"
+                  class="relative md:pr-10 experience-card"
+                  :style="{ '--exp-delay': `${idx * 120}ms` }"
                 >
                   <div :class="['rounded-2xl border p-6 transition-all duration-300', exp.isCurrent ? 'bg-primary-fixed/30 border-primary/40 shadow-[0_12px_30px_rgba(0,98,157,0.10)]' : 'bg-surface-container-lowest border-outline-variant/30 shadow-sm hover:shadow-md']">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
@@ -437,7 +465,8 @@ const handleInquiry = async () => {
                 <article
                   v-for="(exp, idx) in rightExperiences"
                   :key="`right-${idx}-${exp.company}`"
-                  class="relative md:pl-10"
+                  class="relative md:pl-10 experience-card"
+                  :style="{ '--exp-delay': `${idx * 120 + 80}ms` }"
                 >
                   <div :class="['rounded-2xl border p-6 transition-all duration-300', exp.isCurrent ? 'bg-primary-fixed/30 border-primary/40 shadow-[0_12px_30px_rgba(0,98,157,0.10)]' : 'bg-surface-container-lowest border-outline-variant/30 shadow-sm hover:shadow-md']">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
@@ -738,5 +767,38 @@ const handleInquiry = async () => {
 .cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1px 1000px;
+}
+
+.experience-card {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  filter: blur(2px);
+}
+
+.experience-visible .experience-card {
+  animation: experience-reveal 620ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--exp-delay, 0ms);
+}
+
+@keyframes experience-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-card {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
 }
 </style>
