@@ -105,12 +105,21 @@ const portfolio = [
   { id: 2, title: 'BKKBN Portal & Siga App', category: 'fullstack', image: 'https://mediacenter.riau.go.id/foto_berita/medium/sesuaikan-dengan-generasi-milenial-bkkbn-riau-perkenalkan-logo-baru.jpg', description: 'National family data portal with API ecosystem used across Indonesia.', tags: ['Laravel', 'ReactJS', 'MySQL', 'REST API'], info: 'BKKBN Indonesia — Government Project' },
   { id: 3, title: 'WowPremi', category: 'fullstack', image: '/wowpremi.png', description: 'Online insurance application for Android, iOS & Web with Midtrans integration.', tags: ['Lumen PHP', 'ReactJS', 'Midtrans', 'MySQL'], web: 'https://wowpremi.com/', appStore: 'https://itunes.apple.com/gb/app/wowpremi/id1427272279?mt=8', playStore: 'https://play.google.com/store/apps/details?id=com.dritama.wowpremi' },
   { id: 4, title: 'BKKBN API Ecosystem', category: 'backend', image: 'https://mediacenter.riau.go.id/foto_berita/medium/sesuaikan-dengan-generasi-milenial-bkkbn-riau-perkenalkan-logo-baru.jpg', description: 'Centralized RESTful API layer connecting multiple internal projects.', tags: ['Laravel', 'MySQL', 'PostgreSQL', 'RESTful API'], info: 'BKKBN Indonesia — Government Project' },
-  { id: 5, title: 'AIA+', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'Real-time digital platform connecting customers and insurance companies.', tags: ['Vue.js 3', 'Pinia', 'REST API', 'Realtime'], info: 'AIA Indonesia — Customer Facing' },
+  { id: 5, title: 'AIA+', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'Real-time digital platform connecting customers and insurance companies.', tags: ['Vue.js 3', 'Pinia', 'REST API', 'Realtime'], info: 'AIA Indonesia — Customer Facing', playStore: 'https://play.google.com/store/apps/details?id=id.co.aiafinancial.aiaplus&hl=id', appStore: 'https://apps.apple.com/kw/app/aia-indonesia/id6745874762' },
   { id: 6, title: 'OGYA Recruitment System', category: 'fullstack', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'Management system for candidate selection and HR dashboard.', tags: ['Laravel', 'Vue.js', 'MySQL', 'REST API'], web: 'https://ogya.co.id' },
+  { id: 11, title: 'OGYA Company Profile', category: 'frontend', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'Modern company profile website showcasing services and career portal.', tags: ['ReactJS', 'Responsive', 'REST API'], web: 'https://ogya.co.id' },
   { id: 7, title: 'OASE — BCA', category: 'backend', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyyDL48YXf0J3DjfcEKeyvCxbT9uJVND1kEQ&s', description: 'Internal banking API system for Bank Central Asia built with Node.js.', tags: ['Node.js', 'Express.js', 'MySQL', 'REST API'], info: 'BCA — Internal' },
   { id: 8, title: 'Sheldon Dental Management', category: 'fullstack', image: 'https://sheldondental.id/images/logo.jpg', description: 'Clinic management system with complex doctor commission calculations.', tags: ['Laravel', 'Dashboard', 'Payroll', 'Fullstack'], web: 'https://sheldondental.id' },
-  { id: 9, title: 'Carfix Indonesia', category: 'backend', image: 'https://carfix.co.id/wp-content/uploads/2024/10/icon-1.png', description: 'Manual QA role ensuring quality across car workshop network platforms.', tags: ['QA', 'Manual Testing', 'UAT', 'Bug Reporting'], info: 'Carfix Indonesia — Quality Assurance', qaLabel: 'QA / Tester' },
-  { id: 10, title: 'PINS Indonesia Mobile App', category: 'frontend', image: 'https://static.wikia.nocookie.net/logopedia/images/0/0f/PINS_Indonesia.png/revision/latest/scale-to-width-down/1000?cb=20190923144123', description: 'Responsive mobile application interface developed with Angular framework.', tags: ['Angular', 'Mobile App', 'TypeScript', 'Frontend'], info: 'PINS Indonesia — Mobile Development' }
+  { id: 9, title: 'Carfix Indonesia', category: 'backend', image: 'https://carfix.co.id/wp-content/uploads/2024/10/icon-1.png', description: 'Manual QA role ensuring quality across car workshop network platforms.', tags: ['QA', 'Manual Testing', 'UAT', 'Bug Reporting'], info: 'Carfix Indonesia — Quality Assurance', qaLabel: 'QA / Tester', web: 'https://carfix.co.id/' },
+  { id: 12, title: 'SmartCloud Indonesia', category: 'backend', image: 'https://cdn.techinasia.com/data/images/a06d955d350ded214f6338db66339594.jpg', description: 'Quality assurance role for cloud infrastructure and SaaS platform testing.', tags: ['QA', 'Manual Testing', 'SaaS', 'Cloud'], info: 'SmartCloud Indonesia — Quality Assurance', qaLabel: 'QA / Tester' },
+  { id: 10, title: 'PINS Indonesia Mobile App', category: 'frontend', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkXBQh2taVPVeoFGE2GexcKk0KbsCtw0-aHw&s', description: 'Responsive mobile application interface developed with Angular framework.', tags: ['Angular', 'Mobile App', 'TypeScript', 'Frontend'], info: 'PINS Indonesia — Mobile Development' }
+];
+
+const socials = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ragil-pratama-824351145/', icon: 'linkedin' },
+  { name: 'GitHub', url: 'https://github.com/RagilPratama', icon: 'github' },
+  { name: 'Instagram', url: 'https://www.instagram.com/rglprtm/', icon: 'instagram' },
+  { name: 'Email', url: 'mailto:ragilpratamaaa@gmail.com', icon: 'email' }
 ];
 
 const filteredPortfolio = computed(() => {
@@ -136,6 +145,47 @@ const scrollTo = (id) => {
   if (el) {
     el.scrollIntoView({ behavior: 'smooth' });
     activeSection.value = id;
+  }
+};
+
+const form = reactive({
+  name: '',
+  email: '',
+  message: ''
+});
+
+const isSubmitting = ref(false);
+const showSuccess = ref(false);
+
+const handleInquiry = async () => {
+  if (!form.name || !form.email || !form.message) {
+    alert('Please fill out all fields');
+    return;
+  }
+
+  isSubmitting.value = true;
+  
+  // Simulate API call (you can replace this with a real fetch to your backend or a service like Formspree)
+  try {
+    // Optional: Real mailto fallback if you don't have a backend
+    const mailtoUrl = `mailto:ragilpratamaaa@gmail.com?subject=Inquiry from ${form.name}&body=${encodeURIComponent(form.message)}%0D%0A%0D%0AFrom: ${form.name} (${form.email})`;
+    window.open(mailtoUrl);
+
+    // Simulated latency
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    showSuccess.value = true;
+    form.name = '';
+    form.email = '';
+    form.message = '';
+    
+    setTimeout(() => {
+      showSuccess.value = false;
+    }, 5000);
+  } catch (error) {
+    alert('Failed to send inquiry. Please try again.');
+  } finally {
+    isSubmitting.value = false;
   }
 };
 </script>
@@ -218,7 +268,7 @@ const scrollTo = (id) => {
                 <div class="absolute inset-0 bg-primary/5 rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
                 <div class="absolute inset-0 bg-primary/10 rounded-3xl rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
                 <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high border-4 border-white">
-                  <img src="https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=100&ig_cache_key=Mzg2MTIxNDMxNTc1MjQ1MzQ2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5oZHIuQzMifQ%3D%3D&_nc_ohc=ynd-b4boYAYQ7kNvwGLWRHs&_nc_oc=AdqdnIWZ8ul8Wnoxl_Oe1Z2xaC8g30ttGDrGXhFTyVp33if314ffBE4VHdTUXlc7FJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcgk31-1.fna&_nc_gid=JxjOpRzKpr0DrLrJUQP-nA&_nc_ss=7a32e&oh=00_AfzJUfdGNGnu-Ev5T-q3-cpBSU1-Of3zJrrpJDFbo4pNLQ&oe=69CAD1F0" alt="Professional portrait" class="w-full h-full object-cover rounded-3xl" />
+                  <img src="https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=100&ig_cache_key=Mzg2MTIxNDMxNTc1MjQ1MzQ2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2Rl_RhZyI6InhwaWRzLjE0NDB4MTkyMC5oZHIuQzMifQ%3D%3D&_nc_ohc=ynd-b4boYAYQ7kNvwGLWRHs&_nc_oc=AdqdnIWZ8ul8Wnoxl_Oe1Z2xaC8g30ttGDrGXhFTyVp33if314ffBE4VHdTUXlc7FJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcgk31-1.fna&_nc_gid=JxjOpRzKpr0DrLrJUQP-nA&_nc_ss=7a32e&oh=00_AfzJUfdGNGnu-Ev5T-q3-cpBSU1-Of3zJrrpJDFbo4pNLQ&oe=69CAD1F0" alt="Professional portrait" class="w-full h-full object-cover rounded-3xl" />
                   <div class="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-60"></div>
                   <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
                 </div>
@@ -329,7 +379,7 @@ const scrollTo = (id) => {
               :key="project.id"
               class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1">
               <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
-                <img :src="project.image" :alt="project.title" :class="[project.category === 'fullstack' && project.title !== 'WowPremi' ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-6', 'group-hover:scale-105 transition-transform duration-500']" />
+                <img :src="project.image" :alt="project.title" :class="[(project.category === 'fullstack' && project.title !== 'WowPremi' && !project.title.includes('OGYA') && project.title !== 'Sheldon Dental Management') ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-6', 'group-hover:scale-105 transition-transform duration-500']" />
                 <div class="absolute top-4 left-4">
                   <span :class="['text-xs font-bold px-3 py-1 rounded-full', project.qaLabel ? 'bg-secondary text-on-secondary' : project.category === 'frontend' ? 'bg-primary text-on-primary' : project.category === 'fullstack' ? 'bg-tertiary text-on-tertiary' : 'bg-secondary text-on-secondary']">
                     {{ project.qaLabel || (project.category.charAt(0).toUpperCase() + project.category.slice(1)) }}
@@ -376,7 +426,7 @@ const scrollTo = (id) => {
                 Have a complex architectural challenge or a project that needs a steady hand? I'm currently open to consulting and lead engineering roles.
               </p>
               <div class="space-y-6">
-                <div class="flex items-center gap-6 group">
+                <a href="mailto:ragilpratamaaa@gmail.com" class="flex items-center gap-6 group hover:translate-x-2 transition-transform duration-300">
                   <div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm text-primary">
                     <span class="material-symbols-outlined">alternate_email</span>
                   </div>
@@ -384,7 +434,7 @@ const scrollTo = (id) => {
                     <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Email</p>
                     <p class="text-lg font-bold">ragilpratamaaa@gmail.com</p>
                   </div>
-                </div>
+                </a>
                 <div class="flex items-center gap-6 group">
                   <div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm text-primary">
                     <span class="material-symbols-outlined">location_on</span>
@@ -403,21 +453,28 @@ const scrollTo = (id) => {
               </div>
             </div>
             <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-[0_20px_40px_rgba(0,98,157,0.06)]">
-              <form class="space-y-6" @submit.prevent>
+              <form class="space-y-6" @submit.prevent="handleInquiry">
                 <div class="space-y-2">
                   <label class="block text-sm font-bold text-on-surface-variant uppercase">Full Name</label>
-                  <input class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="John Doe" type="text"/>
+                  <input v-model="form.name" class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="John Doe" type="text" required />
                 </div>
                 <div class="space-y-2">
                   <label class="block text-sm font-bold text-on-surface-variant uppercase">Work Email</label>
-                  <input class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="john@company.com" type="email"/>
+                  <input v-model="form.email" class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="john@company.com" type="email" required />
                 </div>
                 <div class="space-y-2">
                   <label class="block text-sm font-bold text-on-surface-variant uppercase">Project Brief</label>
-                  <textarea class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="Tell me about your project needs..." rows="4"></textarea>
+                  <textarea v-model="form.message" class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="Tell me about your project needs..." rows="4" required></textarea>
                 </div>
-                <button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-[0.98]">
-                  Send Inquiry
+                
+                <div v-if="showSuccess" class="p-3 bg-green-50 text-green-700 rounded-lg text-sm font-medium flex items-center gap-2 animate-pulse">
+                  <span class="material-symbols-outlined text-base">check_circle</span>
+                  Inquiry sent successfully! I will contact you soon.
+                </div>
+
+                <button :disabled="isSubmitting" class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3">
+                  <span v-if="isSubmitting" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                  {{ isSubmitting ? 'Sending...' : 'Send Inquiry' }}
                 </button>
               </form>
             </div>
@@ -436,8 +493,8 @@ const scrollTo = (id) => {
           © 2024 M. Ragil Pratama. Built with precision.
         </p>
         <div class="flex gap-6">
-          <a v-for="social in ['LinkedIn', 'GitHub', 'Twitter', 'Email']" :key="social" class="text-slate-500 hover:text-blue-500 hover:translate-y-[-2px] transition-transform text-sm font-medium" href="#">
-            {{ social }}
+          <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" class="text-slate-500 hover:text-blue-500 hover:translate-y-[-2px] transition-transform text-sm font-medium">
+            {{ social.name }}
           </a>
         </div>
       </div>
