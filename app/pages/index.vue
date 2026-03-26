@@ -915,12 +915,9 @@ const handleInquiry = async () => {
 
                 <button 
                   :disabled="isSubmitting" 
-                  :class="[
-                    'w-full py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3',
-                    isFormValid ? 'bg-gradient-to-r from-primary to-primary-container text-on-primary' : 'bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 cursor-pointer'
-                  ]">
+                  class="w-full py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-primary-container text-on-primary">
                   <span v-if="isSubmitting" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                  {{ isSubmitting ? 'Sending...' : (isFormValid ? 'Send Inquiry' : 'Check Requirements') }}
+                  {{ isSubmitting ? 'Sending...' : 'Send Inquiry' }}
                 </button>
               </form>
             </div>
