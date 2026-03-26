@@ -521,11 +521,18 @@ const handleInquiry = async () => {
 
 .portfolio-enter-active,
 .portfolio-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.portfolio-leave-active {
+  position: absolute;
 }
 .portfolio-enter-from,
 .portfolio-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  transform: scale(0.9) translateY(30px);
+}
+/* Ensure moving items are animated smoothly */
+.portfolio-move {
+  transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
 }
 </style>
