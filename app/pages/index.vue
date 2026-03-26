@@ -36,54 +36,58 @@ const experiences = [
   {
     role: 'Frontend Developer',
     company: 'AIA Indonesia',
+    type: 'Full-time',
     period: 'Sep 2023 — Present',
     location: 'Jakarta, Indonesia',
+    impact: 'Shipped reusable frontend architecture and performance-focused UI for insurance products.',
+    tech: ['Vue 3', 'Pinia', 'Vue Router', 'REST API'],
     points: [
-      'Developed and maintained web applications using Vue.js 2 & 3, Vue Router, and Vuex/Pinia',
-      'Translated UI/UX designs into responsive and interactive user interfaces',
-      'Integrated REST APIs to ensure smooth data flow and functionality',
-      'Optimized application performance through code splitting and reusable components',
-      'Collaborated with cross-functional teams to deliver high-quality features',
-      'Ensured cross-browser compatibility and responsive design',
-      'Version control (Git) and documentation'
+      'Built and maintained customer-facing modules with Vue.js 2/3 and Pinia state patterns.',
+      'Converted design specs into responsive interfaces with consistent component standards.',
+      'Integrated REST APIs and improved delivery quality through cross-team collaboration.'
     ],
     isCurrent: true
   },
   {
     role: 'Fullstack Developer',
     company: 'BKKBN Indonesia',
+    type: 'Full-time',
     period: 'Jun 2019 — Sep 2023',
     location: 'Jakarta, Indonesia',
+    impact: 'Delivered national-scale public service platforms used by teams across Indonesia.',
+    tech: ['Laravel', 'ReactJS', 'MySQL', 'Integration API'],
     points: [
-      'Developed BKKBN Portal using Laravel',
-      'Integrated APIs across multiple BKKBN internal projects',
-      'Presented applications to national users across Indonesia',
-      'Built BKKBN Siga Application with ReactJS',
-      'Gathered and discussed program requirements with government stakeholders'
+      'Developed core services and admin features for the BKKBN Portal using Laravel.',
+      'Built API integrations connecting several internal BKKBN ecosystems.',
+      'Delivered and presented production-ready solutions to nationwide stakeholders.'
     ]
   },
   {
     role: 'Fullstack Developer',
     company: 'PT Dritama BrokerIndo',
+    type: 'Full-time',
     period: 'Jan 2019 — Jun 2019',
     location: 'Jakarta, Indonesia',
+    impact: 'Accelerated insurance onboarding workflows through payment and partner API integration.',
+    tech: ['Lumen', 'ReactJS', 'Midtrans', 'MySQL'],
     points: [
-      'Integrated payment gateways (Midtrans)',
-      'Connected with major insurance APIs (Zurich, KB, Sinarmas, etc.)',
-      'Built databases and REST APIs using Lumen PHP',
-      'Created interactive frontends with ReactJS'
+      'Integrated Midtrans payment gateway for web and mobile insurance flow.',
+      'Connected external insurance APIs (Zurich, KB, Sinarmas, and others).',
+      'Developed REST APIs with Lumen and interactive frontend modules with ReactJS.'
     ]
   },
   {
     role: 'Quality Assurance',
     company: 'Indonesia Smartcloud',
+    type: 'Full-time',
     period: 'May 2018 — Dec 2018',
     location: 'Jakarta, Indonesia',
+    impact: 'Improved release confidence with stronger testing discipline and defect reporting.',
+    tech: ['QA Testing', 'Regression', 'Integration Test', 'UAT'],
     points: [
-      'Created PHP Unit tests and conducted Blackbox Testing',
-      'Developed and implemented QA plans and procedures',
-      'Performed quality checks at every stage (UAT, Regression, Integration)',
-      'Identified and reported bugs collaboratively with developers'
+      'Ran black-box and regression validation before release milestones.',
+      'Prepared test plans and QA checklists for UAT and integration cycles.',
+      'Tracked defects with developers until verification and closure.'
     ]
   }
 ];
@@ -134,6 +138,9 @@ const filteredPortfolio = computed(() => {
   if (activeCategory.value === 'all') return portfolio;
   return portfolio.filter(p => p.category === activeCategory.value);
 });
+
+const leftExperiences = computed(() => experiences.filter((_, idx) => idx % 2 === 0));
+const rightExperiences = computed(() => experiences.filter((_, idx) => idx % 2 !== 0));
 
 let sectionObserver = null;
 
@@ -366,28 +373,114 @@ const handleInquiry = async () => {
 
       <!-- Experience Section -->
       <section class="py-24 bg-surface cv-auto" id="experience">
-        <div class="max-w-4xl mx-auto px-8">
-          <div class="text-center mb-20">
-            <h2 class="font-headline text-4xl font-bold mb-4">Work Experience</h2>
-            <p class="text-on-surface-variant">A chronological journey of building real-world solutions across industries.</p>
+        <div class="max-w-6xl mx-auto px-8">
+          <div class="text-center mb-14">
+            <h2 class="font-headline text-3xl md:text-4xl font-bold mb-2 tracking-tight">Work Experience</h2>
+            <p class="text-on-surface-variant text-sm">A focused timeline of roles, impact, and technology stack.</p>
+            <div class="w-20 h-0.5 bg-primary rounded-full mx-auto mt-6"></div>
           </div>
-          <div class="relative border-l-2 border-surface-container-highest ml-4 md:ml-0">
-            <div v-for="(exp, idx) in experiences" :key="idx" class="mb-16 relative pl-12">
-              <div :class="['absolute -left-[11px] top-0 w-5 h-5 rounded-full ring-4', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low']"></div>
-              <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
-                <h3 class="text-2xl font-headline font-bold">{{ exp.role }}</h3>
-                <span :class="['text-sm font-bold px-3 py-1 rounded-full', exp.isCurrent ? 'text-primary bg-primary-fixed' : 'text-on-surface-variant bg-surface-container-high']">
-                  {{ exp.period }}
-                </span>
+
+          <div class="relative">
+            <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-px bg-outline-variant/50"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12 gap-6">
+              <div class="space-y-6">
+                <article
+                  v-for="(exp, idx) in leftExperiences"
+                  :key="`left-${idx}-${exp.company}`"
+                  class="relative md:pr-10"
+                >
+                  <div :class="['rounded-2xl border p-6 transition-all duration-300', exp.isCurrent ? 'bg-primary-fixed/30 border-primary/40 shadow-[0_12px_30px_rgba(0,98,157,0.10)]' : 'bg-surface-container-lowest border-outline-variant/30 shadow-sm hover:shadow-md']">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+                      <div>
+                        <h3 class="text-xl md:text-2xl font-headline font-bold text-on-surface leading-tight">{{ exp.role }}</h3>
+                        <p class="text-primary font-bold text-base mt-1">{{ exp.company }}</p>
+                      </div>
+                      <div class="flex flex-wrap gap-2 md:justify-end">
+                        <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-primary text-on-primary">Current</span>
+                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-secondary-container text-on-secondary-fixed-variant">{{ exp.type }}</span>
+                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high text-on-surface-variant">{{ exp.period }}</span>
+                      </div>
+                    </div>
+
+                    <p class="text-xs text-on-surface-variant mb-4">{{ exp.location }}</p>
+
+                    <div class="mb-4 rounded-xl bg-surface-container p-3 border border-outline-variant/20">
+                      <p class="text-sm font-medium text-on-surface">{{ exp.impact }}</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span
+                        v-for="stack in exp.tech"
+                        :key="stack"
+                        class="text-[11px] px-2 py-1 rounded-md bg-white border border-outline-variant/30 text-on-surface-variant font-semibold"
+                      >
+                        {{ stack }}
+                      </span>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-on-surface-variant leading-relaxed list-none">
+                      <li v-for="point in exp.points" :key="point" class="flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4 10-10" />
+                        </svg>
+                        <span>{{ point }}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div :class="['hidden md:block absolute right-0 translate-x-1/2 top-8 w-3.5 h-3.5 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low']"></div>
+                </article>
               </div>
-              <p :class="['font-bold mb-1', exp.isCurrent ? 'text-primary' : 'text-on-surface']">{{ exp.company }}</p>
-              <p class="text-sm text-on-surface-variant mb-4">{{ exp.location }}</p>
-              <ul class="space-y-2 text-on-surface-variant leading-relaxed list-none">
-                <li v-for="point in exp.points" :key="point" class="flex gap-2">
-                  <span :class="[exp.isCurrent ? 'text-primary' : 'text-outline', 'mt-1']">▸</span>
-                  <span>{{ point }}</span>
-                </li>
-              </ul>
+
+              <div class="space-y-6 md:mt-8">
+                <article
+                  v-for="(exp, idx) in rightExperiences"
+                  :key="`right-${idx}-${exp.company}`"
+                  class="relative md:pl-10"
+                >
+                  <div :class="['rounded-2xl border p-6 transition-all duration-300', exp.isCurrent ? 'bg-primary-fixed/30 border-primary/40 shadow-[0_12px_30px_rgba(0,98,157,0.10)]' : 'bg-surface-container-lowest border-outline-variant/30 shadow-sm hover:shadow-md']">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
+                      <div>
+                        <h3 class="text-xl md:text-2xl font-headline font-bold text-on-surface leading-tight">{{ exp.role }}</h3>
+                        <p class="text-primary font-bold text-base mt-1">{{ exp.company }}</p>
+                      </div>
+                      <div class="flex flex-wrap gap-2 md:justify-end">
+                        <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-primary text-on-primary">Current</span>
+                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-secondary-container text-on-secondary-fixed-variant">{{ exp.type }}</span>
+                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high text-on-surface-variant">{{ exp.period }}</span>
+                      </div>
+                    </div>
+
+                    <p class="text-xs text-on-surface-variant mb-4">{{ exp.location }}</p>
+
+                    <div class="mb-4 rounded-xl bg-surface-container p-3 border border-outline-variant/20">
+                      <p class="text-sm font-medium text-on-surface">{{ exp.impact }}</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      <span
+                        v-for="stack in exp.tech"
+                        :key="stack"
+                        class="text-[11px] px-2 py-1 rounded-md bg-white border border-outline-variant/30 text-on-surface-variant font-semibold"
+                      >
+                        {{ stack }}
+                      </span>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-on-surface-variant leading-relaxed list-none">
+                      <li v-for="point in exp.points" :key="point" class="flex gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4 10-10" />
+                        </svg>
+                        <span>{{ point }}</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div :class="['hidden md:block absolute left-0 -translate-x-1/2 top-8 w-3.5 h-3.5 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low']"></div>
+                </article>
+              </div>
             </div>
           </div>
         </div>
