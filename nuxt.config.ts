@@ -14,8 +14,8 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      'Plus Jakarta Sans': [200, 300, 400, 500, 600, 700, 800],
-      'Outfit': [100, 200, 300, 400, 500, 600, 700, 800, 900]
+      'Plus Jakarta Sans': [400, 600, 700, 800],
+      'Outfit': [400, 600, 700, 800]
     },
     display: 'swap',
     download: true,
@@ -24,7 +24,6 @@ export default defineNuxtConfig({
   image: {
     domains: [
       'instagram.fcgk31-1.fna.fbcdn.net',
-      'mediacenter.riau.go.id',
       'companieslogo.com',
       'ogya.co.id',
       'encrypted-tbn0.gstatic.com',
@@ -33,9 +32,8 @@ export default defineNuxtConfig({
       'cdn.techinasia.com',
       'lh3.googleusercontent.com',
       'upload.wikimedia.org',
-      'informasi.unindra.ac.id',
-      'smkwikrama.sch.id',
-      'iconape.com'
+      'shl.co.id',
+      'cdn-icons-png.flaticon.com'
     ]
   },
   app: {

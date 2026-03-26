@@ -171,14 +171,6 @@ const heroBgBottomStyle = computed(() => {
   };
 });
 
-const heroBgCenterStyle = computed(() => {
-  if (!supportsHeroBg3d.value || !isHeroBgInteracting.value) return {};
-
-  return {
-    transform: `translate3d(${heroBgTilt.x * 0.7}px, ${heroBgTilt.y * 0.7}px, 0) scale(1.035)`
-  };
-});
-
 const handleHeroBgMove = (event) => {
   if (!supportsHeroBg3d.value) return;
 
