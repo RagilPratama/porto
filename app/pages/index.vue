@@ -142,6 +142,54 @@ const filteredPortfolio = computed(() => {
 const leftExperiences = computed(() => experiences.filter((_, idx) => idx % 2 === 0));
 const rightExperiences = computed(() => experiences.filter((_, idx) => idx % 2 !== 0));
 const experienceVisible = ref(false);
+const supportsHeroBg3d = ref(false);
+const isHeroBgInteracting = ref(false);
+const heroBgTilt = reactive({ x: 0, y: 0 });
+
+const heroBgTopStyle = computed(() => {
+  if (!supportsHeroBg3d.value || !isHeroBgInteracting.value) return {};
+
+  return {
+    transform: `translate3d(${heroBgTilt.x * 1.1}px, ${heroBgTilt.y * 1}px, 0)`
+  };
+});
+
+const heroBgBottomStyle = computed(() => {
+  if (!supportsHeroBg3d.value || !isHeroBgInteracting.value) return {};
+
+  return {
+    transform: `translate3d(${heroBgTilt.x * -1}px, ${heroBgTilt.y * -0.9}px, 0)`
+  };
+});
+
+const heroBgCenterStyle = computed(() => {
+  if (!supportsHeroBg3d.value || !isHeroBgInteracting.value) return {};
+
+  return {
+    transform: `translate3d(${heroBgTilt.x * 0.7}px, ${heroBgTilt.y * 0.7}px, 0) scale(1.035)`
+  };
+});
+
+const handleHeroBgMove = (event) => {
+  if (!supportsHeroBg3d.value) return;
+
+  const section = event.currentTarget;
+  if (!section) return;
+
+  const rect = section.getBoundingClientRect();
+  const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
+  const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
+
+  isHeroBgInteracting.value = true;
+  heroBgTilt.x = offsetX * 56;
+  heroBgTilt.y = offsetY * 44;
+};
+
+const resetHeroBgMove = () => {
+  isHeroBgInteracting.value = false;
+  heroBgTilt.x = 0;
+  heroBgTilt.y = 0;
+};
 
 let sectionObserver = null;
 let experienceObserver = null;
@@ -177,6 +225,8 @@ const setupExperienceObserver = () => {
 };
 
 onMounted(() => {
+  supportsHeroBg3d.value = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
   // Defer non-critical observer work to keep the initial paint path lighter.
   if ('requestIdleCallback' in window) {
     window.requestIdleCallback(() => {
@@ -277,9 +327,16 @@ const handleInquiry = async () => {
 
     <main class="blueprint-bg">
       <!-- Hero Section -->
-      <section class="relative overflow-hidden pt-20 pb-32" id="hero">
-        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10"></div>
-        <div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-primary-container/20 rounded-full blur-[100px] -z-10"></div>
+      <section :class="['relative overflow-hidden pt-20 pb-32', { 'hero-bg-interacting': isHeroBgInteracting }]" id="hero" @mousemove="handleHeroBgMove" @mouseleave="resetHeroBgMove">
+        <div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10 hero-bg-layer hero-bg-top" :style="heroBgTopStyle"></div>
+        <div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-primary-container/20 rounded-full blur-[100px] -z-10 hero-bg-layer hero-bg-bottom" :style="heroBgBottomStyle"></div>
+        <div class="absolute inset-0 -z-10 pointer-events-none hero-bg-layer hero-bg-center" :style="heroBgCenterStyle">
+          <div class="absolute left-[8%] top-[18%] w-40 h-40 rounded-[36px] border border-primary/15 bg-gradient-to-br from-primary/10 to-transparent rotate-[16deg]"></div>
+          <div class="absolute right-[10%] bottom-[16%] w-44 h-44 rounded-full border border-primary-container/20 bg-gradient-to-tr from-primary-container/15 to-transparent"></div>
+        </div>
+        <div class="absolute inset-x-[-10%] top-[14%] h-[72%] -z-10 pointer-events-none hero-depth-wrap">
+          <div class="hero-depth-plane"></div>
+        </div>
         <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-7 z-10">
             <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
@@ -769,6 +826,86 @@ const handleInquiry = async () => {
   contain-intrinsic-size: 1px 1000px;
 }
 
+.hero-bg-layer {
+  transition: transform 220ms ease-out;
+  will-change: transform;
+}
+
+#hero {
+  perspective: 1200px;
+}
+
+.hero-depth-wrap {
+  transform-style: preserve-3d;
+}
+
+.hero-depth-plane {
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  border: 1px solid rgba(0, 98, 157, 0.22);
+  background:
+    linear-gradient(140deg, rgba(0, 163, 255, 0.18), rgba(0, 98, 157, 0.05) 58%, rgba(255, 255, 255, 0.04)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 98, 157, 0.1) 0,
+      rgba(0, 98, 157, 0.1) 1px,
+      transparent 1px,
+      transparent 36px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 98, 157, 0.08) 0,
+      rgba(0, 98, 157, 0.08) 1px,
+      transparent 1px,
+      transparent 36px
+    );
+  box-shadow: 0 55px 110px rgba(0, 51, 90, 0.24), inset 0 0 40px rgba(255, 255, 255, 0.12);
+  transform: rotateX(68deg) rotateZ(-10deg) translateZ(-70px);
+  animation: hero-depth-float 7.4s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+.hero-bg-top {
+  animation: hero-bg-top-float 7.2s ease-in-out infinite alternate;
+}
+
+.hero-bg-bottom {
+  animation: hero-bg-bottom-float 8.6s ease-in-out infinite alternate;
+}
+
+.hero-bg-center {
+  animation: hero-bg-center-float 9.4s ease-in-out infinite alternate;
+}
+
+.hero-bg-interacting .hero-bg-layer {
+  animation-play-state: paused;
+}
+
+@keyframes hero-bg-top-float {
+  from { transform: translate3d(0, 0, 0) rotate(0deg); }
+  to { transform: translate3d(20px, -14px, 0) rotate(4deg); }
+}
+
+@keyframes hero-bg-bottom-float {
+  from { transform: translate3d(0, 0, 0) rotate(0deg); }
+  to { transform: translate3d(-18px, 12px, 0) rotate(-3deg); }
+}
+
+@keyframes hero-bg-center-float {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(12px, -10px, 0) scale(1.04); }
+}
+
+@keyframes hero-depth-float {
+  from {
+    transform: rotateX(68deg) rotateZ(-10deg) translate3d(-10px, 0, -70px);
+  }
+  to {
+    transform: rotateX(68deg) rotateZ(-8deg) translate3d(14px, -14px, -40px);
+  }
+}
+
 .experience-card {
   opacity: 0;
   transform: translateY(18px) scale(0.98);
@@ -794,11 +931,25 @@ const handleInquiry = async () => {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-bg-layer,
+  .hero-depth-plane,
   .experience-card {
     opacity: 1;
     transform: none;
     filter: none;
     animation: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hero-bg-layer {
+    transition: none;
+    animation-duration: 12s;
+  }
+
+  .hero-depth-plane {
+    animation-duration: 11s;
+    opacity: 0.72;
   }
 }
 </style>
