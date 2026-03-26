@@ -5,9 +5,6 @@
 </template>
 
 <style>
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
 .glass-nav {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);

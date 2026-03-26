@@ -252,7 +252,9 @@ const handleInquiry = async () => {
               <div class="absolute top-4 -right-4 glass-card px-4 py-3 rounded-xl shadow-xl z-30 animate-float">
                 <div class="flex items-center gap-3">
                   <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                    <span class="material-symbols-outlined text-sm">code</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-4 h-4" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 21 12l-3.75 5.25M6.75 6.75 3 12l3.75 5.25M14.25 4.5 9.75 19.5" />
+                    </svg>
                   </div>
                   <span class="text-xs font-bold tracking-tight">Frontend Dev</span>
                 </div>
@@ -260,7 +262,10 @@ const handleInquiry = async () => {
               <div class="absolute bottom-20 -left-8 glass-card px-4 py-3 rounded-xl shadow-xl z-30 animate-float" style="animation-delay: -2s;">
                 <div class="flex items-center gap-3">
                   <div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                    <span class="material-symbols-outlined text-sm">database</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-4 h-4" aria-hidden="true">
+                      <ellipse cx="12" cy="5.5" rx="7" ry="3" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" />
+                    </svg>
                   </div>
                   <span class="text-xs font-bold tracking-tight">Backend Dev</span>
                 </div>
@@ -296,6 +301,7 @@ const handleInquiry = async () => {
                 <div class="w-full max-w-[555px] aspect-square">
                   <iframe 
                     src="https://lottie.host/embed/d38287a4-2d79-44f8-8150-ccda04366ba1/xVIPM2t6Tw.lottie" 
+                    loading="lazy"
                     style="width: 100%; height: 100%; border: none;"
                   ></iframe>
                 </div>
@@ -421,7 +427,11 @@ const handleInquiry = async () => {
                 <div class="flex flex-wrap gap-3">
                   <template v-if="project.web">
                     <a :href="project.web" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                      <span class="material-symbols-outlined text-sm">open_in_new</span> Web
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6h-3A2.25 2.25 0 0 0 4.5 8.25v9A2.25 2.25 0 0 0 6.75 19.5h9A2.25 2.25 0 0 0 18 17.25v-3" />
+                      </svg>
+                      Web
                     </a>
                   </template>
                   <template v-if="project.appStore">
@@ -431,7 +441,10 @@ const handleInquiry = async () => {
                   </template>
                   <template v-if="project.playStore">
                     <a :href="project.playStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                      <span class="material-symbols-outlined text-sm">android</span> Play Store
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 7.5 4.5M15 6.75l1.5-2.25M7.5 9.75h9M8.25 9.75v6.75m7.5-6.75v6.75M9.75 16.5h4.5a2.25 2.25 0 0 0 2.25-2.25V9.75H7.5v4.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                      </svg>
+                      Play Store
                     </a>
                   </template>
                   <span v-if="project.info" class="text-xs text-on-surface-variant italic">{{ project.info }}</span>
@@ -454,7 +467,9 @@ const handleInquiry = async () => {
               <div class="space-y-6">
                 <a href="mailto:ragilpratamaaa@gmail.com" class="flex items-center gap-6 group hover:translate-x-2 transition-transform duration-300">
                   <div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm text-primary">
-                    <span class="material-symbols-outlined">alternate_email</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-6 h-6" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6.75h-6A5.25 5.25 0 0 0 5.25 12v0A5.25 5.25 0 0 0 10.5 17.25h6a2.25 2.25 0 0 0 2.25-2.25V12A6.75 6.75 0 1 0 12 18.75" />
+                    </svg>
                   </div>
                   <div>
                     <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Email</p>
@@ -463,7 +478,10 @@ const handleInquiry = async () => {
                 </a>
                 <div class="flex items-center gap-6 group">
                   <div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm text-primary">
-                    <span class="material-symbols-outlined">location_on</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-6 h-6" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z" />
+                      <circle cx="12" cy="10" r="2.25" />
+                    </svg>
                   </div>
                   <div>
                     <p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Location</p>
@@ -474,7 +492,9 @@ const handleInquiry = async () => {
               <div class="mt-12 w-full h-48 rounded-xl bg-surface-container-highest overflow-hidden relative shadow-inner">
                 <NuxtImg format="webp" class="w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ" alt="Map" loading="lazy" />
                 <div class="absolute inset-0 flex items-center justify-center">
-                  <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-primary" aria-hidden="true">
+                    <path d="M12 2.75a7.25 7.25 0 0 0-7.25 7.25c0 5.22 5.44 10.34 6.41 11.2a1.25 1.25 0 0 0 1.68 0c.97-.86 6.41-5.98 6.41-11.2A7.25 7.25 0 0 0 12 2.75Zm0 9.75a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/>
+                  </svg>
                 </div>
               </div>
             </div>
@@ -494,7 +514,10 @@ const handleInquiry = async () => {
                 </div>
                 
                 <div v-if="showSuccess" class="p-3 bg-green-50 text-green-700 rounded-lg text-sm font-medium flex items-center gap-2 animate-pulse">
-                  <span class="material-symbols-outlined text-base">check_circle</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5 2.25 2.25 4.75-4.75" />
+                  </svg>
                   Inquiry sent successfully! I will contact you soon.
                 </div>
 
@@ -529,23 +552,6 @@ const handleInquiry = async () => {
 </template>
 
 <style>
-.material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  font-feature-settings: 'liga';
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-}
-
 .portfolio-enter-active,
 .portfolio-leave-active {
   transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
