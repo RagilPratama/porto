@@ -62,9 +62,17 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' }
       ],
       script: [
-        { src: 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs', type: 'module' }
+        { 
+          src: 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs', 
+          type: 'module',
+          defer: true 
+        }
       ]
     }
+  },
+  nitro: {
+    compressPublicAssets: true,
+    minify: true
   },
   routeRules: {
     // Assets are hashed by Vite, safe to cache for 1 year
