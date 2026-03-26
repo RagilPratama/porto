@@ -330,6 +330,7 @@ const handleInquiry = async () => {
                 <div class="w-full max-w-[555px] aspect-square">
                   <iframe 
                     src="https://lottie.host/embed/d38287a4-2d79-44f8-8150-ccda04366ba1/xVIPM2t6Tw.lottie" 
+                    title="Animated technical stack illustration"
                     loading="lazy"
                     style="width: 100%; height: 100%; border: none;"
                   ></iframe>
