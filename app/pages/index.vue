@@ -129,17 +129,34 @@ const filteredPortfolio = computed(() => {
   return portfolio.filter(p => p.category === activeCategory.value);
 });
 
-onMounted(() => {
+let sectionObserver = null;
+
+const setupSectionObserver = () => {
   const sections = document.querySelectorAll('section[id]');
-  const observer = new IntersectionObserver((entries) => {
+  sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         activeSection.value = entry.target.id;
       }
     });
   }, { rootMargin: '-20% 0px -80% 0px' });
-  
-  sections.forEach(sec => observer.observe(sec));
+
+  sections.forEach(sec => sectionObserver?.observe(sec));
+};
+
+onMounted(() => {
+  // Defer non-critical observer work to keep the initial paint path lighter.
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(() => setupSectionObserver(), { timeout: 1200 });
+    return;
+  }
+
+  setTimeout(setupSectionObserver, 200);
+});
+
+onBeforeUnmount(() => {
+  sectionObserver?.disconnect();
+  sectionObserver = null;
 });
 
 const scrollTo = (id) => {
@@ -228,7 +245,7 @@ const handleInquiry = async () => {
             <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
               Fullstack Developer
             </span>
-            <h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">
+            <h1 class="font-sans md:font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">
               Need a Website or System? <br/>
               <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-primary transition-all duration-300">I Build Scalable Web Apps</span> That Grow Your Business
             </h1>
@@ -287,7 +304,7 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Tech Stack Section -->
-      <section class="py-24 bg-surface-container-low overflow-hidden" id="tech">
+      <section class="py-24 bg-surface-container-low overflow-hidden cv-auto" id="tech">
         <div class="max-w-7xl mx-auto px-8">
           <div class="mb-16">
             <h2 class="font-headline text-4xl font-bold mb-4">Technical Stack</h2>
@@ -329,7 +346,7 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Experience Section -->
-      <section class="py-24 bg-surface" id="experience">
+      <section class="py-24 bg-surface cv-auto" id="experience">
         <div class="max-w-4xl mx-auto px-8">
           <div class="text-center mb-20">
             <h2 class="font-headline text-4xl font-bold mb-4">Work Experience</h2>
@@ -358,7 +375,7 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Education Section -->
-      <section class="py-24 bg-surface-container-low" id="education">
+      <section class="py-24 bg-surface-container-low cv-auto" id="education">
         <div class="max-w-4xl mx-auto px-8">
           <div class="text-center mb-20">
             <h2 class="font-headline text-4xl font-bold mb-4">Education</h2>
@@ -380,7 +397,7 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Portfolio Section -->
-      <section class="py-24 bg-surface" id="portfolio">
+      <section class="py-24 bg-surface cv-auto" id="portfolio">
         <div class="max-w-7xl mx-auto px-8">
           <div class="text-center mb-16">
             <h2 class="font-headline text-4xl font-bold mb-4">Portfolio</h2>
@@ -456,7 +473,7 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Let's Collaborate Section -->
-      <section class="py-24 bg-surface-container-low relative" id="contact">
+      <section class="py-24 bg-surface-container-low relative cv-auto" id="contact">
         <div class="max-w-7xl mx-auto px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
@@ -567,5 +584,10 @@ const handleInquiry = async () => {
 /* Ensure moving items are animated smoothly */
 .portfolio-move {
   transition: transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1000px;
 }
 </style>
