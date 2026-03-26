@@ -1,7 +1,21 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
+  image: {
+    domains: [
+      'instagram.fcgk31-1.fna.fbcdn.net',
+      'mediacenter.riau.go.id',
+      'companieslogo.com',
+      'ogya.co.id',
+      'encrypted-tbn0.gstatic.com',
+      'sheldondental.id',
+      'carfix.co.id',
+      'cdn.techinasia.com',
+      'lh3.googleusercontent.com',
+      'upload.wikimedia.org'
+    ]
+  },
   app: {
     head: {
       title: 'M. Ragil Pratama | Fullstack Developer Portfolio',
@@ -33,9 +47,19 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'canonical', href: 'https://ragilpratama.com/' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&display=swap' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap' }
       ]
     }
+  },
+  routeRules: {
+    // Assets are hashed by Vite, safe to cache for 1 year
+    '/_nuxt/**': { headers: { 'cache-control': 's-maxage=31536000, public, immutable' } },
+    // Images/Fonts should also have long cache
+    '/**/*.webp': { headers: { 'cache-control': 's-maxage=31536000, public' } },
+    '/**/*.png': { headers: { 'cache-control': 's-maxage=31536000, public' } },
+    '/**/*.jpg': { headers: { 'cache-control': 's-maxage=31536000, public' } }
   }
 })

@@ -102,9 +102,9 @@ const education = [
 
 const portfolio = [
   { id: 1, title: 'AIA Insurance Web App', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'Responsive insurance portal built with Vue.js 3, Pinia, and Vue Router.', tags: ['Vue.js 3', 'Pinia', 'Vuetify', 'REST API'], info: 'AIA Indonesia — Internal' },
-  { id: 2, title: 'BKKBN Portal & Siga App', category: 'fullstack', image: 'https://mediacenter.riau.go.id/foto_berita/medium/sesuaikan-dengan-generasi-milenial-bkkbn-riau-perkenalkan-logo-baru.jpg', description: 'National family data portal with API ecosystem used across Indonesia.', tags: ['Laravel', 'ReactJS', 'MySQL', 'REST API'], info: 'BKKBN Indonesia — Government Project' },
+  { id: 2, title: 'BKKBN Portal & Siga App', category: 'fullstack', image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_BkkbN.png', description: 'National family data portal with API ecosystem used across Indonesia.', tags: ['Laravel', 'ReactJS', 'MySQL', 'REST API'], info: 'BKKBN Indonesia — Government Project' },
   { id: 3, title: 'WowPremi', category: 'fullstack', image: '/wowpremi.png', description: 'Online insurance application for Android, iOS & Web with Midtrans integration.', tags: ['Lumen PHP', 'ReactJS', 'Midtrans', 'MySQL'], web: 'https://wowpremi.com/', appStore: 'https://itunes.apple.com/gb/app/wowpremi/id1427272279?mt=8', playStore: 'https://play.google.com/store/apps/details?id=com.dritama.wowpremi' },
-  { id: 4, title: 'BKKBN API Ecosystem', category: 'backend', image: 'https://mediacenter.riau.go.id/foto_berita/medium/sesuaikan-dengan-generasi-milenial-bkkbn-riau-perkenalkan-logo-baru.jpg', description: 'Centralized RESTful API layer connecting multiple internal projects.', tags: ['Laravel', 'MySQL', 'PostgreSQL', 'RESTful API'], info: 'BKKBN Indonesia — Government Project' },
+  { id: 4, title: 'BKKBN API Ecosystem', category: 'backend', image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_BkkbN.png', description: 'Centralized RESTful API layer connecting multiple internal projects.', tags: ['Laravel', 'MySQL', 'PostgreSQL', 'RESTful API'], info: 'BKKBN Indonesia — Government Project' },
   { id: 5, title: 'AIA+', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'Real-time digital platform connecting customers and insurance companies.', tags: ['Vue.js 3', 'Pinia', 'REST API', 'Realtime'], info: 'AIA Indonesia — Customer Facing', playStore: 'https://play.google.com/store/apps/details?id=id.co.aiafinancial.aiaplus&hl=id', appStore: 'https://apps.apple.com/kw/app/aia-indonesia/id6745874762' },
   { id: 6, title: 'OGYA Recruitment System', category: 'fullstack', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'Management system for candidate selection and HR dashboard.', tags: ['Laravel', 'Vue.js', 'MySQL', 'REST API'], web: 'https://ogya.co.id' },
   { id: 11, title: 'OGYA Company Profile', category: 'frontend', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'Modern company profile website showcasing services and career portal.', tags: ['ReactJS', 'Responsive', 'REST API'], web: 'https://ogya.co.id' },
@@ -268,7 +268,7 @@ const handleInquiry = async () => {
                 <div class="absolute inset-0 bg-primary/5 rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
                 <div class="absolute inset-0 bg-primary/10 rounded-3xl rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
                 <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high border-4 border-white">
-                  <img src="https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=100&ig_cache_key=Mzg2MTIxNDMxNTc1MjQ1MzQ2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2Rl_RhZyI6InhwaWRzLjE0NDB4MTkyMC5oZHIuQzMifQ%3D%3D&_nc_ohc=ynd-b4boYAYQ7kNvwGLWRHs&_nc_oc=AdqdnIWZ8ul8Wnoxl_Oe1Z2xaC8g30ttGDrGXhFTyVp33if314ffBE4VHdTUXlc7FJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcgk31-1.fna&_nc_gid=JxjOpRzKpr0DrLrJUQP-nA&_nc_ss=7a32e&oh=00_AfzJUfdGNGnu-Ev5T-q3-cpBSU1-Of3zJrrpJDFbo4pNLQ&oe=69CAD1F0" alt="Professional portrait" class="w-full h-full object-cover rounded-3xl" />
+                  <NuxtImg format="webp" fetchpriority="high" loading="eager" src="https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=100&ig_cache_key=Mzg2MTIxNDMxNTc1MjQ1MzQ2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5oZHIuQzMifQ%3D%3D&_nc_ohc=ynd-b4boYAYQ7kNvwGLWRHs&_nc_oc=AdqdnIWZ8ul8Wnoxl_Oe1Z2xaC8g30ttGDrGXhFTyVp33if314ffBE4VHdTUXlc7FJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcgk31-1.fna&_nc_gid=JxjOpRzKpr0DrLrJUQP-nA&_nc_ss=7a32e&oh=00_AfzJUfdGNGnu-Ev5T-q3-cpBSU1-Of3zJrrpJDFbo4pNLQ&oe=69CAD1F0" alt="Professional portrait" class="w-full h-full object-cover rounded-3xl" />
                   <div class="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-60"></div>
                   <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
                 </div>
@@ -289,7 +289,7 @@ const handleInquiry = async () => {
           <div class="gap-6 flex flex-col items-center">
             <div v-for="(row, idx) in techStack" :key="idx" class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10" :class="idx === 1 ? 'mt-8' : ''">
               <div v-for="tech in row.items" :key="tech.name" class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" :title="tech.name">
-                <img :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain" />
+                <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain" />
               </div>
             </div>
           </div>
@@ -379,7 +379,7 @@ const handleInquiry = async () => {
               :key="project.id"
               class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1">
               <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
-                <img :src="project.image" :alt="project.title" :class="[(project.category === 'fullstack' && project.title !== 'WowPremi' && !project.title.includes('OGYA') && project.title !== 'Sheldon Dental Management') ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-6', 'group-hover:scale-105 transition-transform duration-500']" />
+                <NuxtImg format="webp" :src="project.image" :alt="project.title" :class="[(project.category === 'fullstack' && project.title !== 'WowPremi' && !project.title.includes('OGYA') && !project.title.includes('BKKBN') && project.title !== 'Sheldon Dental Management') ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-6', 'group-hover:scale-105 transition-transform duration-500']" loading="lazy" />
                 <div class="absolute top-4 left-4">
                   <span :class="['text-xs font-bold px-3 py-1 rounded-full', project.qaLabel ? 'bg-secondary text-on-secondary' : project.category === 'frontend' ? 'bg-primary text-on-primary' : project.category === 'fullstack' ? 'bg-tertiary text-on-tertiary' : 'bg-secondary text-on-secondary']">
                     {{ project.qaLabel || (project.category.charAt(0).toUpperCase() + project.category.slice(1)) }}
@@ -446,7 +446,7 @@ const handleInquiry = async () => {
                 </div>
               </div>
               <div class="mt-12 w-full h-48 rounded-xl bg-surface-container-highest overflow-hidden relative shadow-inner">
-                <img class="w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ" alt="Map" />
+                <NuxtImg format="webp" class="w-full h-full object-cover opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ" alt="Map" loading="lazy" />
                 <div class="absolute inset-0 flex items-center justify-center">
                   <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
                 </div>
