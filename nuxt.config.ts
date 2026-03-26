@@ -4,16 +4,35 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   app: {
     head: {
-      title: 'M. Ragil Pratama | Fullstack Developer',
+      title: 'M. Ragil Pratama | Fullstack Developer Portfolio',
+      htmlAttrs: {
+        lang: 'en'
+      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-                { name: 'description', content: 'Fullstack Developer specializing in Vue, React, Laravel, and Node.js. 7+ years of experience building scalable web applications.' },
+        { name: 'description', content: 'Professional Fullstack Developer with 7+ years of experience in Vue.js, React, Node.js, and Laravel. Building high-performing, scalable digital solutions.' },
         { name: 'author', content: 'M. Ragil Pratama' },
-        { name: 'keywords', content: 'Fullstack Developer, Vue.js, React, Node.js, Laravel, Portfolio' }
+        { name: 'keywords', content: 'Fullstack Developer, Vue.js, React, Node.js, Laravel, Portfolio, Web Development, Software Engineer, Jakarta, Bogor' },
+        
+        // Open Graph / Facebook
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://ragilpratama.com/' },
+        { property: 'og:title', content: 'M. Ragil Pratama | Fullstack Developer' },
+        { property: 'og:description', content: 'Building high-performing, scalable digital solutions with modern tech stacks like Vue.js, React, Laravel, and Node.js.' },
+        { property: 'og:image', content: 'https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg' },
+
+        // Twitter
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'M. Ragil Pratama | Fullstack Developer' },
+        { name: 'twitter:description', content: 'Building high-performing, scalable digital solutions with modern tech stacks like Vue.js, React, Laravel, and Node.js.' },
+        { name: 'twitter:image', content: 'https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg' },
+        
+        { name: 'format-detection', content: 'telephone=no' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'canonical', href: 'https://ragilpratama.com/' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&display=swap' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap' }
       ]
