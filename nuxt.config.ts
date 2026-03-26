@@ -48,6 +48,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Professional Fullstack Developer with 7+ years of experience in Vue.js, React, Node.js, and Laravel. Building high-performing, scalable digital solutions.' },
         { name: 'author', content: 'M. Ragil Pratama S.T' },
         { name: 'keywords', content: 'Fullstack Developer, Vue.js, React, Node.js, Laravel, Portfolio, Web Development, Software Engineer, Jakarta, Bogor' },
+        { name: 'google-site-verification', content: 'oLDOT4WEB8TLHCcSwnK_pMdOpL5GMfTAM5bvARv0rQc' },
         
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
