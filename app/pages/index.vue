@@ -90,15 +90,21 @@ const experiences = [
 
 const education = [
   {
+    degree: 'Bachelor Degree in Informatics Engineering',
     school: 'Universitas Indraprasta PGRI (UNINDRA)',
     period: 'Graduated: 2025',
-    location: 'Jakarta, Indonesia',
+    highlight: 'Jakarta, Indonesia',
+    description: 'Focused on software engineering practices, web architecture, and applied fullstack development.',
+    year: '2025',
     isRecent: true
   },
   {
+    degree: 'Software Engineering Vocational Program',
     school: 'Vocational High School Wikrama',
     period: 'Graduated: 2018',
-    location: 'Bogor, Indonesia'
+    highlight: 'Bogor, Indonesia',
+    description: 'Built strong foundations in programming, quality assurance, and project collaboration.',
+    year: '2018'
   }
 ];
 
@@ -389,22 +395,59 @@ const handleInquiry = async () => {
 
       <!-- Education Section -->
       <section class="py-24 bg-surface-container-low cv-auto" id="education">
-        <div class="max-w-4xl mx-auto px-8">
-          <div class="text-center mb-20">
-            <h2 class="font-headline text-4xl font-bold mb-4">Education</h2>
-            <p class="text-on-surface-variant">Academic foundations that shaped my technical journey.</p>
+        <div class="max-w-6xl mx-auto px-8">
+          <div class="text-center mb-12">
+            <h2 class="font-headline text-3xl md:text-4xl font-bold mb-2 tracking-tight">Education</h2>
+            <p class="text-on-surface-variant text-sm">My academic background and educational qualifications</p>
+            <div class="w-20 h-0.5 bg-primary rounded-full mx-auto mt-6"></div>
           </div>
-          <div class="relative border-l-2 border-surface-container-highest ml-4 md:ml-0">
-            <div v-for="(edu, idx) in education" :key="idx" class="mb-16 relative pl-12">
-              <div :class="['absolute -left-[11px] top-0 w-5 h-5 rounded-full ring-4', edu.isRecent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low']"></div>
-              <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
-                <h3 class="text-2xl font-headline font-bold">{{ edu.school }}</h3>
-                <span :class="['text-sm font-bold px-3 py-1 rounded-full', edu.isRecent ? 'text-primary bg-primary-fixed' : 'text-on-surface-variant bg-surface-container-high']">
-                  {{ edu.period }}
-                </span>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article
+              v-for="(edu, idx) in education"
+              :key="idx"
+              class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm p-6"
+            >
+              <div class="flex flex-col md:flex-row md:items-start gap-5">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-container to-primary flex items-center justify-center text-on-primary shadow-md shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-8 h-8" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 6.75C6.5 5.8 8.38 5.5 10.5 5.5c1.97 0 3.74.38 5.25 1.25V18c-1.5-.88-3.28-1.25-5.25-1.25-2.12 0-4 .3-6 1.25V6.75Zm15 0c-2-.95-3.88-1.25-6-1.25-1.97 0-3.74.38-5.25 1.25V18c1.5-.88 3.28-1.25 5.25-1.25 2.12 0 4 .3 6 1.25V6.75Z" />
+                  </svg>
+                </div>
+
+                <div class="flex-1">
+                  <h3 class="text-lg md:text-xl font-headline font-bold leading-tight text-on-surface mb-1">{{ edu.degree }}</h3>
+                  <p class="text-primary text-base md:text-lg font-bold mb-4">{{ edu.school }}</p>
+
+                  <div class="flex flex-wrap items-center gap-2 mb-4">
+                    <span class="inline-flex items-center gap-1.5 bg-primary-fixed text-on-primary-fixed-variant px-2.5 py-1 rounded-lg text-xs font-semibold">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3.75v2.5m7.5-2.5v2.5M4.5 9.5h15M6.75 5.75h10.5A2.25 2.25 0 0 1 19.5 8v9.25a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 17.25V8a2.25 2.25 0 0 1 2.25-2.25Z" />
+                      </svg>
+                      {{ edu.period }}
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 bg-secondary-container text-on-secondary-fixed-variant px-2.5 py-1 rounded-lg text-xs font-semibold">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m12 3.75 2.55 5.16 5.7.83-4.13 4.03.97 5.68L12 16.81l-5.1 2.66.97-5.68-4.13-4.03 5.7-.83L12 3.75Z" />
+                      </svg>
+                      {{ edu.highlight }}
+                    </span>
+                  </div>
+
+                  <p class="text-on-surface-variant text-sm leading-relaxed">{{ edu.description }}</p>
+                </div>
               </div>
-              <p class="text-sm text-on-surface-variant">{{ edu.location }}</p>
-            </div>
+
+              <div class="border-t border-outline-variant/20 mt-5 pt-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-3 h-3 rounded-full bg-blue-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-violet-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                </div>
+                <span class="text-lg font-bold text-on-surface-variant">{{ edu.year }}</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
