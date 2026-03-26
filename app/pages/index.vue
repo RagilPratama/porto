@@ -502,7 +502,23 @@ const handleInquiry = async () => {
   </div>
 </template>
 
-<style scoped>
+<style>
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 .portfolio-enter-active,
 .portfolio-leave-active {
   transition: all 0.5s ease;
