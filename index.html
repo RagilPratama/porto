@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+<html lang="en" class="scroll-smooth scroll-pt-20"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ragil Pratama | Fullstack Developer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#00629d",
+              "on-primary-fixed": "#001d33",
+              "surface-container-highest": "#e0e3e5",
+              "primary-fixed-dim": "#98cbff",
+              "inverse-on-surface": "#eff1f3",
+              "inverse-primary": "#98cbff",
+              "primary-fixed": "#cfe5ff",
+              "tertiary-fixed-dim": "#ffb77d",
+              "outline-variant": "#bec7d4",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#b9c7df",
+              "secondary-fixed": "#d5e3fc",
+              "secondary": "#515f74",
+              "surface-bright": "#f7f9fb",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "on-surface": "#191c1e",
+              "surface-container": "#eceef0",
+              "error": "#ba1a1a",
+              "surface": "#f7f9fb",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#0d1c2e",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-container-high": "#e6e8ea",
+              "surface-variant": "#e0e3e5",
+              "secondary-container": "#d5e3fc",
+              "on-primary-fixed-variant": "#004a77",
+              "surface-dim": "#d8dadc",
+              "surface-container-low": "#f2f4f6",
+              "on-error": "#ffffff",
+              "on-background": "#191c1e",
+              "surface-tint": "#00629d",
+              "on-primary-container": "#00375a",
+              "inverse-surface": "#2d3133",
+              "on-secondary-fixed-variant": "#3a485b",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "tertiary": "#904d00",
+              "tertiary-container": "#eb8104",
+              "on-surface-variant": "#3f4852",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#00a3ff",
+              "background": "#f7f9fb",
+              "on-secondary-container": "#57657a",
+              "on-tertiary-container": "#522900",
+              "outline": "#6f7883",
+              "tertiary-fixed": "#ffdcc3"
+            },
+            fontFamily: {
+              "headline": ["'Plus Jakarta Sans'", "sans-serif"],
+              "body": ["Outfit", "sans-serif"],
+              "label": ["Outfit", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .blueprint-bg {
+            background-image: radial-gradient(circle, #00629d11 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,163,255,0.06)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<div class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white font-headline">
+            M. Ragil Pratama
+        </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
+<a class="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 pb-1 transition-all duration-300" href="#hero">Hero</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-all duration-300" href="#tech">Tech Stack</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-all duration-300" href="#experience">Experience</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-all duration-300" href="#education">Education</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-all duration-300" href="#portfolio">Portfolio</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-all duration-300" href="#contact">Contact</a>
+</div>
+<a href="#contact" class="inline-block bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-md font-semibold hover:opacity-90 active:scale-95 transition-all shadow-sm">
+            Hire Me
+        </a>
+</div>
+</nav>
+<main class="blueprint-bg">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-20 pb-32" id="hero">
+<!-- Abstract Background Glows -->
+<div class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute bottom-1/4 -left-20 w-80 h-80 bg-primary-container/20 rounded-full blur-[100px] -z-10"></div>
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 z-10">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
+                    Fullstack Developer
+                </span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1] mb-8">
+                    Need a Website or System? <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-primary transition-all duration-300">I Build Scalable Web Apps</span> That Grow Your Business
+                </h1>
+<p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+                    Fullstack Developer specializing in high-performance frontend frameworks (Vue.js, React) and robust backend architectures (Laravel, Node.js). Crafting seamless digital experiences from end to end.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-95" href="#contact">
+                        Start Collaboration
+                    </a>
+<a class="bg-surface-container-lowest text-primary border border-outline-variant/30 px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-bright transition-all" href="#experience">
+                        View Roadmap
+                    </a>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<!-- Dynamic Hero Visual Integration -->
+<div class="relative w-full aspect-square flex items-center justify-center">
+<!-- Rotating Decorative Shapes -->
+<div class="absolute inset-0 border-[1px] border-primary/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute inset-4 border-[1px] border-primary/5 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+<!-- Floating Tech Cards (Glassmorphism) -->
+<div class="absolute top-4 -right-4 glass-card px-4 py-3 rounded-xl shadow-xl z-30 animate-float">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">code</span>
+</div>
+<span class="text-xs font-bold tracking-tight">Frontend Dev</span>
+</div>
+</div>
+<div class="absolute bottom-20 -left-8 glass-card px-4 py-3 rounded-xl shadow-xl z-30 animate-float" style="animation-delay: -2s;">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">database</span>
+</div>
+<span class="text-xs font-bold tracking-tight">Backend Dev</span>
+</div>
+</div>
+<!-- Main Professional Image with stylized framing -->
+<div class="relative w-[85%] h-[85%] group">
+<div class="absolute inset-0 bg-primary/5 rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
+<div class="absolute inset-0 bg-primary/10 rounded-3xl rotate-3 transition-transform group-hover:rotate-0 duration-500"></div>
+<div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-surface-container-high border-4 border-white">
+<img alt="Professional portrait of M. Ragil Pratama" class="w-full h-full object-cover rounded-3xl" src="https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=100&ig_cache_key=Mzg2MTIxNDMxNTc1MjQ1MzQ2OQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5oZHIuQzMifQ%3D%3D&_nc_ohc=ynd-b4boYAYQ7kNvwGLWRHs&_nc_oc=AdqdnIWZ8ul8Wnoxl_Oe1Z2xaC8g30ttGDrGXhFTyVp33if314ffBE4VHdTUXlc7FJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcgk31-1.fna&_nc_gid=JxjOpRzKpr0DrLrJUQP-nA&_nc_ss=7a32e&oh=00_AfzJUfdGNGnu-Ev5T-q3-cpBSU1-Of3zJrrpJDFbo4pNLQ&oe=69CAD1F0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-60"></div>
+<!-- Internal subtle tech overlay (lines/dots) -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+</div>
+</div>
+<!-- Glow effects behind the main image -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/20 blur-[100px] -z-10 rounded-full opacity-50"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack Section -->
+<section class="py-24 bg-surface-container-low" id="tech">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="font-headline text-4xl font-bold mb-4">Technical Stack</h2>
+<p class="text-on-surface-variant max-w-2xl">The blueprint of my development philosophy involves selecting the right tool for the specific architectural challenge.</p>
+</div>
+<div class="gap-6 flex flex-col items-center">
+    <!-- Row 1: Frontend & Design -->
+    <div class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10">
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="HTML5">
+            <img alt="HTML5" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="CSS3">
+            <img alt="CSS3" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="JavaScript">
+            <img alt="JavaScript" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="Vue.js">
+            <img alt="Vue.js" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="Vuetify">
+            <img alt="Vuetify" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuetify/vuetify-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="Bootstrap">
+            <img alt="Bootstrap" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="Materialize">
+            <img alt="Materialize" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materializecss/materializecss-original.svg"/>
+        </div>
+    </div>
+    
+    <!-- Row 2: Backend, Database & Tools -->
+    <div class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 mt-8">
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="PHP">
+            <img alt="PHP" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="Laravel">
+            <img alt="Laravel" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="CodeIgniter">
+            <img alt="CodeIgniter" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/codeigniter/codeigniter-plain.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="MySQL">
+            <img alt="MySQL" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="MariaDB">
+            <img alt="MariaDB" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="PostgreSQL">
+            <img alt="PostgreSQL" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"/>
+        </div>
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" title="Git">
+            <img alt="Git" class="w-full h-full object-contain" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"/>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-24 bg-surface" id="experience">
+<div class="max-w-4xl mx-auto px-8">
+    <div class="text-center mb-20">
+        <h2 class="font-headline text-4xl font-bold mb-4">Work Experience</h2>
+        <p class="text-on-surface-variant">A chronological journey of building real-world solutions across industries.</p>
+    </div>
+    <div class="relative border-l-2 border-surface-container-highest ml-4 md:ml-0">
+
+        <!-- Exp 1: AIA Indonesia (most recent, highlighted) -->
+        <div class="mb-16 relative pl-12">
+            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-primary rounded-full ring-4 ring-primary/20"></div>
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
+                <h3 class="text-2xl font-headline font-bold">Frontend Developer</h3>
+                <span class="text-sm font-bold text-primary bg-primary-fixed px-3 py-1 rounded-full">Sep 2023 — Present</span>
+            </div>
+            <p class="font-bold text-primary mb-1">AIA Indonesia</p>
+            <p class="text-sm text-on-surface-variant mb-4">Jakarta, Indonesia</p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed list-none">
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Developed and maintained web applications using Vue.js 2 &amp; 3, Vue Router, and Vuex/Pinia</span></li>
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Translated UI/UX designs into responsive and interactive user interfaces</span></li>
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Integrated REST APIs to ensure smooth data flow and functionality across applications</span></li>
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Optimized application performance through code splitting, and reusable components</span></li>
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Collaborated with backend engineers, designers, and product teams to deliver high-quality features</span></li>
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Ensured cross-browser compatibility and responsive design for seamless user experience</span></li>
+                <li class="flex gap-2"><span class="text-primary mt-1">▸</span><span>Version control (Git) and documentation</span></li>
+            </ul>
+        </div>
+
+        <!-- Exp 2: BKKBN -->
+        <div class="mb-16 relative pl-12">
+            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-surface-container-highest rounded-full ring-4 ring-surface-container-low"></div>
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
+                <h3 class="text-2xl font-headline font-bold">Fullstack Developer</h3>
+                <span class="text-sm font-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Jun 2019 — Sep 2023</span>
+            </div>
+            <p class="font-bold text-on-surface mb-1">BKKBN Indonesia</p>
+            <p class="text-sm text-on-surface-variant mb-4">Jakarta, Indonesia</p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed list-none">
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Create Portal BKKBN (Laravel)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Create and integrate API with other BKKBN projects (Laravel)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Present application to all users throughout Indonesia</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Create BKKBN Siga Application (ReactJS)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Discuss with government employees about program requirements</span></li>
+            </ul>
+        </div>
+
+        <!-- Exp 3: PT Dritama BrokerIndo -->
+        <div class="mb-16 relative pl-12">
+            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-surface-container-highest rounded-full ring-4 ring-surface-container-low"></div>
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
+                <h3 class="text-2xl font-headline font-bold">Fullstack Developer</h3>
+                <span class="text-sm font-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Jan 2019 — Jun 2019</span>
+            </div>
+            <p class="font-bold text-on-surface mb-1">PT Dritama BrokerIndo</p>
+            <p class="text-sm text-on-surface-variant mb-4">Jakarta, Indonesia</p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed list-none">
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Integration with payment gateway (Midtrans)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Integration with insurance APIs (Zurich, KB, Sinarmas, etc.)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Create database and API for frontend (Lumen PHP)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Create interactive frontend (ReactJS)</span></li>
+            </ul>
+        </div>
+
+        <!-- Exp 4: Indonesia Smartcloud -->
+        <div class="mb-4 relative pl-12">
+            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-surface-container-highest rounded-full ring-4 ring-surface-container-low"></div>
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
+                <h3 class="text-2xl font-headline font-bold">Quality Assurance</h3>
+                <span class="text-sm font-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">May 2018 — Dec 2018</span>
+            </div>
+            <p class="font-bold text-on-surface mb-1">Indonesia Smartcloud</p>
+            <p class="text-sm text-on-surface-variant mb-4">Jakarta, Indonesia</p>
+            <ul class="space-y-2 text-on-surface-variant leading-relaxed list-none">
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Create PHP Unit tests</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Blackbox Testing</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Develop, implement, and execute QA plans, processes, and test procedures</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Perform quality checks at every stage (incoming, in-process, final inspection)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Conduct functional, regression, integration, and user acceptance testing (UAT)</span></li>
+                <li class="flex gap-2"><span class="text-outline mt-1">▸</span><span>Collaborate closely with developers to identify bugs and provide actionable feedback</span></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- Education Section -->
+<section class="py-24 bg-surface-container-low" id="education">
+<div class="max-w-4xl mx-auto px-8">
+    <div class="text-center mb-20">
+        <h2 class="font-headline text-4xl font-bold mb-4">Education</h2>
+        <p class="text-on-surface-variant">Academic foundations that shaped my technical journey.</p>
+    </div>
+    <div class="relative border-l-2 border-surface-container-highest ml-4 md:ml-0">
+
+        <!-- Edu 1: UNINDRA -->
+        <div class="mb-16 relative pl-12">
+            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-primary rounded-full ring-4 ring-primary/20"></div>
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
+                <h3 class="text-2xl font-headline font-bold">Universitas Indraprasta PGRI (UNINDRA)</h3>
+                <span class="text-sm font-bold text-primary bg-primary-fixed px-3 py-1 rounded-full">Graduated: 2025</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">Jakarta, Indonesia</p>
+        </div>
+
+        <!-- Edu 2: SMK Wikrama -->
+        <div class="mb-4 relative pl-12">
+            <div class="absolute -left-[11px] top-0 w-5 h-5 bg-surface-container-highest rounded-full ring-4 ring-surface-container-low"></div>
+            <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-2">
+                <h3 class="text-2xl font-headline font-bold">Vocational High School Wikrama</h3>
+                <span class="text-sm font-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full">Graduated: 2018</span>
+            </div>
+            <p class="text-sm text-on-surface-variant">Bogor, Indonesia</p>
+        </div>
+
+    </div>
+</div>
+</section>
+<!-- Portfolio Section -->
+<section class="py-24 bg-surface" id="portfolio">
+<div class="max-w-7xl mx-auto px-8">
+    <div class="text-center mb-16">
+        <h2 class="font-headline text-4xl font-bold mb-4">Portfolio</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto">A selection of projects I've built — from government platforms to insurance web apps and beyond.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button onclick="filterPortfolio('all', this)" class="portfolio-filter active-filter px-5 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary transition-all">All</button>
+        <button onclick="filterPortfolio('frontend', this)" class="portfolio-filter px-5 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">Frontend</button>
+        <button onclick="filterPortfolio('fullstack', this)" class="portfolio-filter px-5 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">Fullstack</button>
+        <button onclick="filterPortfolio('backend', this)" class="portfolio-filter px-5 py-2 rounded-full text-sm font-semibold bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all">Backend / API</button>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+
+        <!-- Card 1 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="frontend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490" alt="AIA Indonesia" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-primary text-on-primary">Frontend</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">AIA Insurance Web App</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Responsive insurance portal built with Vue.js 3, Pinia, and Vue Router. Features dynamic forms, REST API integration, and cross-browser compatibility.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Vue.js 3</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Pinia</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Vuetify</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">REST API</span>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-xs text-on-surface-variant italic">AIA Indonesia — Internal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="fullstack">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://mediacenter.riau.go.id/foto_berita/medium/sesuaikan-dengan-generasi-milenial-bkkbn-riau-perkenalkan-logo-baru.jpg" alt="BKKBN Indonesia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-tertiary text-on-tertiary">Fullstack</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">BKKBN Portal & Siga App</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">National family data portal for BKKBN with API ecosystem and the Siga Application used by government employees across Indonesia.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Laravel</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">ReactJS</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">MySQL</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">REST API</span>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-xs text-on-surface-variant italic">BKKBN Indonesia — Government Project</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="fullstack">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="wowpremi.png" alt="WowPremi" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-tertiary text-on-tertiary">Fullstack</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">WowPremi</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Online insurance purchasing application for Android, iOS & Web. Features include: compare & buy insurance in minutes, automated payments via Midtrans, claim assistance, and a nearby workshop finder.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Lumen PHP</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">ReactJS</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Midtrans</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">MySQL</span>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://wowpremi.com/" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> Web
+                    </a>
+                    <a href="https://itunes.apple.com/gb/app/wowpremi/id1427272279?mt=8" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg>
+                        App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.dritama.wowpremi" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">android</span> Play Store
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="backend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://mediacenter.riau.go.id/foto_berita/medium/sesuaikan-dengan-generasi-milenial-bkkbn-riau-perkenalkan-logo-baru.jpg" alt="BKKBN Indonesia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-secondary text-on-secondary">Backend / API</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">BKKBN API Ecosystem</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Centralized RESTful API layer connecting multiple BKKBN internal projects, enabling data sharing and standardized integration across government systems.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Laravel</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">MySQL</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">PostgreSQL</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">RESTful API</span>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-xs text-on-surface-variant italic">BKKBN Indonesia — Government Project</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="frontend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490" alt="AIA Indonesia" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-primary text-on-primary">Frontend</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">AIA+</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">A digital platform connecting customers and insurance companies in real-time. Displays policy data, claims, and instant notifications through a responsive interface.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Vue.js 3</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Vuex/Pinia</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">REST API</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Realtime</span>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://www.aia-financial.co.id/id/help-and-support/AIAplus/Tentang-AIA-plus" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> Web
+                    </a>
+                    <a href="https://apps.apple.com/kw/app/aia-indonesia/id6745874762" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg>
+                        App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=id.co.aiafinancial.aiaplus&hl=id&pli=1" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">android</span> Play Store
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 7 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="fullstack">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png" alt="OGYA" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-tertiary text-on-tertiary">Fullstack</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">OGYA Recruitment System</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Comprehensive fullstack recruitment system for OGYA, covering job vacancy management, candidate selection processes, interview scheduling, and an end-to-end integrated HR dashboard.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Laravel</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Vue.js</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">MySQL</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">REST API</span>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://ogya.co.id" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> ogya.co.id
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- OGYA Company Profile -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="frontend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png" alt="OGYA" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-primary text-on-primary">Frontend</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">OGYA Company Profile</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Modern company profile website for OGYA, showcasing company information, services, project portfolio, and a career page — built with ReactJS and a responsive design.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">ReactJS</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Responsive Design</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">REST API</span>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://ogya.co.id" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> ogya.co.id
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="backend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://cdn.techinasia.com/data/images/a06d955d350ded214f6338db66339594.jpg" alt="Indonesia Smartcloud" class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-secondary text-on-secondary">QA</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">QA Automation Suite</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">PHP Unit test suite and blackbox testing procedures for a cloud-based SaaS product, covering functional, regression, integration, and UAT test flows.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">PHP Unit</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Blackbox Testing</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">UAT</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">PHP</span>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-xs text-on-surface-variant italic">Indonesia Smartcloud — Internal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- OASE BCA -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="backend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyyDL48YXf0J3DjfcEKeyvCxbT9uJVND1kEQ&s" alt="BCA" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-secondary text-on-secondary">Backend / API</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">OASE — BCA</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Internal application used by Bank Central Asia (BCA). Served as a Backend Developer building reliable, structured RESTful APIs integrated with BCA's banking ecosystem using Node.js.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Node.js</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">RESTful API</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Express.js</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">MySQL</span>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-xs text-on-surface-variant italic">BCA — Internal</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sheldon Dental Clinic -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="fullstack">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://sheldondental.id/images/logo.jpg" alt="Sheldon Dental Clinic" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-tertiary text-on-tertiary">Fullstack</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">Sheldon Dental Management</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">A dental clinic management system built from scratch (Fullstack). Features include patient management, EMR, and a dedicated doctor dashboard that automatically calculates salary distribution, medical service commissions, and treatment histories.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Dashboard System</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Fullstack</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Laravel</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Payroll / JM</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Web App</span>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://sheldondental.id/" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> sheldondental.id
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carfix Indonesia -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="backend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://carfix.co.id/wp-content/uploads/2024/10/icon-1.png" alt="Carfix Indonesia" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-secondary text-on-secondary">QA / Tester</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">Carfix Indonesia</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Served as a Manual QA identifying bugs and ensuring quality for the Carfix application and website (a modern car workshop network). Conducted end-to-end feature testing, bug reporting, and ensured a seamless user experience (UX) for customers.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Manual Testing</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Quality Assurance</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">UAT</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Bug Reporting</span>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://carfix.co.id/" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> carfix.co.id
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PINS Indonesia -->
+        <div class="portfolio-card group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 hover:-translate-y-1" data-category="frontend">
+            <div class="relative h-48 bg-white flex items-center justify-center overflow-hidden">
+                <img src="https://static.wikia.nocookie.net/logopedia/images/0/0f/PINS_Indonesia.png/revision/latest/scale-to-width-down/1000?cb=20190923144123" alt="PINS Indonesia" class="w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute top-4 left-4">
+                    <span class="text-xs font-bold px-3 py-1 rounded-full bg-primary text-on-primary">Frontend / Mobile</span>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="font-headline text-xl font-bold mb-2">PINS Indonesia Mobile App</h3>
+                <p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Served as a Frontend Developer in building the PINS Indonesia mobile application using the Angular framework. Developed responsive, interactive, and optimized user interfaces for mobile platforms.</p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Angular</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Mobile App</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">Frontend</span>
+                    <span class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">TypeScript</span>
+                </div>
+                <div class="flex gap-3">
+                    <span class="text-xs text-on-surface-variant italic">PINS Indonesia — Mobile Development</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function filterPortfolio(category, btn) {
+    // Update button styles
+    document.querySelectorAll('.portfolio-filter').forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'active-filter');
+        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+    });
+    btn.classList.add('bg-primary', 'text-on-primary', 'active-filter');
+    btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+    // Filter cards
+    document.querySelectorAll('.portfolio-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = '';
+            setTimeout(() => card.style.opacity = '1', 10);
+        } else {
+            card.style.opacity = '0';
+            setTimeout(() => card.style.display = 'none', 200);
+        }
+    });
+}
+</script>
+</section>
+
+<!-- Let's Collaborate Section -->
+<section class="py-24 bg-surface-container-low relative" id="contact">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="font-headline text-5xl font-extrabold mb-8 tracking-tight">Let's <span class="text-primary">Collaborate</span></h2>
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed">
+                        Have a complex architectural challenge or a project that needs a steady hand? I'm currently open to consulting and lead engineering roles.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm text-primary">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Email</p>
+<p class="text-lg font-bold">ragilpratamaaa@gmail.com</p>
+</div>
+</div>
+<div class="flex items-center gap-6 group">
+<div class="w-14 h-14 rounded-xl bg-surface-container-lowest flex items-center justify-center shadow-sm text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Location</p>
+<p class="text-lg font-bold">Bogor, Indonesia</p>
+</div>
+</div>
+</div>
+<!-- Mini Map Visual Element -->
+<div class="mt-12 w-full h-48 rounded-xl bg-surface-container-highest overflow-hidden relative shadow-inner">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="Minimalist abstract map of a city with clean lines and blue highlights for water bodies" data-location="Bogor, Indonesia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-2xl shadow-[0_20px_40px_rgba(0,98,157,0.06)]">
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">FULL NAME</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">WORK EMAIL</label>
+<input class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="john@company.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant">PROJECT BRIEF</label>
+<textarea class="w-full bg-surface-container-low border-0 rounded-lg p-4 focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline" placeholder="Tell me about your project needs..." rows="4"></textarea>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-[0.98]">
+                            Send Inquiry
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 border-t border-slate-100 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6">
+<div class="font-['Manrope'] font-bold text-slate-900 dark:text-white text-xl">
+            M. Ragil Pratama
+        </div>
+<p class="font-['Inter'] text-sm text-slate-500 dark:text-slate-400">
+            © 2024 M. Ragil Pratama. Built with precision.
+        </p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-blue-500 hover:translate-y-[-2px] transition-transform text-sm font-medium" href="#">LinkedIn</a>
+<a class="text-slate-500 hover:text-blue-500 hover:translate-y-[-2px] transition-transform text-sm font-medium" href="#">GitHub</a>
+<a class="text-slate-500 hover:text-blue-500 hover:translate-y-[-2px] transition-transform text-sm font-medium" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-blue-500 hover:translate-y-[-2px] transition-transform text-sm font-medium" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav .hidden a[href^="#"]');
+        
+        function setActiveLink(id) {
+            navLinks.forEach(link => {
+                // Reset to inactive state
+                link.classList.remove('text-blue-600', 'dark:text-blue-400', 'border-b-2', 'border-blue-600');
+                link.classList.add('text-slate-600', 'dark:text-slate-400', 'hover:text-blue-500');
+                
+                // Add active state to matched link
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.remove('text-slate-600', 'dark:text-slate-400');
+                    link.classList.add('text-blue-600', 'dark:text-blue-400', 'border-b-2', 'border-blue-600');
+                }
+            });
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveLink(entry.target.id);
+                }
+            });
+        }, { rootMargin: '-20% 0px -80% 0px' });
+        
+        sections.forEach(sec => observer.observe(sec));
+    });
+</script>
+</body></html>
