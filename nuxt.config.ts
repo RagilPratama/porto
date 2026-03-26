@@ -1,7 +1,16 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/google-fonts'],
+  googleFonts: {
+    families: {
+      'Plus Jakarta Sans': [200, 300, 400, 500, 600, 700, 800],
+      'Outfit': [100, 200, 300, 400, 500, 600, 700, 800, 900]
+    },
+    display: 'swap',
+    download: true,
+    inject: true
+  },
   image: {
     domains: [
       'instagram.fcgk31-1.fna.fbcdn.net',
@@ -49,7 +58,7 @@ export default defineNuxtConfig({
         { rel: 'canonical', href: 'https://ragilpratama.com/' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..900&display=swap' },
+        // Manual links for Material symbols since they are fonts but often need latest version
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap' }
       ]
     }
