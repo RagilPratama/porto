@@ -1,5 +1,6 @@
 <script setup>
 const activeCategory = ref('all');
+
 const activeSection = ref('hero');
 
 const categories = [
@@ -17,7 +18,8 @@ const techStack = [
     { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
     { name: 'Vuetify', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuetify/vuetify-original.svg' },
     { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
-    { name: 'Materialize', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materializecss/materializecss-original.svg' }
+    { name: 'Materialize', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materializecss/materializecss-original.svg' },
+    { name: 'Angular', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg' }
   ]},
   { group: 'backend', items: [
     { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
@@ -280,16 +282,40 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Tech Stack Section -->
-      <section class="py-24 bg-surface-container-low" id="tech">
+      <section class="py-24 bg-surface-container-low overflow-hidden" id="tech">
         <div class="max-w-7xl mx-auto px-8">
           <div class="mb-16">
             <h2 class="font-headline text-4xl font-bold mb-4">Technical Stack</h2>
             <p class="text-on-surface-variant max-w-2xl">The blueprint of my development philosophy involves selecting the right tool for the specific architectural challenge.</p>
           </div>
-          <div class="gap-6 flex flex-col items-center">
-            <div v-for="(row, idx) in techStack" :key="idx" class="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10" :class="idx === 1 ? 'mt-8' : ''">
-              <div v-for="tech in row.items" :key="tech.name" class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-xl shadow-sm flex items-center justify-center p-4 hover:shadow-md transition-shadow" :title="tech.name">
-                <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain" />
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[500px]">
+            <!-- Left: Lottie Animation -->
+            <div class="flex justify-center items-center">
+              <client-only>
+                <div class="w-full max-w-[555px] aspect-square">
+                  <iframe 
+                    src="https://lottie.host/embed/d38287a4-2d79-44f8-8150-ccda04366ba1/xVIPM2t6Tw.lottie" 
+                    style="width: 100%; height: 100%; border: none;"
+                  ></iframe>
+                </div>
+              </client-only>
+            </div>
+
+            <!-- Right: Tech Icons (Unified) -->
+            <div class="flex flex-col justify-center h-full">
+              <div class="flex flex-wrap gap-6 justify-start lg:justify-start">
+                <template v-for="group in techStack" :key="group.group">
+                  <div v-for="tech in group.items" :key="tech.name" class="group relative">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl shadow-sm flex items-center justify-center p-4 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ring-1 ring-primary/5 group-hover:ring-primary/20" :title="tech.name">
+                      <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain transition-all duration-500" />
+                    </div>
+                    <!-- Tooltip Style -->
+                    <span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-surface-container-highest text-on-surface-variant text-[11px] px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 whitespace-nowrap z-10 font-bold shadow-lg pointer-events-none border border-outline-variant/30 uppercase tracking-tighter">
+                      {{ tech.name }}
+                    </span>
+                  </div>
+                </template>
               </div>
             </div>
           </div>
@@ -515,6 +541,7 @@ const handleInquiry = async () => {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
