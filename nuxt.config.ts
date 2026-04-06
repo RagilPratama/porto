@@ -77,6 +77,11 @@ export default defineNuxtConfig({
           src: 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs', 
           type: 'module',
           defer: true 
+        },
+        {
+          src: 'https://va.vercel-scripts.com/v1/script.js',
+          defer: true,
+          'data-endpoint': '/_vercel/insights'
         }
       ]
     }
