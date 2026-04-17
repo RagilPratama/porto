@@ -44,7 +44,7 @@ const experiences = [
     role: 'Frontend Developer',
     company: 'AIA Indonesia',
     type: 'Full-time',
-    period: 'Sep 2023 — Present',
+    period: 'Aug 2023 — Present',
     location: 'Jakarta, Indonesia',
     impact: 'Shipped reusable frontend architecture and performance-focused UI for insurance products.',
     tech: ['Vue 3', 'Pinia', 'Vue Router', 'REST API'],
@@ -56,10 +56,24 @@ const experiences = [
     isCurrent: true
   },
   {
+    role: 'Backend Developer',
+    company: 'Bank Central Asia (BCA)',
+    type: 'Full-time',
+    period: 'Feb 2023 — Jun 2023',
+    location: 'Jakarta, Indonesia',
+    impact: 'Engineered high-performance backend services for internal banking infrastructure.',
+    tech: ['Node.js', 'Express.js', 'MySQL', 'REST API'],
+    points: [
+      'Developed and maintained OASE, an internal banking application focused on secure data processing.',
+      'Designed scalable RESTful APIs to facilitate seamless communication between banking modules.',
+      'Optimized backend workflows and database queries to ensure high availability and performance.'
+    ]
+  },
+  {
     role: 'Fullstack Developer',
     company: 'BKKBN Indonesia',
     type: 'Full-time',
-    period: 'Jun 2019 — Sep 2023',
+    period: 'Jan 2020 — Feb 2023',
     location: 'Jakarta, Indonesia',
     impact: 'Delivered national-scale public service platforms used by teams across Indonesia.',
     tech: ['Laravel', 'ReactJS', 'MySQL', 'Integration API'],
@@ -67,6 +81,20 @@ const experiences = [
       'Developed core services and admin features for the BKKBN Portal using Laravel.',
       'Built API integrations connecting several internal BKKBN ecosystems.',
       'Delivered and presented production-ready solutions to nationwide stakeholders.'
+    ]
+  },
+  {
+    role: 'Fullstack Developer',
+    company: 'Kementerian ESDM',
+    type: 'Full-time',
+    period: 'Jun 2019 — Jan 2020',
+    location: 'Jakarta, Indonesia',
+    impact: 'Spearheaded the development of internal management systems and public-facing portals.',
+    tech: ['CodeIgniter', 'Laravel', 'Yii', 'PHP'],
+    points: [
+      'Built and deployed SIDARA and SUPEL applications for internal mineral and coal management using CodeIgniter and Laravel.',
+      'Developed and maintained the Minerba homepage, enhancing public accessibility to ministry data.',
+      'Implemented robust backend logic and architectural patterns with Yii and Laravel frameworks.'
     ]
   },
   {
@@ -123,6 +151,9 @@ const education = [
 
 const portfolio = [
   { id: 1, title: 'AIA Insurance Web App', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'A comprehensive and responsive insurance portal developed using Vue.js 3, Pinia, and Vue Router, designed to streamline policy management and enhance user experience for AIA customers.', tags: ['Vue.js 3', 'Pinia', 'Vuetify', 'REST API'], info: 'AIA Indonesia — Internal' },
+  { id: 12, title: 'OASE — BCA', category: 'backend', image: 'https://shl.co.id/wp-content/uploads/2019/04/Bank-BCA.png', description: 'A high-availability internal banking API system for Bank Central Asia (BCA), built with Node.js and Express. It serves as a critical middleware layer for processing secure transactions and managing sensitive financial data with enterprise-grade security.', tags: ['Node.js', 'Express.js', 'MySQL', 'REST API'], info: 'BCA — Internal', playStore: 'https://play.google.com/store/apps/details?id=com.bca.oase&hl=id' },
+  { id: 138, title: 'SIDARA & SUPEL', category: 'fullstack', image: '/logoesdm.png', description: 'Internal management systems for the Ministry of Energy and Mineral Resources (ESDM), designed to streamline data reporting and administrative workflows using CodeIgniter and Laravel.', tags: ['CodeIgniter', 'Laravel', 'MySQL', 'Government'], info: 'Kementerian ESDM — Internal' },
+  { id: 139, title: 'Minerba Homepage', category: 'fullstack', image: '/logoesdm.png', description: 'The official public portal for the Directorate General of Mineral and Coal, providing real-time information and regulations built with PHP frameworks including Yii and Laravel.', tags: ['Laravel', 'Yii', 'PHP', 'CMS'], info: 'Kementerian ESDM — Public Portal' },
   { id: 2, title: 'BKKBN Portal & Siga App', category: 'fullstack', image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_BkkbN.png', description: 'A large-scale national family information system (SIGA) that facilitates data collection and demographic analysis across Indonesia, featuring a robust API ecosystem built with Laravel and ReactJS.', tags: ['Laravel', 'ReactJS', 'MySQL', 'REST API'], info: 'BKKBN Indonesia — Government Project' },
   { id: 3, title: 'WowPremi', category: 'fullstack', image: '/wowpremi.png', description: 'An all-in-one digital insurance platform integrated with Midtrans for seamless payment processing. Available on Web, Android, and iOS to provide users with instant insurance quotes and easy policy issuance.', tags: ['Lumen PHP', 'ReactJS', 'Midtrans', 'MySQL'], web: 'https://wowpremi.com/', appStore: 'https://itunes.apple.com/gb/app/wowpremi/id1427272279?mt=8', playStore: 'https://play.google.com/store/apps/details?id=com.dritama.wowpremi' },
   { id: 4, title: 'BKKBN API Ecosystem', category: 'backend', image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_BkkbN.png', description: 'Enterprise-grade RESTful API infrastructure that serves as a centralized data hub, securely connecting and synchronizing multiple internal government applications to ensure data integrity.', tags: ['Laravel', 'MySQL', 'PostgreSQL', 'RESTful API'], info: 'BKKBN Indonesia — Government Project' },
@@ -130,7 +161,6 @@ const portfolio = [
   { id: 6, title: 'OGYA HRIS System', category: 'fullstack', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'A comprehensive Human Resource Information System (HRIS) designed to automate human capital management, featuring employee data administration, attendance tracking, and streamlined HR workflows.', tags: ['Laravel', 'Vue.js', 'MySQL', 'REST API'], web: 'https://ogya.co.id' },
   { id: 11, title: 'OGYA Company Profile', category: 'frontend', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'A high-performance corporate website designed to showcase OGYA’s business services and corporate culture, featuring an integrated career portal for talent acquisition.', tags: ['ReactJS', 'Responsive', 'REST API'], web: 'https://ogya.co.id' },
   { id: 7, title: 'SmartCloud Indonesia', category: 'backend', image: 'https://cdn.techinasia.com/data/images/a06d955d350ded214f6338db66339594.jpg', description: 'Advanced Quality Assurance and automated testing framework implemented for cloud-based enterprise solutions, ensuring high availability, security, and performance for mission-critical business systems.', tags: ['PHPUnit', 'QA', 'Blackbox Testing', 'UAT'], qaLabel: 'QA Engineer' },
-  { id: 12, title: 'OASE — BCA', category: 'backend', image: 'https://shl.co.id/wp-content/uploads/2019/04/Bank-BCA.png', description: 'A high-availability internal banking API system for Bank Central Asia (BCA), built with Node.js and Express. It serves as a critical middleware layer for processing secure transactions and managing sensitive financial data with enterprise-grade security.', tags: ['Node.js', 'Express.js', 'MySQL', 'REST API'], info: 'BCA — Internal' },
   { id: 8, title: 'Carfix', category: 'backend', image: 'https://carfix.co.id/wp-content/uploads/2024/10/icon-1.png', description: 'Advanced Quality Assurance and performance monitoring for a sophisticated automotive e-commerce ecosystem, ensuring seamless service integration and reliable booking for automotive services.', tags: ['Laravel', 'QA Engineer', 'Manual Testing', 'E-commerce', 'UAT'], web: 'https://carfix.co.id/', qaLabel: 'QA Engineer' },
   { id: 9, title: 'Sheldon Dental Management', category: 'fullstack', image: 'https://sheldondental.id/images/logo.jpg', description: 'An end-to-end clinical management solution for dental professionals, integrating patient scheduling, digital medical records, and inventory tracking to improve operational efficiency.', tags: ['Laravel', 'MySQL', 'Management', 'System'], web: 'https://sheldondental.id' },
   { id: 10, title: 'Pins Indonesia', category: 'frontend', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkXBQh2taVPVeoFGE2GexcKk0KbsCtw0-aHw&s', description: 'A sleek and interactive frontend interface for Telkom Group’s internal services, focusing on user-centric design and high-performance data visualization.', tags: ['Vue.js', 'Bootstrap', 'Responsive', 'Dashboard'], info: 'Pins Indonesia — Telkom Group' },
@@ -759,7 +789,7 @@ const handleInquiry = async () => {
                   :alt="project.title" 
                   quality="95" 
                   densities="x1 x2"
-                  :class="[(project.category === 'fullstack' && project.title !== 'WowPremi' && !project.title.includes('OGYA') && !project.title.includes('BKKBN') && project.title !== 'Sheldon Dental Management' && project.title !== 'Carfix') ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-4', 'group-hover:scale-105 transition-transform duration-500']" 
+                  :class="[(project.category === 'fullstack' && project.title !== 'WowPremi' && !project.title.includes('OGYA') && !project.title.includes('BKKBN') && project.title !== 'Sheldon Dental Management' && project.title !== 'Carfix' && !project.title.includes('SIDARA') && !project.title.includes('Minerba')) ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-4', 'group-hover:scale-105 transition-transform duration-500']" 
                   loading="lazy" 
                 />
                 <div class="absolute top-4 left-4">
