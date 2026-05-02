@@ -463,6 +463,7 @@ const handleInquiry = async () => {
         <div class="absolute inset-x-[-10%] top-[14%] h-[72%] -z-10 pointer-events-none hero-depth-wrap">
           <div class="hero-depth-plane"></div>
         </div>
+        <div class="hero-seahorse-wave absolute inset-0 -z-5 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div class="lg:col-span-7 z-10 text-center lg:text-left">
             <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
@@ -1110,6 +1111,9 @@ const handleInquiry = async () => {
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-layer,
   .hero-depth-plane,
+  .hero-seahorse-wave,
+  .hero-seahorse-svg,
+  .hero-seahorse-bubble,
   .experience-card {
     opacity: 1;
     transform: none;
