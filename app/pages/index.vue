@@ -42,9 +42,25 @@ const techStack = [
 const experiences = [
   {
     role: 'Frontend Developer',
+    company: 'Bank Central Asia (BCA) - Ocean',
+    type: 'Full-time',
+    period: 'Apr 2026 — Present',
+    location: 'Jakarta, Indonesia',
+    impact: 'Building Ocean by BCA, an integrated business ecosystem platform connecting 34+ million customers with banking, operational, and industry networks.',
+    tech: ['Next.js', 'Micro Frontend', 'TypeScript', 'REST API'],
+    points: [
+      'Developed and maintained Ocean by BCA (ocean.bca.co.id), a comprehensive business ecosystem platform with integrated dashboard, product recommendations, and myEcosystem features.',
+      'Implemented micro frontend architecture using Next.js to enable scalable, modular development across multiple business domains.',
+      'Built real-time integrated dashboards displaying cash flow, transaction trends, and business analytics for data-driven decision making.',
+      'Collaborated with cross-functional teams to deliver features supporting 99% digital transactions with 76% volume growth.'
+    ],
+    isCurrent: true
+  },
+  {
+    role: 'Frontend Developer',
     company: 'AIA Indonesia',
     type: 'Full-time',
-    period: 'Aug 2023 — Present',
+    period: 'Aug 2023 — Apr 2026',
     location: 'Jakarta, Indonesia',
     impact: 'Shipped reusable frontend architecture and performance-focused UI for insurance products.',
     tech: ['Vue 3', 'Pinia', 'Vue Router', 'REST API'],
@@ -52,14 +68,13 @@ const experiences = [
       'Built and maintained customer-facing modules with Vue.js 2/3 and Pinia state patterns.',
       'Converted design specs into responsive interfaces with consistent component standards.',
       'Integrated REST APIs and improved delivery quality through cross-team collaboration.'
-    ],
-    isCurrent: true
+    ]
   },
   {
     role: 'Backend Developer',
-    company: 'Bank Central Asia (BCA)',
+    company: 'Bank Central Asia (BCA) - OASE',
     type: 'Full-time',
-    period: 'Feb 2023 — Jun 2023',
+    period: 'Feb 2023 — Jul 2023',
     location: 'Jakarta, Indonesia',
     impact: 'Engineered high-performance backend services for internal banking infrastructure.',
     tech: ['Node.js', 'Express.js', 'MySQL', 'REST API'],
@@ -150,6 +165,7 @@ const education = [
 ];
 
 const portfolio = [
+  { id: 13, title: 'Ocean by BCA', category: 'frontend', image: 'https://shl.co.id/wp-content/uploads/2019/04/Bank-BCA.png', description: 'An integrated business ecosystem platform connecting 34+ million customers with banking, operational, and industry networks. Features include integrated dashboard for cash flow monitoring, product recommendations, and myEcosystem for business collaboration.', tags: ['Next.js', 'Micro Frontend', 'TypeScript', 'REST API'], info: 'BCA — Business Platform', web: 'https://ocean.bca.co.id/id' },
   { id: 1, title: 'AIA Insurance Web App', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'A comprehensive and responsive insurance portal developed using Vue.js 3, Pinia, and Vue Router, designed to streamline policy management and enhance user experience for AIA customers.', tags: ['Vue.js 3', 'Pinia', 'Vuetify', 'REST API'], info: 'AIA Indonesia — Internal' },
   { id: 12, title: 'OASE — BCA', category: 'backend', image: 'https://shl.co.id/wp-content/uploads/2019/04/Bank-BCA.png', description: 'A high-availability internal banking API system for Bank Central Asia (BCA), built with Node.js and Express. It serves as a critical middleware layer for processing secure transactions and managing sensitive financial data with enterprise-grade security.', tags: ['Node.js', 'Express.js', 'MySQL', 'REST API'], info: 'BCA — Internal', playStore: 'https://play.google.com/store/apps/details?id=com.bca.oase&hl=id' },
   { id: 138, title: 'SIDARA & SUPEL', category: 'fullstack', image: '/logoesdm.png', description: 'Internal management systems for the Ministry of Energy and Mineral Resources (ESDM), designed to streamline data reporting and administrative workflows using CodeIgniter and Laravel.', tags: ['CodeIgniter', 'Laravel', 'MySQL', 'Government'], info: 'Kementerian ESDM — Internal' },
@@ -540,45 +556,76 @@ const handleInquiry = async () => {
       </section>
 
       <!-- Tech Stack Section -->
-      <section class="py-24 bg-surface-container-low dark:bg-slate-900/50 overflow-hidden cv-auto scroll-mt-40" id="tech">
-        <div class="max-w-7xl mx-auto px-8">
+      <section class="py-24 bg-surface-container-low dark:bg-slate-900/50 overflow-hidden cv-auto scroll-mt-40 relative" id="tech">
+        <!-- Animated diagonal stripes background -->
+        <div class="absolute inset-0 pointer-events-none tech-pattern-bg"></div>
+        
+        <div class="max-w-7xl mx-auto px-8 relative z-10">
           <div class="mb-16 text-center">
             <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">Technical Stack</h2>
             <p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto">The blueprint of my development philosophy involves selecting the right tool for the specific architectural challenge.</p>
           </div>
           
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[500px]">
-            <!-- Left: GIF Animation -->
-            <div class="flex justify-center items-center">
-              <client-only>
-                <div class="w-full max-w-[720px] aspect-square">
-                  <dotlottie-player
-                    src="/ProgrammingComputer.json"
-                    background="transparent"
-                    speed="1"
-                    loop
-                    autoplay
-                    style="width: 100%; height: 100%;"
-                  ></dotlottie-player>
-                </div>
-              </client-only>
-            </div>
-
-            <!-- Right: Tech Icons (Unified) -->
-            <div class="flex flex-col justify-center h-full">
-              <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
-                <template v-for="group in techStack" :key="group.group">
-                  <div v-for="tech in group.items" :key="tech.name" class="group relative">
-                    <div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-slate-800 rounded-2xl shadow-sm flex items-center justify-center p-4 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ring-1 ring-primary/5 dark:ring-white/5 group-hover:ring-primary/20" :title="tech.name">
-                      <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain transition-all duration-500" />
+          <!-- Unified Tech Grid with Animation -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+            <template v-for="group in techStack" :key="group.group">
+              <div 
+                v-for="(tech, idx) in group.items" 
+                :key="tech.name" 
+                class="group relative tech-card"
+                :style="{ '--tech-delay': `${idx * 50}ms` }"
+              >
+                <!-- Card with glassmorphism effect -->
+                <div class="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg border border-primary/10 dark:border-slate-700/50 p-6 hover:shadow-2xl hover:scale-105 hover:border-primary/30 dark:hover:border-blue-500/50 transition-all duration-500 overflow-hidden">
+                  <!-- Animated gradient overlay on hover -->
+                  <div class="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-primary/10 group-hover:to-primary/5 transition-all duration-500 rounded-2xl"></div>
+                  
+                  <!-- Icon -->
+                  <div class="relative z-10 flex flex-col items-center gap-3">
+                    <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                      <NuxtImg 
+                        format="webp" 
+                        :src="tech.icon" 
+                        :alt="tech.name" 
+                        class="w-full h-full object-contain drop-shadow-md" 
+                      />
                     </div>
-                    <!-- Tooltip Style -->
-                    <span class="absolute -top-12 left-1/2 -translate-x-1/2 bg-surface-container-highest text-on-surface-variant text-[11px] px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110 whitespace-nowrap z-10 font-bold shadow-lg pointer-events-none border border-outline-variant/30 uppercase tracking-tighter">
+                    
+                    <!-- Tech Name -->
+                    <span class="text-xs md:text-sm font-bold text-on-surface dark:text-slate-200 text-center leading-tight group-hover:text-primary dark:group-hover:text-blue-400 transition-colors duration-300">
                       {{ tech.name }}
                     </span>
                   </div>
-                </template>
+                  
+                  <!-- Shine effect on hover -->
+                  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div class="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000"></div>
+                  </div>
+                </div>
+                
+                <!-- Floating badge for category -->
+                <div class="absolute -top-2 -right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-75">
+                  <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-[9px] font-bold shadow-lg" :class="group.group === 'frontend' ? 'bg-blue-500 text-white' : 'bg-green-500 text-white'">
+                    {{ group.group === 'frontend' ? 'FE' : 'BE' }}
+                  </span>
+                </div>
               </div>
+            </template>
+          </div>
+          
+          <!-- Stats Section -->
+          <div class="mt-16 grid grid-cols-3 gap-6">
+            <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
+              <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">{{ techStack.reduce((acc, g) => acc + g.items.length, 0) }}+</div>
+              <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Technologies</div>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
+              <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">7+</div>
+              <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Years Experience</div>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
+              <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">10+</div>
+              <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Projects Delivered</div>
             </div>
           </div>
         </div>
@@ -1133,4 +1180,24 @@ const handleInquiry = async () => {
     opacity: 0.72;
   }
 }
+
+/* Tech card entrance animation */
+.tech-card {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: tech-card-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--tech-delay, 0ms);
+}
+
+@keyframes tech-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 </style>
