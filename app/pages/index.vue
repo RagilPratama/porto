@@ -1,6 +1,4 @@
 <script setup>
-const activeCategory = ref('all');
-
 const activeSection = ref('hero');
 const isMobileMenuOpen = ref(false);
 const colorMode = useColorMode();
@@ -15,15 +13,6 @@ let heroTypingTargetIndex = 0;
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
 };
-
-
-const categories = [
-  { id: 'all', name: 'All' },
-  { id: 'frontend', name: 'Frontend' },
-  { id: 'fullstack', name: 'Fullstack' },
-  { id: 'backend', name: 'Backend / API' }
-];
-
 const techStack = [
   { group: 'frontend', items: [
     { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
@@ -47,113 +36,6 @@ const techStack = [
 ];
 const totalTechCount = techStack.reduce((acc, group) => acc + group.items.length, 0);
 
-const experiences = [
-  {
-    role: 'Frontend Developer',
-    company: 'Bank Central Asia (BCA) - Ocean',
-    type: 'Full-time',
-    period: 'Apr 2026 — Present',
-    location: 'Jakarta, Indonesia',
-    impact: 'Building Ocean by BCA, an integrated business ecosystem platform connecting 34+ million customers with banking, operational, and industry networks.',
-    tech: ['Next.js', 'Micro Frontend', 'TypeScript', 'REST API'],
-    points: [
-      'Developed and maintained Ocean by BCA (ocean.bca.co.id), a comprehensive business ecosystem platform with integrated dashboard, product recommendations, and myEcosystem features.',
-      'Implemented micro frontend architecture using Next.js to enable scalable, modular development across multiple business domains.',
-      'Built real-time integrated dashboards displaying cash flow, transaction trends, and business analytics for data-driven decision making.',
-      'Collaborated with cross-functional teams to deliver features supporting 99% digital transactions with 76% volume growth.'
-    ],
-    isCurrent: true
-  },
-  {
-    role: 'Frontend Developer',
-    company: 'AIA Indonesia',
-    type: 'Full-time',
-    period: 'Aug 2023 — Apr 2026',
-    location: 'Jakarta, Indonesia',
-    impact: 'Shipped reusable frontend architecture and performance-focused UI for insurance products serving millions of policyholders.',
-    tech: ['Vue 3', 'Pinia', 'Vue Router', 'REST API'],
-    points: [
-      'Built and maintained customer-facing modules with Vue.js 2/3 and Pinia state patterns, delivering policy management, claims submission, and premium payment features for web and mobile web platforms.',
-      'Converted design specs into responsive, accessible interfaces with consistent component standards, establishing a shared design system used across multiple product teams to reduce UI drift.',
-      'Integrated REST APIs and improved delivery quality through cross-team collaboration with backend engineers and QA, reducing integration-related defects by enforcing contract-first development practices.'
-    ]
-  },
-  {
-    role: 'Backend Developer',
-    company: 'Bank Central Asia (BCA) - OASE',
-    type: 'Full-time',
-    period: 'Feb 2023 — Jul 2023',
-    location: 'Jakarta, Indonesia',
-    impact: 'Engineered high-performance backend services for internal banking infrastructure handling secure transaction processing.',
-    tech: ['Node.js', 'Express.js', 'MySQL', 'REST API'],
-    points: [
-      'Developed and maintained OASE, an internal banking application focused on secure data processing, supporting daily operations for thousands of internal users across BCA branches.',
-      'Designed scalable RESTful APIs to facilitate seamless communication between banking modules — including transaction monitoring, reporting pipelines, and user management — with proper authentication and role-based access control.',
-      'Optimized backend workflows, query execution plans, and database indexing strategies to ensure high availability and sub-second response times under heavy concurrent load.'
-    ]
-  },
-  {
-    role: 'Fullstack Developer',
-    company: 'BKKBN Indonesia',
-    type: 'Full-time',
-    period: 'Jan 2020 — Feb 2023',
-    location: 'Jakarta, Indonesia',
-    impact: 'Delivered national-scale public service platforms serving family planning and population programs across Indonesia.',
-    tech: ['Laravel', 'ReactJS', 'MySQL', 'Integration API'],
-    points: [
-      'Developed core services, admin dashboards, and role-based access control for the BKKBN Portal using Laravel, enabling regional teams to manage program data independently.',
-      'Built RESTful API integrations connecting several internal BKKBN ecosystems — including family planning reporting, population data, and regional budget tracking — into a unified platform.',
-      'Delivered and presented production-ready solutions to nationwide stakeholders, ensuring compliance with government data standards and accessibility requirements.',
-      'Maintained and optimized MySQL databases handling large-scale population and program datasets, improving query performance for reporting modules.'
-    ]
-  },
-  {
-    role: 'Fullstack Developer',
-    company: 'Kementerian ESDM',
-    type: 'Full-time',
-    period: 'Jun 2019 — Jan 2020',
-    location: 'Jakarta, Indonesia',
-    impact: 'Spearheaded the development of internal management systems and public-facing portals for mineral and coal governance.',
-    tech: ['CodeIgniter', 'Laravel', 'Yii', 'PHP'],
-    points: [
-      'Built and deployed SIDARA and SUPEL applications for internal mineral and coal management using CodeIgniter and Laravel, enabling ministry staff to track licensing, production, and compliance data in real time.',
-      'Developed and maintained the Minerba homepage as a public-facing portal, improving accessibility to ministry regulations, mineral data dashboards, and public announcements for citizens and industry stakeholders.',
-      'Implemented robust backend logic and architectural patterns with Yii and Laravel frameworks, including multi-tier authentication, audit logging, and data validation for government compliance requirements.',
-      'Designed normalized MySQL database schemas for mineral resource datasets, supporting complex reporting queries across regional mining operations nationwide.'
-    ]
-  },
-  {
-    role: 'Fullstack Developer',
-    company: 'PT Dritama BrokerIndo',
-    type: 'Full-time',
-    period: 'Jan 2019 — Jun 2019',
-    location: 'Jakarta, Indonesia',
-    impact: 'Accelerated insurance onboarding workflows through payment gateway and multi-partner API integration.',
-    tech: ['Lumen', 'ReactJS', 'Midtrans', 'MySQL'],
-    points: [
-      'Integrated Midtrans payment gateway into web and mobile insurance enrollment flows, handling policy purchases, premium calculations, and real-time payment confirmation.',
-      'Connected external insurance provider APIs (Zurich, KB, Sinarmas, and others) to automate quote retrieval, policy issuance, and claims data exchange across multiple insurers.',
-      'Developed RESTful APIs with Lumen (Laravel micro-framework) for backend orchestration and built interactive frontend modules with ReactJS for the customer-facing insurance portal.',
-      'Designed and optimized MySQL schemas for policy, customer, and transaction data, ensuring data integrity across multi-provider insurance workflows.'
-    ]
-  },
-  {
-    role: 'Quality Assurance',
-    company: 'Indonesia Smartcloud',
-    type: 'Full-time',
-    period: 'May 2018 — Dec 2018',
-    location: 'Jakarta, Indonesia',
-    impact: 'Improved release confidence and product stability through structured testing discipline and systematic defect reporting.',
-    tech: ['QA Testing', 'Regression', 'Integration Test', 'UAT'],
-    points: [
-      'Executed black-box and regression test suites across web and mobile platforms before each release milestone, reducing post-release defect rates by catching issues early in the cycle.',
-      'Prepared comprehensive test plans, test cases, and QA checklists for UAT and integration testing cycles, covering functional, edge-case, and cross-browser scenarios.',
-      'Tracked, documented, and communicated defects with developers through structured reporting workflows — from reproduction steps to verification and closure — ensuring accountability and traceability.',
-      'Contributed to process improvements by advocating for shift-left testing practices and maintaining a centralized knowledge base of recurring issues and their root causes.'
-    ]
-  }
-];
-
 const education = [
   {
     degree: 'Bachelor Degree in Informatics Engineering',
@@ -176,61 +58,12 @@ const education = [
   }
 ];
 
-const portfolio = [
-  { id: 13, title: 'Ocean by BCA', category: 'frontend', image: 'https://shl.co.id/wp-content/uploads/2019/04/Bank-BCA.png', description: 'An integrated business ecosystem platform connecting 34+ million customers with banking, operational, and industry networks. Features include integrated dashboard for cash flow monitoring, product recommendations, and myEcosystem for business collaboration.', tags: ['Next.js', 'Micro Frontend', 'TypeScript', 'REST API'], info: 'BCA — Business Platform', web: 'https://ocean.bca.co.id/id' },
-  { id: 1, title: 'AIA Insurance Web App', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'A comprehensive and responsive insurance portal developed using Vue.js 3, Pinia, and Vue Router, designed to streamline policy management and enhance user experience for AIA customers.', tags: ['Vue.js 3', 'Pinia', 'Vuetify', 'REST API'], info: 'AIA Indonesia — Internal' },
-  { id: 12, title: 'OASE — BCA', category: 'backend', image: 'https://shl.co.id/wp-content/uploads/2019/04/Bank-BCA.png', description: 'A high-availability internal banking API system for Bank Central Asia (BCA), built with Node.js and Express. It serves as a critical middleware layer for processing secure transactions and managing sensitive financial data with enterprise-grade security.', tags: ['Node.js', 'Express.js', 'MySQL', 'REST API'], info: 'BCA — Internal', playStore: 'https://play.google.com/store/apps/details?id=com.bca.oase&hl=id' },
-  { id: 138, title: 'SIDARA & SUPEL', category: 'fullstack', image: '/logoesdm.png', description: 'Internal management systems for the Ministry of Energy and Mineral Resources (ESDM), designed to streamline data reporting and administrative workflows using CodeIgniter and Laravel.', tags: ['CodeIgniter', 'Laravel', 'MySQL', 'Government'], info: 'Kementerian ESDM — Internal' },
-  { id: 139, title: 'Minerba Homepage', category: 'fullstack', image: '/logoesdm.png', description: 'The official public portal for the Directorate General of Mineral and Coal, providing real-time information and regulations built with PHP frameworks including Yii and Laravel.', tags: ['Laravel', 'Yii', 'PHP', 'CMS'], info: 'Kementerian ESDM — Public Portal' },
-  { id: 2, title: 'BKKBN Portal & Siga App', category: 'fullstack', image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_BkkbN.png', description: 'A large-scale national family information system (SIGA) that facilitates data collection and demographic analysis across Indonesia, featuring a robust API ecosystem built with Laravel and ReactJS.', tags: ['Laravel', 'ReactJS', 'MySQL', 'REST API'], info: 'BKKBN Indonesia — Government Project' },
-  { id: 3, title: 'WowPremi', category: 'fullstack', image: '/wowpremi.png', description: 'An all-in-one digital insurance platform integrated with Midtrans for seamless payment processing. Available on Web, Android, and iOS to provide users with instant insurance quotes and easy policy issuance.', tags: ['Lumen PHP', 'ReactJS', 'Midtrans', 'MySQL'], web: 'https://wowpremi.com/', appStore: 'https://itunes.apple.com/gb/app/wowpremi/id1427272279?mt=8', playStore: 'https://play.google.com/store/apps/details?id=com.dritama.wowpremi' },
-  { id: 4, title: 'BKKBN API Ecosystem', category: 'backend', image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Logo_BkkbN.png', description: 'Enterprise-grade RESTful API infrastructure that serves as a centralized data hub, securely connecting and synchronizing multiple internal government applications to ensure data integrity.', tags: ['Laravel', 'MySQL', 'PostgreSQL', 'RESTful API'], info: 'BKKBN Indonesia — Government Project' },
-  { id: 5, title: 'AIA+', category: 'frontend', image: 'https://companieslogo.com/img/orig/1299.HK_BIG-a3180b6a.png?t=1720244490', description: 'A cutting-edge real-time digital insurance ecosystem that connects policyholders directly with service providers, offering instant access to health benefits, claims status, and personalized wellness tracking.', tags: ['Vue.js 3', 'Pinia', 'REST API', 'Realtime'], info: 'AIA Indonesia — Customer Facing', playStore: 'https://play.google.com/store/apps/details?id=id.co.aiafinancial.aiaplus&hl=id', appStore: 'https://apps.apple.com/kw/app/aia-indonesia/id6745874762' },
-  { id: 6, title: 'OGYA HRIS System', category: 'fullstack', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'A comprehensive Human Resource Information System (HRIS) designed to automate human capital management, featuring employee data administration, attendance tracking, and streamlined HR workflows.', tags: ['Laravel', 'Vue.js', 'MySQL', 'REST API'], web: 'https://ogya.co.id' },
-  { id: 11, title: 'OGYA Company Profile', category: 'frontend', image: 'https://ogya.co.id/assets/OGYA-LOGO-01-1-CVLaQrUB.png', description: 'A high-performance corporate website designed to showcase OGYA’s business services and corporate culture, featuring an integrated career portal for talent acquisition.', tags: ['ReactJS', 'Responsive', 'REST API'], web: 'https://ogya.co.id' },
-  { id: 7, title: 'SmartCloud Indonesia', category: 'backend', image: 'https://cdn.techinasia.com/data/images/a06d955d350ded214f6338db66339594.jpg', description: 'Advanced Quality Assurance and automated testing framework implemented for cloud-based enterprise solutions, ensuring high availability, security, and performance for mission-critical business systems.', tags: ['PHPUnit', 'QA', 'Blackbox Testing', 'UAT'], qaLabel: 'QA Engineer' },
-  { id: 8, title: 'Carfix', category: 'backend', image: 'https://carfix.co.id/wp-content/uploads/2024/10/icon-1.png', description: 'Advanced Quality Assurance and performance monitoring for a sophisticated automotive e-commerce ecosystem, ensuring seamless service integration and reliable booking for automotive services.', tags: ['Laravel', 'QA Engineer', 'Manual Testing', 'E-commerce', 'UAT'], web: 'https://carfix.co.id/', qaLabel: 'QA Engineer' },
-  { id: 9, title: 'Sheldon Dental Management', category: 'fullstack', image: 'https://sheldondental.id/images/logo.jpg', description: 'An end-to-end clinical management solution for dental professionals, integrating patient scheduling, digital medical records, and inventory tracking to improve operational efficiency.', tags: ['Laravel', 'MySQL', 'Management', 'System'], web: 'https://sheldondental.id' },
-  { id: 10, title: 'Pins Indonesia', category: 'frontend', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkXBQh2taVPVeoFGE2GexcKk0KbsCtw0-aHw&s', description: 'A sleek and interactive frontend interface for Telkom Group’s internal services, focusing on user-centric design and high-performance data visualization.', tags: ['Vue.js', 'Bootstrap', 'Responsive', 'Dashboard'], info: 'Pins Indonesia — Telkom Group' },
-];
-
 const socials = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ragil-pratama-824351145/', icon: 'linkedin' },
   { name: 'GitHub', url: 'https://github.com/RagilPratama', icon: 'github' },
   { name: 'Instagram', url: 'https://www.instagram.com/rglprtm/', icon: 'instagram' },
   { name: 'Email', url: 'mailto:ragilpratamaaa@gmail.com', icon: 'email' }
 ];
-
-const filteredPortfolio = computed(() => {
-  if (activeCategory.value === 'all') return portfolio;
-  return portfolio.filter(p => p.category === activeCategory.value);
-});
-
-const getProjectImageClass = (project) => {
-  const shouldCover = project.category === 'fullstack'
-    && project.title !== 'WowPremi'
-    && !project.title.includes('OGYA')
-    && !project.title.includes('BKKBN')
-    && project.title !== 'Sheldon Dental Management'
-    && project.title !== 'Carfix'
-    && !project.title.includes('SIDARA')
-    && !project.title.includes('Minerba');
-
-  return shouldCover ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-4';
-};
-
-const getProjectBadgeClass = (project) => {
-  if (project.qaLabel) return 'bg-secondary text-on-secondary';
-  if (project.category === 'frontend') return 'bg-primary text-on-primary';
-  if (project.category === 'fullstack') return 'bg-tertiary text-on-tertiary';
-  return 'bg-secondary text-on-secondary';
-};
-
-const getProjectBadgeLabel = (project) => {
-  return project.qaLabel || (project.category.charAt(0).toUpperCase() + project.category.slice(1));
-};
-
-const experienceVisible = ref(false);
 const supportsHeroBg3d = ref(false);
 const isHeroBgInteracting = ref(false);
 const heroBgTilt = reactive({ x: 0, y: 0 });
@@ -273,7 +106,6 @@ const resetHeroBgMove = () => {
 };
 
 let sectionObserver = null;
-let experienceObserver = null;
 
 const setupSectionObserver = () => {
   const sections = document.querySelectorAll('section[id]');
@@ -286,23 +118,6 @@ const setupSectionObserver = () => {
   }, { rootMargin: '-20% 0px -80% 0px' });
 
   sections.forEach(sec => sectionObserver?.observe(sec));
-};
-
-const setupExperienceObserver = () => {
-  const experienceSection = document.getElementById('experience');
-  if (!experienceSection) return;
-
-  experienceObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        experienceVisible.value = true;
-        experienceObserver?.disconnect();
-        experienceObserver = null;
-      }
-    });
-  }, { threshold: 0.15 });
-
-  experienceObserver.observe(experienceSection);
 };
 
 onMounted(() => {
@@ -334,14 +149,12 @@ onMounted(() => {
   if ('requestIdleCallback' in window) {
     window.requestIdleCallback(() => {
       setupSectionObserver();
-      setupExperienceObserver();
     }, { timeout: 1200 });
     return;
   }
 
   setTimeout(() => {
     setupSectionObserver();
-    setupExperienceObserver();
   }, 200);
 });
 
@@ -350,8 +163,6 @@ onBeforeUnmount(() => {
   if (heroTypingTimeout) window.clearTimeout(heroTypingTimeout);
   sectionObserver?.disconnect();
   sectionObserver = null;
-  experienceObserver?.disconnect();
-  experienceObserver = null;
 });
 
 const scrollTo = (id) => {
@@ -689,81 +500,7 @@ const handleInquiry = async () => {
         </div>
       </section>
 
-      <!-- Experience Section -->
-      <section :class="['py-24 bg-surface dark:bg-slate-950 cv-auto scroll-mt-40 relative overflow-hidden', { 'experience-visible': experienceVisible }]" id="experience">
-        <div class="absolute inset-0 pointer-events-none section-texture section-texture-experience"></div>
-        <div class="max-w-7xl mx-auto px-8 relative z-10">
-          <div class="text-center mb-16">
-            <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">Work Experience</h2>
-            <p class="text-on-surface-variant dark:text-slate-400">A chronological journey of building real-world solutions across industries.</p>
-          </div>
-
-          <div class="relative" ref="timelineContainer">
-            <!-- Center timeline line -->
-            <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-px bg-outline-variant/30 dark:bg-slate-800"></div>
-            <!-- Mobile timeline line -->
-            <div class="md:hidden absolute left-[19px] top-2 bottom-2 w-px bg-outline-variant/40 dark:bg-slate-700"></div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-5">
-              <article
-                v-for="(exp, idx) in experiences"
-                :key="`exp-${idx}-${exp.company}`"
-                :class="['relative experience-card', idx % 2 !== 0 ? 'md:mt-10' : '', exp.role === 'Quality Assurance' ? 'md:col-span-2 md:mt-0' : '']"
-                :style="{ '--exp-delay': `${idx * 100}ms` }"
-              >
-                <!-- Desktop dot on center timeline line -->
-                <div :class="['hidden md:block absolute top-6 w-3.5 h-3.5 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low dark:bg-slate-700 dark:ring-slate-900']" :style="exp.role === 'Quality Assurance' ? { left: '50%', transform: 'translateX(-50%)' } : idx % 2 === 0 ? { left: 'calc(100% + 16px)', transform: 'translateX(-50%)' } : { left: '-16px', transform: 'translateX(-50%)' }"></div>
-                <!-- Mobile dot -->
-                <div :class="['md:hidden absolute left-[7px] top-5 w-[26px] h-[26px] rounded-full border-2 z-10 flex items-center justify-center', exp.isCurrent ? 'border-primary bg-primary/10 dark:bg-primary/20' : 'border-outline-variant dark:border-slate-600 bg-surface dark:bg-slate-900']">
-                  <div :class="['w-2.5 h-2.5 rounded-full', exp.isCurrent ? 'bg-primary animate-pulse' : 'bg-on-surface-variant/40 dark:bg-slate-500']"></div>
-                </div>
-
-                <div :class="['rounded-2xl border transition-all duration-300 pl-12 md:pl-0', exp.isCurrent ? 'bg-primary-fixed/30 border-primary/40 shadow-[0_12px_30px_rgba(0,98,157,0.10)] dark:bg-primary/10 dark:border-primary/30' : 'bg-surface-container-lowest dark:bg-slate-900 border-outline-variant/30 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-outline-variant/60 dark:hover:border-slate-700']">
-                  <div class="p-5 md:p-6">
-                    <!-- Header -->
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-                      <div>
-                        <h3 class="text-xl md:text-2xl font-headline font-bold text-on-surface dark:text-white leading-tight">{{ exp.role }}</h3>
-                        <p class="text-primary dark:text-blue-400 font-bold text-base mt-1">{{ exp.company }}</p>
-                      </div>
-                      <div class="flex flex-wrap gap-2 md:justify-end shrink-0">
-                        <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-primary text-on-primary">Current</span>
-                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-secondary-container text-on-secondary-fixed-variant">{{ exp.type }}</span>
-                        <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high dark:bg-slate-800 text-on-surface-variant dark:text-slate-300">{{ exp.period }}</span>
-                      </div>
-                    </div>
-
-                    <p class="text-xs text-on-surface-variant dark:text-slate-400 mb-4">{{ exp.location }}</p>
-
-                    <div class="mb-4 rounded-xl bg-surface-container dark:bg-slate-800/50 p-3 border border-outline-variant/20 dark:border-slate-700">
-                      <p class="text-sm font-medium text-on-surface dark:text-slate-200">{{ exp.impact }}</p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                      <span
-                        v-for="stack in exp.tech"
-                        :key="stack"
-                        class="text-[11px] px-2 py-1 rounded-md bg-white dark:bg-slate-800 border border-outline-variant/30 dark:border-slate-700 text-on-surface-variant dark:text-slate-400 font-semibold"
-                      >
-                        {{ stack }}
-                      </span>
-                    </div>
-
-                    <ul class="space-y-2 text-sm text-on-surface-variant dark:text-slate-400 leading-relaxed list-none">
-                      <li v-for="point in exp.points" :key="point" class="flex gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4 10-10" />
-                        </svg>
-                        <span>{{ point }}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
+      <LazyExperienceSection />
 
       <!-- Education Section -->
       <section class="py-24 bg-surface-container-low dark:bg-slate-900/50 cv-auto scroll-mt-40 relative overflow-hidden" id="education">
@@ -823,89 +560,7 @@ const handleInquiry = async () => {
         </div>
       </section>
 
-      <!-- Portfolio Section -->
-      <section class="py-24 bg-surface dark:bg-slate-950 cv-auto scroll-mt-40 relative overflow-hidden" id="portfolio">
-        <div class="absolute inset-0 pointer-events-none section-texture section-texture-portfolio"></div>
-        <div class="max-w-7xl mx-auto px-8 relative z-10">
-          <div class="text-center mb-16">
-            <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">Portfolio</h2>
-            <p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto">A selection of projects I've built — from government platforms to insurance web apps and beyond.</p>
-          </div>
-
-          <!-- Filter Tabs -->
-          <div class="flex flex-wrap justify-center gap-3 mb-12">
-            <button 
-              v-for="cat in categories" 
-              :key="cat.id" 
-              @click="activeCategory = cat.id"
-              :class="[
-                'px-5 py-2 rounded-full text-sm font-semibold transition-all',
-                activeCategory === cat.id ? 'bg-primary text-on-primary' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'
-              ]">
-              {{ cat.name }}
-            </button>
-          </div>
-
-          <!-- Cards Grid -->
-          <transition-group 
-            name="portfolio" 
-            tag="div" 
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div 
-              v-for="project in filteredPortfolio" 
-              :key="project.id"
-              class="portfolio-card group bg-surface-container-lowest dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 dark:border-slate-800 hover:-translate-y-1">
-              <div class="relative h-48 bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
-                <NuxtImg 
-                  :src="project.image" 
-                  :alt="project.title" 
-                  quality="95" 
-                  densities="x1 x2"
-                  :class="[getProjectImageClass(project), 'group-hover:scale-105 transition-transform duration-500']" 
-                  loading="lazy" 
-                />
-                <div class="absolute top-4 left-4">
-                  <span :class="['text-xs font-bold px-3 py-1 rounded-full', getProjectBadgeClass(project)]">
-                    {{ getProjectBadgeLabel(project) }}
-                  </span>
-                </div>
-              </div>
-              <div class="p-6">
-                <h3 class="font-headline text-xl font-bold mb-2 dark:text-white">{{ project.title }}</h3>
-                <p class="text-on-surface-variant dark:text-slate-400 text-sm mb-4 leading-relaxed">{{ project.description }}</p>
-                <div class="flex flex-wrap gap-2 mb-5">
-                  <span v-for="tag in project.tags" :key="tag" class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">{{ tag }}</span>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                  <template v-if="project.web">
-                    <a :href="project.web" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6h-3A2.25 2.25 0 0 0 4.5 8.25v9A2.25 2.25 0 0 0 6.75 19.5h9A2.25 2.25 0 0 0 18 17.25v-3" />
-                      </svg>
-                      Web
-                    </a>
-                  </template>
-                  <template v-if="project.appStore">
-                    <a :href="project.appStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg> App Store
-                    </a>
-                  </template>
-                  <template v-if="project.playStore">
-                    <a :href="project.playStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 7.5 4.5M15 6.75l1.5-2.25M7.5 9.75h9M8.25 9.75v6.75m7.5-6.75v6.75M9.75 16.5h4.5a2.25 2.25 0 0 0 2.25-2.25V9.75H7.5v4.5a2.25 2.25 0 0 0 2.25 2.25Z" />
-                      </svg>
-                      Play Store
-                    </a>
-                  </template>
-                  <span v-if="project.info" class="text-xs text-on-surface-variant dark:text-slate-400 italic transition-colors">{{ project.info }}</span>
-                </div>
-              </div>
-            </div>
-          </transition-group>
-        </div>
-      </section>
+      <LazyPortfolioSection />
 
       <!-- Let's Collaborate Section -->
       <section class="py-24 bg-surface-container-low dark:bg-slate-900/50 relative overflow-hidden cv-auto scroll-mt-40" id="contact">

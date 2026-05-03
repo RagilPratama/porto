@@ -66,24 +66,13 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' }
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'canonical', href: 'https://ragilpratama.com/' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' }
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
       ],
-      script: [
-        { 
-          src: 'https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs', 
-          type: 'module',
-          defer: true 
-        },
-        {
-          src: 'https://va.vercel-scripts.com/v1/script.js',
-          defer: true,
-          'data-endpoint': '/_vercel/insights'
-        }
-      ]
+      script: []
     }
   },
   nitro: {
