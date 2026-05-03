@@ -10,8 +10,45 @@
     -webkit-backdrop-filter: blur(12px);
 }
 .blueprint-bg {
-    background-image: radial-gradient(circle, #00629d11 1px, transparent 1px);
-    background-size: 32px 32px;
+    position: relative;
+    isolation: isolate;
+    background-color: #f7f9fb;
+    background-image:
+        radial-gradient(circle at 12% 12%, rgba(0, 163, 255, 0.08), transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(0, 98, 157, 0.06), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(0, 163, 255, 0.05), transparent 34%),
+        radial-gradient(circle, #00629d11 1px, transparent 1px);
+    background-size: auto, auto, auto, 32px 32px;
+    background-position: center;
+}
+
+.blueprint-bg::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 35%),
+        repeating-linear-gradient(90deg, rgba(0, 98, 157, 0.025) 0, rgba(0, 98, 157, 0.025) 1px, transparent 1px, transparent 24px);
+    opacity: 0.55;
+    mix-blend-mode: soft-light;
+}
+
+.dark .blueprint-bg {
+    background-color: #020617;
+    background-image:
+        radial-gradient(circle at 12% 12%, rgba(56, 189, 248, 0.08), transparent 26%),
+        radial-gradient(circle at 88% 18%, rgba(59, 130, 246, 0.06), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.72), transparent 42%),
+        radial-gradient(circle, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+}
+
+.dark .blueprint-bg::before {
+    background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.35), transparent 38%),
+        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.03) 0, rgba(148, 163, 184, 0.03) 1px, transparent 1px, transparent 24px);
+    opacity: 0.7;
+    mix-blend-mode: screen;
 }
 @keyframes float {
     0% { transform: translateY(0px); }
@@ -34,6 +71,90 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: #f1f5f9;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.section-texture {
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.dark .section-texture {
+    opacity: 0.55;
+    mix-blend-mode: screen;
+}
+
+.tech-pattern-bg,
+.section-texture-tech {
+    background-image:
+        radial-gradient(circle at 18% 20%, rgba(0, 163, 255, 0.08), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(0, 98, 157, 0.06), transparent 24%),
+        repeating-linear-gradient(135deg, rgba(0, 98, 157, 0.06) 0, rgba(0, 98, 157, 0.06) 1px, transparent 1px, transparent 22px);
+}
+
+.section-texture-experience {
+    background-image:
+        radial-gradient(circle at 14% 18%, rgba(0, 163, 255, 0.07), transparent 26%),
+        radial-gradient(circle at 88% 82%, rgba(0, 98, 157, 0.05), transparent 24%),
+        repeating-linear-gradient(90deg, rgba(0, 98, 157, 0.035) 0, rgba(0, 98, 157, 0.035) 1px, transparent 1px, transparent 28px);
+}
+
+.section-texture-education {
+    background-image:
+        radial-gradient(circle at 80% 18%, rgba(0, 163, 255, 0.06), transparent 24%),
+        radial-gradient(circle at 18% 80%, rgba(0, 98, 157, 0.05), transparent 22%),
+        repeating-linear-gradient(135deg, rgba(0, 98, 157, 0.03) 0, rgba(0, 98, 157, 0.03) 1px, transparent 1px, transparent 26px);
+}
+
+.section-texture-portfolio {
+    background-image:
+        radial-gradient(circle at 12% 14%, rgba(0, 163, 255, 0.07), transparent 24%),
+        radial-gradient(circle at 88% 24%, rgba(0, 98, 157, 0.05), transparent 22%),
+        repeating-linear-gradient(45deg, rgba(0, 98, 157, 0.03) 0, rgba(0, 98, 157, 0.03) 1px, transparent 1px, transparent 30px);
+}
+
+.section-texture-contact {
+    background-image:
+        radial-gradient(circle at 20% 18%, rgba(0, 163, 255, 0.07), transparent 24%),
+        radial-gradient(circle at 82% 68%, rgba(0, 98, 157, 0.05), transparent 24%),
+        repeating-linear-gradient(90deg, rgba(0, 98, 157, 0.03) 0, rgba(0, 98, 157, 0.03) 1px, transparent 1px, transparent 30px);
+}
+
+.dark .tech-pattern-bg,
+.dark .section-texture-tech {
+    background-image:
+        radial-gradient(circle at 18% 20%, rgba(56, 189, 248, 0.12), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(59, 130, 246, 0.08), transparent 24%),
+        repeating-linear-gradient(135deg, rgba(148, 163, 184, 0.07) 0, rgba(148, 163, 184, 0.07) 1px, transparent 1px, transparent 22px);
+}
+
+.dark .section-texture-experience {
+    background-image:
+        radial-gradient(circle at 14% 18%, rgba(56, 189, 248, 0.1), transparent 26%),
+        radial-gradient(circle at 88% 82%, rgba(59, 130, 246, 0.08), transparent 24%),
+        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 28px);
+}
+
+.dark .section-texture-education {
+    background-image:
+        radial-gradient(circle at 80% 18%, rgba(56, 189, 248, 0.1), transparent 24%),
+        radial-gradient(circle at 18% 80%, rgba(59, 130, 246, 0.07), transparent 22%),
+        repeating-linear-gradient(135deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 26px);
+}
+
+.dark .section-texture-portfolio {
+    background-image:
+        radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.1), transparent 24%),
+        radial-gradient(circle at 88% 24%, rgba(59, 130, 246, 0.07), transparent 22%),
+        repeating-linear-gradient(45deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 30px);
+}
+
+.dark .section-texture-contact {
+    background-image:
+        radial-gradient(circle at 20% 18%, rgba(56, 189, 248, 0.1), transparent 24%),
+        radial-gradient(circle at 82% 68%, rgba(59, 130, 246, 0.07), transparent 24%),
+        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 30px);
 }
 
 .hero-seahorse-animation {
