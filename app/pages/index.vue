@@ -4,6 +4,12 @@ const activeCategory = ref('all');
 const activeSection = ref('hero');
 const isMobileMenuOpen = ref(false);
 const colorMode = useColorMode();
+const heroTitleTargets = ['Fullstack Developer', 'Frontend Developer', 'Backend Developer'];
+const heroTitleTyped = ref('');
+let heroTypingInterval = null;
+let heroTypingTimeout = null;
+let heroTypingIndex = 0;
+let heroTypingTargetIndex = 0;
 
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
@@ -274,6 +280,28 @@ const setupExperienceObserver = () => {
 };
 
 onMounted(() => {
+  const startHeroTyping = () => {
+    const activeTitle = heroTitleTargets[heroTypingTargetIndex];
+    heroTypingInterval = window.setInterval(() => {
+      if (heroTypingIndex < activeTitle.length) {
+        heroTitleTyped.value += activeTitle.charAt(heroTypingIndex);
+        heroTypingIndex += 1;
+        return;
+      }
+
+      window.clearInterval(heroTypingInterval);
+      heroTypingInterval = null;
+
+      heroTypingTimeout = window.setTimeout(() => {
+        heroTitleTyped.value = '';
+        heroTypingIndex = 0;
+        heroTypingTargetIndex = (heroTypingTargetIndex + 1) % heroTitleTargets.length;
+        startHeroTyping();
+      }, 1400);
+    }, 75);
+  };
+
+  startHeroTyping();
   supportsHeroBg3d.value = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   // Defer non-critical observer work to keep the initial paint path lighter.
@@ -292,6 +320,8 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  if (heroTypingInterval) window.clearInterval(heroTypingInterval);
+  if (heroTypingTimeout) window.clearTimeout(heroTypingTimeout);
   sectionObserver?.disconnect();
   sectionObserver = null;
   experienceObserver?.disconnect();
@@ -485,21 +515,21 @@ const handleInquiry = async () => {
         <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div class="lg:col-span-7 z-10 text-center lg:text-left">
             <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
-              Fullstack Developer
+              Introduction
             </span>
             <h1 class="font-sans md:font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface dark:text-white leading-[1.1] mb-8">
-              Hi, I'm Ragil — <br/>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-primary transition-all duration-300">Fullstack Developer</span> Crafting Web Apps with Purpose
+              Hi, I'm Ragil Pratama <br/>
+              <span class="block mt-2 text-3xl sm:text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-primary transition-all duration-300">{{ heroTitleTyped }}<span class="animate-pulse">|</span></span>
             </h1>
             <p class="text-lg text-on-surface-variant dark:text-slate-400 max-w-xl mb-10 leading-relaxed mx-auto lg:mx-0">
-              Experienced in Laravel, Vue.js, and Node.js, specializing in building scalable web applications, designing efficient systems, and maintaining high code quality.
+              Fullstack developer focused on scalable web architecture, clean API integration, and maintainable code that supports fast product delivery.
             </p>
             <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
               <button @click="scrollTo('contact')" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-95">
                 Start Collaboration
               </button>
               <button @click="scrollTo('experience')" class="bg-surface-container-lowest text-primary border border-outline-variant/30 px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-bright transition-all">
-                View Roadmap
+                View Experience
               </button>
             </div>
           </div>
