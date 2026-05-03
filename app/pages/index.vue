@@ -4,6 +4,7 @@ const activeCategory = ref('all');
 const activeSection = ref('hero');
 const isMobileMenuOpen = ref(false);
 const colorMode = useColorMode();
+const navLinks = ['hero', 'tech', 'experience', 'education', 'portfolio', 'contact'];
 const heroTitleTargets = ['Fullstack Developer', 'Frontend Developer', 'Backend Developer'];
 const heroTitleTyped = ref('');
 let heroTypingInterval = null;
@@ -44,6 +45,7 @@ const techStack = [
     { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' }
   ]}
 ];
+const totalTechCount = techStack.reduce((acc, group) => acc + group.items.length, 0);
 
 const experiences = [
   {
@@ -203,6 +205,30 @@ const filteredPortfolio = computed(() => {
   if (activeCategory.value === 'all') return portfolio;
   return portfolio.filter(p => p.category === activeCategory.value);
 });
+
+const getProjectImageClass = (project) => {
+  const shouldCover = project.category === 'fullstack'
+    && project.title !== 'WowPremi'
+    && !project.title.includes('OGYA')
+    && !project.title.includes('BKKBN')
+    && project.title !== 'Sheldon Dental Management'
+    && project.title !== 'Carfix'
+    && !project.title.includes('SIDARA')
+    && !project.title.includes('Minerba');
+
+  return shouldCover ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-4';
+};
+
+const getProjectBadgeClass = (project) => {
+  if (project.qaLabel) return 'bg-secondary text-on-secondary';
+  if (project.category === 'frontend') return 'bg-primary text-on-primary';
+  if (project.category === 'fullstack') return 'bg-tertiary text-on-tertiary';
+  return 'bg-secondary text-on-secondary';
+};
+
+const getProjectBadgeLabel = (project) => {
+  return project.qaLabel || (project.category.charAt(0).toUpperCase() + project.category.slice(1));
+};
 
 const experienceVisible = ref(false);
 const supportsHeroBg3d = ref(false);
@@ -426,7 +452,7 @@ const handleInquiry = async () => {
           <span class="hidden sm:inline">M. Ragil Pratama </span>
         </div>
         <div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
-          <a v-for="link in ['hero', 'tech', 'experience', 'education', 'portfolio', 'contact']" 
+          <a v-for="link in navLinks" 
              :key="link"
              @click.prevent="scrollTo(link)"
              href="#"
@@ -485,7 +511,7 @@ const handleInquiry = async () => {
       >
         <div v-if="isMobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-xl z-40 overflow-hidden">
           <div class="flex flex-col p-4 gap-2">
-            <a v-for="link in ['hero', 'tech', 'experience', 'education', 'portfolio', 'contact']" 
+          <a v-for="link in navLinks" 
                :key="`mobile-${link}`"
                @click.prevent="scrollTo(link); isMobileMenuOpen = false"
                href="#"
@@ -648,7 +674,7 @@ const handleInquiry = async () => {
           <!-- Stats Section -->
           <div class="mt-16 grid grid-cols-3 gap-6">
             <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
-              <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">{{ techStack.reduce((acc, g) => acc + g.items.length, 0) }}+</div>
+              <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">{{ totalTechCount }}+</div>
               <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Technologies</div>
             </div>
             <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
@@ -835,12 +861,12 @@ const handleInquiry = async () => {
                   :alt="project.title" 
                   quality="95" 
                   densities="x1 x2"
-                  :class="[(project.category === 'fullstack' && project.title !== 'WowPremi' && !project.title.includes('OGYA') && !project.title.includes('BKKBN') && project.title !== 'Sheldon Dental Management' && project.title !== 'Carfix' && !project.title.includes('SIDARA') && !project.title.includes('Minerba')) ? 'object-cover w-full h-full' : 'object-contain w-full h-full p-4', 'group-hover:scale-105 transition-transform duration-500']" 
+                  :class="[getProjectImageClass(project), 'group-hover:scale-105 transition-transform duration-500']" 
                   loading="lazy" 
                 />
                 <div class="absolute top-4 left-4">
-                  <span :class="['text-xs font-bold px-3 py-1 rounded-full', project.qaLabel ? 'bg-secondary text-on-secondary' : project.category === 'frontend' ? 'bg-primary text-on-primary' : project.category === 'fullstack' ? 'bg-tertiary text-on-tertiary' : 'bg-secondary text-on-secondary']">
-                    {{ project.qaLabel || (project.category.charAt(0).toUpperCase() + project.category.slice(1)) }}
+                  <span :class="['text-xs font-bold px-3 py-1 rounded-full', getProjectBadgeClass(project)]">
+                    {{ getProjectBadgeLabel(project) }}
                   </span>
                 </div>
               </div>
