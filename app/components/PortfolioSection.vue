@@ -83,53 +83,55 @@ const getProjectBadgeLabel = (project) => {
         <div
           v-for="project in filteredPortfolio"
           :key="project.id"
-          class="portfolio-card group bg-surface-container-lowest dark:bg-slate-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/20 dark:border-slate-800 hover:-translate-y-1"
+          class="portfolio-card group relative rounded-2xl transition-all duration-500 hover:-translate-y-1"
         >
-          <div class="relative h-48 bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
-            <NuxtImg
-              :src="project.image"
-              :alt="project.title"
-              quality="95"
-              densities="x1 x2"
-              :class="[getProjectImageClass(project), 'group-hover:scale-105 transition-transform duration-500']"
-              loading="lazy"
-            />
-            <div class="absolute top-4 left-4">
-              <span :class="['text-xs font-bold px-3 py-1 rounded-full', getProjectBadgeClass(project)]">
-                {{ getProjectBadgeLabel(project) }}
-              </span>
+          <div class="portfolio-card-inner h-full rounded-[14px] overflow-hidden bg-surface-container-lowest dark:bg-slate-900">
+            <div class="relative h-48 bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+              <NuxtImg
+                :src="project.image"
+                :alt="project.title"
+                quality="95"
+                densities="x1 x2"
+                :class="[getProjectImageClass(project), 'group-hover:scale-105 transition-transform duration-500']"
+                loading="lazy"
+              />
+              <div class="absolute top-4 left-4">
+                <span :class="['text-xs font-bold px-3 py-1 rounded-full', getProjectBadgeClass(project)]">
+                  {{ getProjectBadgeLabel(project) }}
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-headline text-xl font-bold mb-2 dark:text-white">{{ project.title }}</h3>
-            <p class="text-on-surface-variant dark:text-slate-400 text-sm mb-4 leading-relaxed">{{ project.description }}</p>
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span v-for="tag in project.tags" :key="tag" class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">{{ tag }}</span>
-            </div>
-            <div class="flex flex-wrap gap-3">
-              <template v-if="project.web">
-                <a :href="project.web" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6h-3A2.25 2.25 0 0 0 4.5 8.25v9A2.25 2.25 0 0 0 6.75 19.5h9A2.25 2.25 0 0 0 18 17.25v-3" />
-                  </svg>
-                  Web
-                </a>
-              </template>
-              <template v-if="project.appStore">
-                <a :href="project.appStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg> App Store
-                </a>
-              </template>
-              <template v-if="project.playStore">
-                <a :href="project.playStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 7.5 4.5M15 6.75l1.5-2.25M7.5 9.75h9M8.25 9.75v6.75m7.5-6.75v6.75M9.75 16.5h4.5a2.25 2.25 0 0 0 2.25-2.25V9.75H7.5v4.5a2.25 2.25 0 0 0 2.25 2.25Z" />
-                  </svg>
-                  Play Store
-                </a>
-              </template>
-              <span v-if="project.info" class="text-xs text-on-surface-variant dark:text-slate-400 italic transition-colors">{{ project.info }}</span>
+            <div class="p-6">
+              <h3 class="font-headline text-xl font-bold mb-2 dark:text-white">{{ project.title }}</h3>
+              <p class="text-on-surface-variant dark:text-slate-400 text-sm mb-4 leading-relaxed">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span v-for="tag in project.tags" :key="tag" class="text-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-medium">{{ tag }}</span>
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <template v-if="project.web">
+                  <a :href="project.web" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6h-3A2.25 2.25 0 0 0 4.5 8.25v9A2.25 2.25 0 0 0 6.75 19.5h9A2.25 2.25 0 0 0 18 17.25v-3" />
+                    </svg>
+                    Web
+                  </a>
+                </template>
+                <template v-if="project.appStore">
+                  <a :href="project.appStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg> App Store
+                  </a>
+                </template>
+                <template v-if="project.playStore">
+                  <a :href="project.playStore" target="_blank" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 7.5 4.5M15 6.75l1.5-2.25M7.5 9.75h9M8.25 9.75v6.75m7.5-6.75v6.75M9.75 16.5h4.5a2.25 2.25 0 0 0 2.25-2.25V9.75H7.5v4.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                    </svg>
+                    Play Store
+                  </a>
+                </template>
+                <span v-if="project.info" class="text-xs text-on-surface-variant dark:text-slate-400 italic transition-colors">{{ project.info }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -137,3 +139,73 @@ const getProjectBadgeLabel = (project) => {
     </div>
   </section>
 </template>
+
+<style scoped>
+.portfolio-card {
+  isolation: isolate;
+  border-radius: 1rem;
+  border: 2.5px solid rgba(0, 98, 157, 0.25);
+  box-shadow:
+    0 14px 34px rgba(0, 51, 90, 0.12),
+    0 1px 3px rgba(15, 23, 42, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+}
+
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  opacity: 0.9;
+}
+
+.portfolio-card::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(0, 163, 255, 0.18), transparent 54%),
+    radial-gradient(circle at bottom left, rgba(81, 95, 116, 0.12), transparent 58%);
+  filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 350ms ease;
+}
+
+.portfolio-card:hover {
+  box-shadow:
+    0 24px 62px rgba(0, 51, 90, 0.2),
+    0 8px 20px rgba(0, 98, 157, 0.14),
+    0 0 0 1px rgba(0, 98, 157, 0.12);
+  border-color: rgba(0, 98, 157, 0.55);
+}
+
+.portfolio-card:hover::after {
+  opacity: 0.86;
+}
+
+.dark .portfolio-card {
+  border-color: rgba(56, 189, 248, 0.35);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.35));
+  box-shadow:
+    0 16px 36px rgba(2, 6, 23, 0.5),
+    0 1px 2px rgba(148, 163, 184, 0.06);
+}
+
+.dark .portfolio-card:hover {
+  box-shadow:
+    0 26px 64px rgba(2, 6, 23, 0.58),
+    0 0 0 1px rgba(56, 189, 248, 0.2),
+    0 0 18px rgba(56, 189, 248, 0.14);
+}
+
+.portfolio-card-inner {
+  border-radius: calc(1rem - 2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+</style>
