@@ -652,11 +652,11 @@ const handleInquiry = async () => {
               <article
                 v-for="(exp, idx) in experiences"
                 :key="`exp-${idx}-${exp.company}`"
-                :class="['relative experience-card', idx % 2 !== 0 ? 'md:mt-10' : '']"
+                :class="['relative experience-card', idx % 2 !== 0 ? 'md:mt-10' : '', exp.role === 'Quality Assurance' ? 'md:col-span-2 md:mt-0' : '']"
                 :style="{ '--exp-delay': `${idx * 100}ms` }"
               >
                 <!-- Desktop dot on center timeline line -->
-                <div :class="['hidden md:block absolute top-6 w-3.5 h-3.5 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low dark:bg-slate-700 dark:ring-slate-900']" :style="idx % 2 === 0 ? { left: 'calc(100% + 16px)', transform: 'translateX(-50%)' } : { left: '-16px', transform: 'translateX(-50%)' }"></div>
+                <div :class="['hidden md:block absolute top-6 w-3.5 h-3.5 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low dark:bg-slate-700 dark:ring-slate-900']" :style="exp.role === 'Quality Assurance' ? { left: '50%', transform: 'translateX(-50%)' } : idx % 2 === 0 ? { left: 'calc(100% + 16px)', transform: 'translateX(-50%)' } : { left: '-16px', transform: 'translateX(-50%)' }"></div>
                 <!-- Mobile dot -->
                 <div :class="['md:hidden absolute left-[7px] top-5 w-[26px] h-[26px] rounded-full border-2 z-10 flex items-center justify-center', exp.isCurrent ? 'border-primary bg-primary/10 dark:bg-primary/20' : 'border-outline-variant dark:border-slate-600 bg-surface dark:bg-slate-900']">
                   <div :class="['w-2.5 h-2.5 rounded-full', exp.isCurrent ? 'bg-primary animate-pulse' : 'bg-on-surface-variant/40 dark:bg-slate-500']"></div>
