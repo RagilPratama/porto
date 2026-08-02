@@ -57,7 +57,7 @@ const getProjectBadgeLabel = (project) => {
 </script>
 
 <template>
-  <section class="py-24 bg-surface dark:bg-slate-950 cv-auto scroll-mt-40 relative overflow-hidden" id="portfolio">
+  <section class="py-24 bg-surface dark:bg-slate-950 scroll-mt-40 relative overflow-hidden" id="portfolio">
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-portfolio"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="text-center mb-16">

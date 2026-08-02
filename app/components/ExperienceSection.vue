@@ -121,7 +121,7 @@ onMounted(() => {
         experienceObserver = null;
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0, rootMargin: '0px 0px -100px 0px' });
 
   const observe = () => experienceObserver?.observe(experienceSection);
   if ('requestIdleCallback' in window) {
@@ -138,7 +138,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section :class="['py-24 bg-surface dark:bg-slate-950 cv-auto scroll-mt-40 relative overflow-hidden', { 'experience-visible': experienceVisible }]" id="experience">
+  <section :class="['py-24 bg-surface dark:bg-slate-950 scroll-mt-40 relative overflow-hidden', { 'experience-visible': experienceVisible }]" id="experience">
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-experience"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="text-center mb-16">
