@@ -15,7 +15,6 @@ export default defineNuxtConfig({
       { code: 'id', name: 'Bahasa Indonesia', file: 'id.json' },
     ],
     defaultLocale: 'en',
-    lazy: true,
     langDir: 'locales',
     strategy: 'no_prefix',
     detectBrowserLanguage: false,
