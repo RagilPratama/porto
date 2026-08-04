@@ -75,21 +75,24 @@ const categoryTheme = {
     chip: 'bg-primary/10 text-primary dark:bg-blue-400/15 dark:text-blue-400',
     dots: 'dots-blue',
     hover: 'hover:border-blue-400/60 hover:shadow-[0_24px_60px_-18px_rgba(0,98,157,0.45)] dark:hover:shadow-[0_24px_60px_-18px_rgba(56,189,248,0.35)]',
-    logoHover: 'group-hover:bg-blue-50 dark:group-hover:bg-blue-500/10'
+    logoHover: 'group-hover:bg-blue-50 dark:group-hover:bg-blue-500/10',
+    link: 'border-primary/40 text-primary hover:bg-primary/10 dark:border-blue-400/40 dark:text-blue-400 dark:hover:bg-blue-400/10'
   },
   fullstack: {
     badge: 'bg-tertiary text-on-tertiary',
     chip: 'bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/15 dark:text-indigo-400',
     dots: 'dots-indigo',
     hover: 'hover:border-indigo-400/60 hover:shadow-[0_24px_60px_-18px_rgba(99,102,241,0.45)] dark:hover:shadow-[0_24px_60px_-18px_rgba(129,140,248,0.35)]',
-    logoHover: 'group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10'
+    logoHover: 'group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10',
+    link: 'border-indigo-400/40 text-indigo-600 hover:bg-indigo-500/10 dark:border-indigo-400/40 dark:text-indigo-400 dark:hover:bg-indigo-400/10'
   },
   backend: {
     badge: 'bg-secondary text-on-secondary',
     chip: 'bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-400',
     dots: 'dots-emerald',
     hover: 'hover:border-emerald-400/60 hover:shadow-[0_24px_60px_-18px_rgba(16,185,129,0.45)] dark:hover:shadow-[0_24px_60px_-18px_rgba(52,211,153,0.35)]',
-    logoHover: 'group-hover:bg-emerald-50 dark:group-hover:bg-emerald-500/10'
+    logoHover: 'group-hover:bg-emerald-50 dark:group-hover:bg-emerald-500/10',
+    link: 'border-emerald-400/40 text-emerald-600 hover:bg-emerald-500/10 dark:border-emerald-400/40 dark:text-emerald-400 dark:hover:bg-emerald-400/10'
   }
 };
 
@@ -200,23 +203,28 @@ const getProjectBadgeLabel = (project) => {
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
                   <template v-if="project.web">
-                    <a :href="project.web" target="_blank" class="text-[11px] font-bold text-white bg-primary dark:bg-blue-500 hover:bg-primary/85 dark:hover:bg-blue-400 rounded-full px-4 py-2 transition-colors inline-flex items-center gap-1.5 shadow-lg shadow-primary/25">
+                    <a :href="project.web" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6h-3A2.25 2.25 0 0 0 4.5 8.25v9A2.25 2.25 0 0 0 6.75 19.5h9A2.25 2.25 0 0 0 18 17.25v-3" />
+                        <circle cx="12" cy="12" r="10" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20" />
                       </svg>
                       {{ t('portfolio.web') }}
                     </a>
                   </template>
                   <template v-if="project.appStore">
-                    <a :href="project.appStore" target="_blank" class="text-[11px] font-bold text-white bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600 rounded-full px-4 py-2 transition-colors inline-flex items-center gap-1.5">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg> {{ t('portfolio.appStore') }}
+                    <a :href="project.appStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 2c1 .5 2 2 2 5" />
+                      </svg>
+                      {{ t('portfolio.appStore') }}
                     </a>
                   </template>
                   <template v-if="project.playStore">
-                    <a :href="project.playStore" target="_blank" class="text-[11px] font-bold text-white bg-slate-800 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600 rounded-full px-4 py-2 transition-colors inline-flex items-center gap-1.5">
+                    <a :href="project.playStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 7.5 4.5M15 6.75l1.5-2.25M7.5 9.75h9M8.25 9.75v6.75m7.5-6.75v6.75M9.75 16.5h4.5a2.25 2.25 0 0 0 2.25-2.25V9.75H7.5v4.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                       </svg>
                       {{ t('portfolio.playStore') }}
                     </a>
@@ -256,23 +264,28 @@ const getProjectBadgeLabel = (project) => {
               </div>
               <div class="flex flex-wrap items-center gap-2.5">
                 <template v-if="project.web">
-                  <a :href="project.web" target="_blank" class="text-[11px] font-bold text-primary dark:text-blue-400 hover:underline inline-flex items-center gap-1">
+                  <a :href="project.web" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H18m0 0v4.5M18 6l-7.5 7.5" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 6h-3A2.25 2.25 0 0 0 4.5 8.25v9A2.25 2.25 0 0 0 6.75 19.5h9A2.25 2.25 0 0 0 18 17.25v-3" />
+                      <circle cx="12" cy="12" r="10" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20" />
                     </svg>
                     {{ t('portfolio.web') }}
                   </a>
                 </template>
                 <template v-if="project.appStore">
-                  <a :href="project.appStore" target="_blank" class="text-[11px] font-bold text-primary dark:text-blue-400 hover:underline inline-flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current" viewBox="0 0 814 1000"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76.5 0-103.7 40.8-165.9 40.8s-105-43.8-155.5-127.4C46 790.9 0 663.1 0 541.8C0 347.4 108.2 225 225.4 225c61.6 0 111.4 40.8 149.2 40.8 37.8 0 96.2-43.1 161.4-43.1 25.8 0 108.2 2.6 168.1 80.8zm-127.4-184c30.1-36.8 51.9-87.8 51.9-138.9 0-7.1-.6-14.3-1.9-20.1-48.7 1.9-106.4 32.5-141.5 74.6-26.1 30.1-51.9 81.1-51.9 132.8 0 7.7 1.3 15.5 1.9 17.8 3.2.6 8.4 1.3 13.6 1.3 43.8 0 98.3-29.5 127.9-67.5z"/></svg> {{ t('portfolio.appStore') }}
+                  <a :href="project.appStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M10 2c1 .5 2 2 2 5" />
+                    </svg>
+                    {{ t('portfolio.appStore') }}
                   </a>
                 </template>
                 <template v-if="project.playStore">
-                  <a :href="project.playStore" target="_blank" class="text-[11px] font-bold text-primary dark:text-blue-400 hover:underline inline-flex items-center gap-1">
+                  <a :href="project.playStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75 7.5 4.5M15 6.75l1.5-2.25M7.5 9.75h9M8.25 9.75v6.75m7.5-6.75v6.75M9.75 16.5h4.5a2.25 2.25 0 0 0 2.25-2.25V9.75H7.5v4.5a2.25 2.25 0 0 0 2.25 2.25Z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                     </svg>
                     {{ t('portfolio.playStore') }}
                   </a>
