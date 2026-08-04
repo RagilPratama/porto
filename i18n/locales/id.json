@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "hireMe": "Hire Me",
+    "toggleTheme": "Ubah tema",
+    "toggleMenu": "Buka menu",
+    "switchLanguage": "Ganti bahasa",
+    "links": {
+      "hero": "Beranda",
+      "tech": "Tech Stack",
+      "experience": "Pengalaman",
+      "education": "Pendidikan",
+      "portfolio": "Portofolio",
+      "contact": "Kontak"
+    }
+  },
+  "hero": {
+    "badge": "Perkenalan",
+    "title": "Halo, Saya Ragil Pratama",
+    "description": "Fullstack developer yang fokus pada arsitektur web yang skalabel, integrasi API yang bersih, dan kode yang mudah dipelihara untuk mendukung pengiriman produk yang cepat.",
+    "ctaPrimary": "Mulai Kolaborasi",
+    "ctaSecondary": "Lihat Pengalaman",
+    "frontendBadge": "Frontend Dev",
+    "backendBadge": "Backend Dev",
+    "portraitAlt": "Potret profesional"
+  },
+  "tech": {
+    "title": "Technical Stack",
+    "description": "Filosofi pengembangan saya adalah memilih alat yang tepat untuk tantangan arsitektural yang spesifik.",
+    "technologies": "Teknologi",
+    "years": "Tahun Pengalaman",
+    "projects": "Proyek Selesai"
+  },
+  "education": {
+    "title": "Pendidikan",
+    "subtitle": "Latar belakang akademik dan kualifikasi pendidikan saya"
+  },
+  "terminal": {
+    "title": "Ringkasan",
+    "subtitle": "Sekilas tentang konfigurasi teknis dan pola pikir saya.",
+    "developer": {
+      "name": "Ragil Pratama",
+      "role": "Full Stack Software Engineer",
+      "location": "Bogor, Indonesia",
+      "status": "Siap Menerima Peluang"
+    }
+  },
+  "contact": {
+    "title": "Mari",
+    "titleAccent": "Berkolaborasi",
+    "description": "Punya tantangan arsitektural yang kompleks atau proyek yang butuh penanganan yang mantap? Saya saat ini terbuka untuk peran konsultasi dan lead engineering.",
+    "email": "Email",
+    "location": "Lokasi",
+    "locationValue": "Bogor, Indonesia",
+    "mapAlt": "Peta",
+    "form": {
+      "name": "Nama Lengkap",
+      "email": "Email",
+      "message": "Pesan",
+      "namePlaceholder": "John Doe",
+      "emailPlaceholder": "john{'@'}example.com",
+      "messagePlaceholder": "Ceritakan tentang proyek Anda...",
+      "nameRequired": "Nama lengkap wajib diisi",
+      "emailRequired": "Alamat email wajib diisi",
+      "emailInvalid": "Masukkan alamat email yang valid",
+      "messageRequired": "Pesan tidak boleh kosong",
+      "requiredFields": "Kolom Wajib:",
+      "nameMissing": "Nama lengkap belum diisi",
+      "emailMissing": "Alamat email belum diisi",
+      "emailInvalidShort": "Format email tidak valid",
+      "messageMissing": "Pesan tidak boleh kosong",
+      "send": "Kirim Pertanyaan",
+      "sending": "Mengirim...",
+      "success": "Pertanyaan berhasil dikirim! Saya akan segera menghubungi Anda.",
+      "alertInvalid": "Harap isi semua kolom dengan benar sebelum mengirim.",
+      "alertFailed": "Gagal mengirim pertanyaan. Silakan coba lagi."
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 M. Ragil Pratama. Dibuat dengan presisi."
+  },
+  "experience": {
+    "title": "Pengalaman Kerja",
+    "subtitle": "Perjalanan kronologis membangun solusi dunia nyata di berbagai industri.",
+    "current": "Saat Ini",
+    "fullTime": "Penuh Waktu"
+  },
+  "portfolio": {
+    "title": "Portofolio",
+    "subtitle": "Pilihan proyek yang pernah saya kerjakan — dari platform pemerintah hingga aplikasi web asuransi dan lainnya.",
+    "categories": {
+      "all": "Semua",
+      "frontend": "Frontend",
+      "fullstack": "Fullstack",
+      "backend": "Backend / API"
+    },
+    "web": "Web",
+    "appStore": "App Store",
+    "playStore": "Play Store"
+  }
+}

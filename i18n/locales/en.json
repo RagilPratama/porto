@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "hireMe": "Hire Me",
+    "toggleTheme": "Toggle theme",
+    "toggleMenu": "Toggle menu",
+    "switchLanguage": "Switch language",
+    "links": {
+      "hero": "Hero",
+      "tech": "Tech Stack",
+      "experience": "Experience",
+      "education": "Education",
+      "portfolio": "Portfolio",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "badge": "Introduction",
+    "title": "Hi, I'm Ragil Pratama",
+    "description": "Fullstack developer focused on scalable web architecture, clean API integration, and maintainable code that supports fast product delivery.",
+    "ctaPrimary": "Start Collaboration",
+    "ctaSecondary": "View Experience",
+    "frontendBadge": "Frontend Dev",
+    "backendBadge": "Backend Dev",
+    "portraitAlt": "Professional portrait"
+  },
+  "tech": {
+    "title": "Technical Stack",
+    "description": "The blueprint of my development philosophy involves selecting the right tool for the specific architectural challenge.",
+    "technologies": "Technologies",
+    "years": "Years Experience",
+    "projects": "Projects Delivered"
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "My academic background and educational qualifications"
+  },
+  "terminal": {
+    "title": "Summary",
+    "subtitle": "A quick look into my technical configuration and mindset.",
+    "developer": {
+      "name": "Ragil Pratama",
+      "role": "Full Stack Software Engineer",
+      "location": "Bogor, Indonesia",
+      "status": "Ready for Opportunities"
+    }
+  },
+  "contact": {
+    "title": "Let's",
+    "titleAccent": "Collaborate",
+    "description": "Have a complex architectural challenge or a project that needs a steady hand? I'm currently open to consulting and lead engineering roles.",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Bogor, Indonesia",
+    "mapAlt": "Map",
+    "form": {
+      "name": "Full Name",
+      "email": "Email",
+      "message": "Message",
+      "namePlaceholder": "John Doe",
+      "emailPlaceholder": "john{'@'}example.com",
+      "messagePlaceholder": "Tell me about your project...",
+      "nameRequired": "Full name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message cannot be empty",
+      "requiredFields": "Required Fields:",
+      "nameMissing": "Full name is missing",
+      "emailMissing": "Email address is missing",
+      "emailInvalidShort": "Email format is invalid",
+      "messageMissing": "Message cannot be empty",
+      "send": "Send Inquiry",
+      "sending": "Sending...",
+      "success": "Inquiry sent successfully! I will contact you soon.",
+      "alertInvalid": "Please fill out all fields correctly before sending.",
+      "alertFailed": "Failed to send inquiry. Please try again."
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 M. Ragil Pratama. Built with precision."
+  },
+  "experience": {
+    "title": "Work Experience",
+    "subtitle": "A chronological journey of building real-world solutions across industries.",
+    "current": "Current",
+    "fullTime": "Full-time"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "A selection of projects I've built — from government platforms to insurance web apps and beyond.",
+    "categories": {
+      "all": "All",
+      "frontend": "Frontend",
+      "fullstack": "Fullstack",
+      "backend": "Backend / API"
+    },
+    "web": "Web",
+    "appStore": "App Store",
+    "playStore": "Play Store"
+  }
+}

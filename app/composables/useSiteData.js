@@ -24,28 +24,6 @@ export const useSiteData = () => {
   ];
   const totalTechCount = techStack.reduce((acc, group) => acc + group.items.length, 0);
 
-  const education = [
-    {
-      degree: 'Bachelor Degree in Informatics Engineering',
-      school: 'Universitas Indraprasta PGRI (UNINDRA)',
-      image: '/graduation.png',
-      period: 'Graduated: 2025',
-      highlight: 'Jakarta, Indonesia',
-      description: 'Focused on software engineering practices, web architecture, and applied fullstack development.',
-      year: '2025',
-      isRecent: true
-    },
-    {
-      degree: 'Software Engineering Vocational Program',
-      school: 'Vocational High School Wikrama',
-      image: '/graduation.png',
-      period: 'Graduated: 2018',
-      highlight: 'Bogor, Indonesia',
-      description: 'Built strong foundations in programming, quality assurance, and project collaboration.',
-      year: '2018'
-    }
-  ];
-
   const socials = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ragil-pratama-824351145/', icon: 'linkedin' },
     { name: 'GitHub', url: 'https://github.com/RagilPratama', icon: 'github' },
@@ -53,5 +31,5 @@ export const useSiteData = () => {
     { name: 'Email', url: 'mailto:ragilpratamaaa@gmail.com', icon: 'email' }
   ];
 
-  return { navLinks, techStack, totalTechCount, education, socials };
+  return { navLinks, techStack, totalTechCount, socials };
 };

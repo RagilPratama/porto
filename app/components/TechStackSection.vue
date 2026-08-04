@@ -3,6 +3,8 @@ defineProps({
   techStack: { type: Array, required: true },
   totalTechCount: { type: Number, required: true }
 });
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -12,8 +14,8 @@ defineProps({
 
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="mb-16 text-center">
-        <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">Technical Stack</h2>
-        <p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto">The blueprint of my development philosophy involves selecting the right tool for the specific architectural challenge.</p>
+        <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">{{ t('tech.title') }}</h2>
+        <p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto">{{ t('tech.description') }}</p>
       </div>
 
       <!-- Unified Tech Grid with Animation -->
@@ -67,15 +69,15 @@ defineProps({
       <div class="mt-16 grid grid-cols-3 gap-6">
         <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
           <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">{{ totalTechCount }}+</div>
-          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Technologies</div>
+          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">{{ t('tech.technologies') }}</div>
         </div>
         <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
           <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">7+</div>
-          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Years Experience</div>
+          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">{{ t('tech.years') }}</div>
         </div>
         <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
           <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">10+</div>
-          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">Projects Delivered</div>
+          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">{{ t('tech.projects') }}</div>
         </div>
       </div>
     </div>

@@ -1,7 +1,9 @@
 <script setup>
 const { scrollTo } = useSectionNavigation();
+const { t } = useI18n();
+const localized = useLocalizedData();
 
-const heroTitleTargets = ['Fullstack Developer', 'Frontend Developer', 'Backend Developer'];
+const heroTitleTargets = computed(() => localized.value.hero.roles);
 const heroTitleTyped = ref('');
 let heroTypingInterval = null;
 let heroTypingTimeout = null;
@@ -50,7 +52,7 @@ const resetHeroBgMove = () => {
 
 onMounted(() => {
   const startHeroTyping = () => {
-    const activeTitle = heroTitleTargets[heroTypingTargetIndex];
+    const activeTitle = heroTitleTargets.value[heroTypingTargetIndex];
     heroTypingInterval = window.setInterval(() => {
       if (heroTypingIndex < activeTitle.length) {
         heroTitleTyped.value += activeTitle.charAt(heroTypingIndex);
@@ -64,7 +66,7 @@ onMounted(() => {
       heroTypingTimeout = window.setTimeout(() => {
         heroTitleTyped.value = '';
         heroTypingIndex = 0;
-        heroTypingTargetIndex = (heroTypingTargetIndex + 1) % heroTitleTargets.length;
+        heroTypingTargetIndex = (heroTypingTargetIndex + 1) % heroTitleTargets.value.length;
         startHeroTyping();
       }, 1400);
     }, 75);
@@ -73,7 +75,6 @@ onMounted(() => {
   startHeroTyping();
   supportsHeroBg3d.value = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 });
-
 onBeforeUnmount(() => {
   if (heroTypingInterval) window.clearInterval(heroTypingInterval);
   if (heroTypingTimeout) window.clearTimeout(heroTypingTimeout);
@@ -91,21 +92,21 @@ onBeforeUnmount(() => {
     <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
       <div class="lg:col-span-7 z-10 text-center lg:text-left">
         <span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-wider mb-6">
-          Introduction
+          {{ t('hero.badge') }}
         </span>
         <h1 class="font-sans md:font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface dark:text-white leading-[1.1] mb-8">
-          Hi, I'm Ragil Pratama <br/>
+          {{ t('hero.title') }} <br/>
           <span class="block mt-2 text-3xl sm:text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-container to-primary transition-all duration-300">{{ heroTitleTyped }}<span class="animate-pulse">|</span></span>
         </h1>
         <p class="text-lg text-on-surface-variant dark:text-slate-400 max-w-xl mb-10 leading-relaxed mx-auto lg:mx-0">
-          Fullstack developer focused on scalable web architecture, clean API integration, and maintainable code that supports fast product delivery.
+          {{ t('hero.description') }}
         </p>
         <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
           <button @click="scrollTo('contact')" class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-md font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-95">
-            Start Collaboration
+            {{ t('hero.ctaPrimary') }}
           </button>
           <button @click="scrollTo('experience')" class="bg-surface-container-lowest text-primary border border-outline-variant/30 px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-bright transition-all">
-            View Experience
+            {{ t('hero.ctaSecondary') }}
           </button>
         </div>
       </div>
@@ -121,7 +122,7 @@ onBeforeUnmount(() => {
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 21 12l-3.75 5.25M6.75 6.75 3 12l3.75 5.25M14.25 4.5 9.75 19.5" />
                 </svg>
               </div>
-              <span class="text-xs font-bold tracking-tight">Frontend Dev</span>
+              <span class="text-xs font-bold tracking-tight">{{ t('hero.frontendBadge') }}</span>
             </div>
           </div>
           <div class="absolute bottom-20 -left-8 glass-card px-4 py-3 rounded-xl shadow-xl z-30 animate-float" style="animation-delay: -2s;">
@@ -132,7 +133,7 @@ onBeforeUnmount(() => {
                   <path stroke-linecap="round" stroke-linejoin="round" d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" />
                 </svg>
               </div>
-              <span class="text-xs font-bold tracking-tight">Backend Dev</span>
+              <span class="text-xs font-bold tracking-tight">{{ t('hero.backendBadge') }}</span>
             </div>
           </div>
 
@@ -150,7 +151,7 @@ onBeforeUnmount(() => {
                 sizes="(max-width: 768px) 78vw, (max-width: 1280px) 36vw, 504px"
                 densities="x1 x2"
                 src="/profile.jpg"
-                alt="Professional portrait"
+                :alt="t('hero.portraitAlt')"
                 class="w-full h-full object-cover rounded-3xl"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent opacity-60"></div>

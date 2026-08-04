@@ -1,110 +1,61 @@
 <script setup>
-const experiences = [
+const { t } = useI18n();
+const localized = useLocalizedData();
+
+const experienceMeta = [
   {
-    role: 'Frontend Developer',
     company: 'Bank Central Asia (BCA) - Ocean',
-    type: 'Full-time',
     period: 'Apr 2026 — Present',
     location: 'Jakarta, Indonesia',
-    impact: 'Building Ocean by BCA, an integrated business ecosystem platform connecting 34+ million customers with banking, operational, and industry networks.',
     tech: ['Next.js', 'Micro Frontend', 'TypeScript', 'REST API'],
-    points: [
-      'Developed and maintained Ocean by BCA (ocean.bca.co.id), a comprehensive business ecosystem platform with integrated dashboard, product recommendations, and myEcosystem features.',
-      'Implemented micro frontend architecture using Next.js to enable scalable, modular development across multiple business domains.',
-      'Built real-time integrated dashboards displaying cash flow, transaction trends, and business analytics for data-driven decision making.',
-      'Collaborated with cross-functional teams to deliver features supporting 99% digital transactions with 76% volume growth.'
-    ],
     isCurrent: true
   },
   {
-    role: 'Frontend Developer',
     company: 'AIA Indonesia',
-    type: 'Full-time',
     period: 'Aug 2023 — Apr 2026',
     location: 'Jakarta, Indonesia',
-    impact: 'Shipped reusable frontend architecture and performance-focused UI for insurance products serving millions of policyholders.',
-    tech: ['Vue 3', 'Pinia', 'Vue Router', 'REST API'],
-    points: [
-      'Built and maintained customer-facing modules with Vue.js 2/3 and Pinia state patterns, delivering policy management, claims submission, and premium payment features for web and mobile web platforms.',
-      'Converted design specs into responsive, accessible interfaces with consistent component standards, establishing a shared design system used across multiple product teams to reduce UI drift.',
-      'Integrated REST APIs and improved delivery quality through cross-team collaboration with backend engineers and QA, reducing integration-related defects by enforcing contract-first development practices.'
-    ]
+    tech: ['Vue 3', 'Pinia', 'Vue Router', 'REST API']
   },
   {
-    role: 'Backend Developer',
     company: 'Bank Central Asia (BCA) - OASE',
-    type: 'Full-time',
     period: 'Feb 2023 — Jul 2023',
     location: 'Jakarta, Indonesia',
-    impact: 'Engineered high-performance backend services for internal banking infrastructure handling secure transaction processing.',
-    tech: ['Node.js', 'Express.js', 'MySQL', 'REST API'],
-    points: [
-      'Developed and maintained OASE, an internal banking application focused on secure data processing, supporting daily operations for thousands of internal users across BCA branches.',
-      'Designed scalable RESTful APIs to facilitate seamless communication between banking modules — including transaction monitoring, reporting pipelines, and user management — with proper authentication and role-based access control.',
-      'Optimized backend workflows, query execution plans, and database indexing strategies to ensure high availability and sub-second response times under heavy concurrent load.'
-    ]
+    tech: ['Node.js', 'Express.js', 'MySQL', 'REST API']
   },
   {
-    role: 'Fullstack Developer',
     company: 'BKKBN Indonesia',
-    type: 'Full-time',
     period: 'Jan 2020 — Feb 2023',
     location: 'Jakarta, Indonesia',
-    impact: 'Delivered national-scale public service platforms serving family planning and population programs across Indonesia.',
-    tech: ['Laravel', 'ReactJS', 'MySQL', 'Integration API'],
-    points: [
-      'Developed core services, admin dashboards, and role-based access control for the BKKBN Portal using Laravel, enabling regional teams to manage program data independently.',
-      'Built RESTful API integrations connecting several internal BKKBN ecosystems — including family planning reporting, population data, and regional budget tracking — into a unified platform.',
-      'Delivered and presented production-ready solutions to nationwide stakeholders, ensuring compliance with government data standards and accessibility requirements.',
-      'Maintained and optimized MySQL databases handling large-scale population and program datasets, improving query performance for reporting modules.'
-    ]
+    tech: ['Laravel', 'ReactJS', 'MySQL', 'Integration API']
   },
   {
-    role: 'Fullstack Developer',
     company: 'Kementerian ESDM',
-    type: 'Full-time',
     period: 'Jun 2019 — Jan 2020',
     location: 'Jakarta, Indonesia',
-    impact: 'Spearheaded the development of internal management systems and public-facing portals for mineral and coal governance.',
-    tech: ['CodeIgniter', 'Laravel', 'Yii', 'PHP'],
-    points: [
-      'Built and deployed SIDARA and SUPEL applications for internal mineral and coal management using CodeIgniter and Laravel, enabling ministry staff to track licensing, production, and compliance data in real time.',
-      'Developed and maintained the Minerba homepage as a public-facing portal, improving accessibility to ministry regulations, mineral data dashboards, and public announcements for citizens and industry stakeholders.',
-      'Implemented robust backend logic and architectural patterns with Yii and Laravel frameworks, including multi-tier authentication, audit logging, and data validation for government compliance requirements.',
-      'Designed normalized MySQL database schemas for mineral resource datasets, supporting complex reporting queries across regional mining operations nationwide.'
-    ]
+    tech: ['CodeIgniter', 'Laravel', 'Yii', 'PHP']
   },
   {
-    role: 'Fullstack Developer',
     company: 'PT Dritama BrokerIndo',
-    type: 'Full-time',
     period: 'Jan 2019 — Jun 2019',
     location: 'Jakarta, Indonesia',
-    impact: 'Accelerated insurance onboarding workflows through payment gateway and multi-partner API integration.',
-    tech: ['Lumen', 'ReactJS', 'Midtrans', 'MySQL'],
-    points: [
-      'Integrated Midtrans payment gateway into web and mobile insurance enrollment flows, handling policy purchases, premium calculations, and real-time payment confirmation.',
-      'Connected external insurance provider APIs (Zurich, KB, Sinarmas, and others) to automate quote retrieval, policy issuance, and claims data exchange across multiple insurers.',
-      'Developed RESTful APIs with Lumen (Laravel micro-framework) for backend orchestration and built interactive frontend modules with ReactJS for the customer-facing insurance portal.',
-      'Designed and optimized MySQL schemas for policy, customer, and transaction data, ensuring data integrity across multi-provider insurance workflows.'
-    ]
+    tech: ['Lumen', 'ReactJS', 'Midtrans', 'MySQL']
   },
   {
-    role: 'Quality Assurance',
     company: 'Indonesia Smartcloud',
-    type: 'Full-time',
     period: 'May 2018 — Dec 2018',
     location: 'Jakarta, Indonesia',
-    impact: 'Improved release confidence and product stability through structured testing discipline and systematic defect reporting.',
-    tech: ['QA Testing', 'Regression', 'Integration Test', 'UAT'],
-    points: [
-      'Executed black-box and regression test suites across web and mobile platforms before each release milestone, reducing post-release defect rates by catching issues early in the cycle.',
-      'Prepared comprehensive test plans, test cases, and QA checklists for UAT and integration testing cycles, covering functional, edge-case, and cross-browser scenarios.',
-      'Tracked, documented, and communicated defects with developers through structured reporting workflows — from reproduction steps to verification and closure — ensuring accountability and traceability.',
-      'Contributed to process improvements by advocating for shift-left testing practices and maintaining a centralized knowledge base of recurring issues and their root causes.'
-    ]
+    tech: ['QA Testing', 'Regression', 'Integration Test', 'UAT']
   }
 ];
+
+const experiences = computed(() => {
+  const items = localized.value.experience.items;
+  return items.map((item, idx) => ({
+    ...item,
+    ...experienceMeta[idx],
+    type: t('experience.fullTime')
+  }));
+});
 
 const experienceVisible = ref(false);
 let experienceObserver = null;
@@ -142,8 +93,8 @@ onBeforeUnmount(() => {
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-experience"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="text-center mb-16">
-        <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">Work Experience</h2>
-        <p class="text-on-surface-variant dark:text-slate-400">A chronological journey of building real-world solutions across industries.</p>
+        <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">{{ t('experience.title') }}</h2>
+        <p class="text-on-surface-variant dark:text-slate-400">{{ t('experience.subtitle') }}</p>
       </div>
 
       <div class="relative">
@@ -170,7 +121,7 @@ onBeforeUnmount(() => {
                     <p class="text-primary dark:text-blue-400 font-bold text-base mt-1">{{ exp.company }}</p>
                   </div>
                   <div class="flex flex-wrap gap-2 md:justify-end shrink-0">
-                    <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-primary text-on-primary">Current</span>
+                    <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-primary text-on-primary">{{ t('experience.current') }}</span>
                     <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-secondary-container text-on-secondary-fixed-variant">{{ exp.type }}</span>
                     <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high dark:bg-slate-800 text-on-surface-variant dark:text-slate-300">{{ exp.period }}</span>
                   </div>

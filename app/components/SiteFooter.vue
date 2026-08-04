@@ -2,6 +2,8 @@
 defineProps({
   socials: { type: Array, required: true }
 });
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -11,7 +13,7 @@ defineProps({
         M. Ragil Pratama
       </div>
       <p class="text-sm text-slate-500 dark:text-slate-400">
-        © 2026 M. Ragil Pratama . Built with precision.
+        {{ t('footer.copyright') }}
       </p>
       <div class="flex gap-6">
         <a v-for="social in socials" :key="social.name" :href="social.url" target="_blank" class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:translate-y-[-2px] transition-transform text-sm font-medium">

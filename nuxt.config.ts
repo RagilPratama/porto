@@ -7,7 +7,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/google-fonts',
     '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
   ],
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'id', name: 'Bahasa Indonesia', file: 'id.json' },
+    ],
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: 'locales',
+    strategy: 'no_prefix',
+    detectBrowserLanguage: false,
+  },
   colorMode: {
     classSuffix: '',
     preference: 'system',

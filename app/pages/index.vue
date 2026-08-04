@@ -1,5 +1,5 @@
 <script setup>
-const { navLinks, techStack, totalTechCount, education, socials } = useSiteData();
+const { navLinks, techStack, totalTechCount, socials } = useSiteData();
 const { setupSectionObserver, stopSectionObserver } = useSectionNavigation();
 
 onMounted(() => {
@@ -29,7 +29,7 @@ onBeforeUnmount(() => {
       <HeroSection />
       <TechStackSection :tech-stack="techStack" :total-tech-count="totalTechCount" />
       <LazyExperienceSection />
-      <EducationSection :education="education" />
+      <EducationSection />
       <LazyPortfolioSection />
       <TerminalSection :tech-stack="techStack" />
       <ContactSection />

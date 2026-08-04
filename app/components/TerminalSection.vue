@@ -4,14 +4,18 @@ defineProps({
 });
 
 const activeTerminalTab = ref('developer.json');
+const { t } = useI18n();
+const localized = useLocalizedData();
+
+const terminalFocus = computed(() => localized.value.terminal.developer.focus);
 </script>
 
 <template>
   <section class="py-24 bg-surface dark:bg-slate-950 relative overflow-hidden scroll-mt-40" id="terminal-profile">
     <div class="max-w-4xl mx-auto px-8 relative z-10">
       <div class="text-center mb-16">
-        <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 dark:text-white">Summary</h2>
-        <p class="text-on-surface-variant dark:text-slate-400">A quick look into my technical configuration and mindset.</p>
+        <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 dark:text-white">{{ t('terminal.title') }}</h2>
+        <p class="text-on-surface-variant dark:text-slate-400">{{ t('terminal.subtitle') }}</p>
       </div>
 
       <div class="relative w-full rounded-xl bg-white dark:bg-[#0a0f1c] border border-slate-200 dark:border-slate-700/50 shadow-xl dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden font-mono text-sm md:text-base transition-transform hover:scale-[1.01] duration-500">
@@ -33,13 +37,13 @@ const activeTerminalTab = ref('developer.json');
           <template v-if="activeTerminalTab === 'developer.json'">
             <div><span class="text-slate-500 dark:text-slate-300">{</span></div>
             <div class="ml-4"><span class="text-blue-600 dark:text-[#3bc0df]">"developer"</span><span class="text-slate-500 dark:text-slate-300">: {</span></div>
-            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"name"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"$Ragil Pratama"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
-            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"role"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"Full Stack Software Engineer"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
-            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"location"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"Bogor, Indonesia"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
-            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"status"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"Ready for Opportunities"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
+            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"name"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"{{ t('terminal.developer.name') }}"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
+            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"role"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"{{ t('terminal.developer.role') }}"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
+            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"location"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"{{ t('terminal.developer.location') }}"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
+            <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"status"</span><span class="text-slate-500 dark:text-slate-300">: </span><span class="text-green-600 dark:text-[#27c93f]">"{{ t('terminal.developer.status') }}"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
             <div class="ml-8"><span class="text-blue-600 dark:text-[#3bc0df]">"architectural_focus"</span><span class="text-slate-500 dark:text-slate-300">: [</span></div>
-            <div class="ml-12"><span class="text-amber-600 dark:text-[#e5c07b]">"Scalable Web Applications"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
-            <div class="ml-12"><span class="text-amber-600 dark:text-[#e5c07b]">"High-Performance REST APIs"</span></div>
+            <div class="ml-12"><span class="text-amber-600 dark:text-[#e5c07b]">"{{ terminalFocus[0] }}"</span><span class="text-slate-500 dark:text-slate-300">,</span></div>
+            <div class="ml-12"><span class="text-amber-600 dark:text-[#e5c07b]">"{{ terminalFocus[1] }}"</span></div>
             <div class="ml-8"><span class="text-slate-500 dark:text-slate-300">]</span></div>
             <div class="ml-4"><span class="text-slate-500 dark:text-slate-300">}</span></div>
             <div><span class="text-slate-500 dark:text-slate-300">}</span></div>

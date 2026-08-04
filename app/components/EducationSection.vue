@@ -1,6 +1,14 @@
 <script setup>
-defineProps({
-  education: { type: Array, required: true }
+const { t } = useI18n();
+const localized = useLocalizedData();
+
+const education = computed(() => {
+  const items = localized.value.education.items;
+  return items.map((item, idx) => ({
+    ...item,
+    image: '/graduation.png',
+    year: idx === 0 ? '2025' : '2018'
+  }));
 });
 </script>
 
@@ -9,8 +17,8 @@ defineProps({
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-education"></div>
     <div class="max-w-6xl mx-auto px-8 relative z-10">
       <div class="text-center mb-12">
-        <h2 class="font-headline text-3xl md:text-4xl font-bold mb-2 tracking-tight dark:text-white">Education</h2>
-        <p class="text-on-surface-variant dark:text-slate-400 text-sm">My academic background and educational qualifications</p>
+        <h2 class="font-headline text-3xl md:text-4xl font-bold mb-2 tracking-tight dark:text-white">{{ t('education.title') }}</h2>
+        <p class="text-on-surface-variant dark:text-slate-400 text-sm">{{ t('education.subtitle') }}</p>
         <div class="w-20 h-0.5 bg-primary rounded-full mx-auto mt-6"></div>
       </div>
 

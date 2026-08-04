@@ -6,9 +6,14 @@ defineProps({
 const isMobileMenuOpen = ref(false);
 const colorMode = useColorMode();
 const { activeSection, scrollTo } = useSectionNavigation();
+const { t, locale, setLocale } = useI18n();
 
 const toggleColorMode = () => {
   colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+};
+
+const switchLanguage = () => {
+  setLocale(locale.value === 'en' ? 'id' : 'en');
 };
 </script>
 
@@ -27,15 +32,50 @@ const toggleColorMode = () => {
              'capitalize transition-all duration-300',
              activeSection === link ? 'text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1' : 'text-slate-600 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-300'
            ]">
-          {{ link === 'tech' ? 'Tech Stack' : link }}
+          {{ t(`nav.links.${link}`) }}
         </a>
       </div>
       <div class="flex items-center gap-4">
+        <!-- Language Switcher -->
+        <button
+          @click="switchLanguage"
+          class="w-9 h-9 p-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 hover:ring-primary/30 transition-all duration-300"
+          :aria-label="t('nav.switchLanguage')"
+        >
+          <svg v-if="locale === 'en'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="w-full h-full rounded" aria-hidden="true">
+            <rect width="30" height="10" y="0" fill="#ce1126" />
+            <rect width="30" height="10" y="10" fill="#fff" />
+          </svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="w-full h-full rounded" aria-hidden="true">
+            <rect width="30" height="20" fill="#fff" />
+            <rect width="30" height="1.55" y="0" fill="#b22234" />
+            <rect width="30" height="1.55" y="3.1" fill="#b22234" />
+            <rect width="30" height="1.55" y="6.2" fill="#b22234" />
+            <rect width="30" height="1.55" y="9.3" fill="#b22234" />
+            <rect width="30" height="1.55" y="12.4" fill="#b22234" />
+            <rect width="30" height="1.55" y="15.5" fill="#b22234" />
+            <rect width="30" height="1.55" y="18.6" fill="#b22234" />
+            <rect width="13.5" height="10.5" fill="#3c3b6e" />
+            <circle cx="1.5" cy="1.5" r="0.5" fill="#fff" />
+            <circle cx="4.5" cy="1.5" r="0.5" fill="#fff" />
+            <circle cx="7.5" cy="1.5" r="0.5" fill="#fff" />
+            <circle cx="10.5" cy="1.5" r="0.5" fill="#fff" />
+            <circle cx="1.5" cy="4.5" r="0.5" fill="#fff" />
+            <circle cx="4.5" cy="4.5" r="0.5" fill="#fff" />
+            <circle cx="7.5" cy="4.5" r="0.5" fill="#fff" />
+            <circle cx="10.5" cy="4.5" r="0.5" fill="#fff" />
+            <circle cx="1.5" cy="7.5" r="0.5" fill="#fff" />
+            <circle cx="4.5" cy="7.5" r="0.5" fill="#fff" />
+            <circle cx="7.5" cy="7.5" r="0.5" fill="#fff" />
+            <circle cx="10.5" cy="7.5" r="0.5" fill="#fff" />
+          </svg>
+        </button>
+
         <!-- Theme Switcher -->
         <button
           @click="toggleColorMode"
           class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:ring-2 hover:ring-primary/30 transition-all duration-300 group"
-          aria-label="Toggle theme"
+          :aria-label="t('nav.toggleTheme')"
         >
           <client-only>
             <svg v-if="colorMode.value === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 group-hover:rotate-12 transition-transform">
@@ -48,14 +88,14 @@ const toggleColorMode = () => {
         </button>
 
         <a @click.prevent="scrollTo('contact')" href="#" class="inline-block bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-md font-semibold hover:opacity-90 active:scale-95 transition-all shadow-sm text-sm sm:text-base">
-          Hire Me
+          {{ t('nav.hireMe') }}
         </a>
 
         <!-- Mobile Menu Toggle -->
         <button
           @click="isMobileMenuOpen = !isMobileMenuOpen"
           class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          aria-label="Toggle menu"
+          :aria-label="t('nav.toggleMenu')"
         >
           <svg v-if="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -86,10 +126,10 @@ const toggleColorMode = () => {
                'px-4 py-3 rounded-xl transition-all font-semibold',
                activeSection === link ? 'bg-primary/10 text-primary' : 'text-slate-600 dark:text-slate-400'
              ]">
-            {{ link === 'tech' ? 'Tech Stack' : link }}
-          </a>
+              {{ t(`nav.links.${link}`) }}
+            </a>
           <button @click="scrollTo('contact'); isMobileMenuOpen = false" class="mt-2 w-full bg-primary text-white py-3 rounded-xl font-bold shadow-lg">
-            Hire Me
+            {{ t('nav.hireMe') }}
           </button>
         </div>
       </div>
