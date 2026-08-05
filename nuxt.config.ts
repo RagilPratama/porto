@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       'Plus Jakarta Sans': [400, 600, 700, 800],
-      'Outfit': [400, 600, 700, 800]
+      'Outfit': [400, 600, 700]
     },
     display: 'swap',
     download: true,
