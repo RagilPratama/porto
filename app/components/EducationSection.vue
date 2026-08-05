@@ -30,7 +30,7 @@ const education = computed(() => {
         >
           <div class="flex flex-col md:flex-row md:items-start gap-5">
             <div class="w-16 h-16 rounded-2xl bg-white dark:bg-slate-100 flex items-center justify-center p-3 shadow-md shrink-0 border border-outline-variant/20 dark:border-slate-700 transition-colors">
-               <NuxtImg format="webp" :src="edu.image" :alt="edu.school" class="w-full h-full object-contain" />
+               <NuxtImg format="webp" quality="75" width="128" height="128" sizes="64px" densities="x1 x2" :src="edu.image" :alt="edu.school" class="w-full h-full object-contain" />
              </div>
 
             <div class="flex-1">
