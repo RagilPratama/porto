@@ -34,16 +34,6 @@
     "title": "Education",
     "subtitle": "My academic background and educational qualifications"
   },
-  "terminal": {
-    "title": "Summary",
-    "subtitle": "A quick look into my technical configuration and mindset.",
-    "developer": {
-      "name": "Ragil Pratama",
-      "role": "Full Stack Software Engineer",
-      "location": "Bogor, Indonesia",
-      "status": "Ready for Opportunities"
-    }
-  },
   "contact": {
     "title": "Let's",
     "titleAccent": "Collaborate",

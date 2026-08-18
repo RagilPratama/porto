@@ -34,16 +34,6 @@
     "title": "Pendidikan",
     "subtitle": "Latar belakang akademik dan kualifikasi pendidikan saya"
   },
-  "terminal": {
-    "title": "Ringkasan",
-    "subtitle": "Sekilas tentang konfigurasi teknis dan pola pikir saya.",
-    "developer": {
-      "name": "Ragil Pratama",
-      "role": "Full Stack Software Engineer",
-      "location": "Bogor, Indonesia",
-      "status": "Siap Menerima Peluang"
-    }
-  },
   "contact": {
     "title": "Mari",
     "titleAccent": "Berkolaborasi",

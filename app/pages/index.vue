@@ -31,7 +31,6 @@ onBeforeUnmount(() => {
       <LazyExperienceSection />
       <EducationSection />
       <LazyPortfolioSection />
-      <TerminalSection :tech-stack="techStack" />
       <ContactSection />
     </main>
 
