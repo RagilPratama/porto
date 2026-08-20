@@ -72,25 +72,25 @@ const countByCategory = computed(() => {
 const categoryTheme = {
   frontend: {
     badge: 'bg-primary text-on-primary',
-    chip: 'bg-primary/10 text-primary dark:bg-blue-400/15 dark:text-blue-400',
+    chip: 'bg-primary/10 text-primary dark:bg-primary-fixed-dim/15 dark:text-primary-fixed-dim',
     dots: 'dots-blue',
-    hover: 'hover:border-blue-400/60 hover:shadow-[0_24px_60px_-18px_rgba(0,98,157,0.45)] dark:hover:shadow-[0_24px_60px_-18px_rgba(56,189,248,0.35)]',
-    logoHover: 'group-hover:bg-blue-50 dark:group-hover:bg-blue-500/10',
-    link: 'border-primary/40 text-primary hover:bg-primary/10 dark:border-blue-400/40 dark:text-blue-400 dark:hover:bg-blue-400/10'
+    hover: 'hover:border-primary/40 hover:shadow-2xl',
+    logoHover: 'group-hover:bg-primary/5 dark:group-hover:bg-primary-fixed-dim/10',
+    link: 'border-primary/40 text-primary hover:bg-primary/10 dark:border-primary-fixed-dim/40 dark:text-primary-fixed-dim dark:hover:bg-primary-fixed-dim/10'
   },
   fullstack: {
     badge: 'bg-tertiary text-on-tertiary',
-    chip: 'bg-indigo-500/10 text-indigo-600 dark:bg-indigo-400/15 dark:text-indigo-400',
-    dots: 'dots-indigo',
-    hover: 'hover:border-indigo-400/60 hover:shadow-[0_24px_60px_-18px_rgba(99,102,241,0.45)] dark:hover:shadow-[0_24px_60px_-18px_rgba(129,140,248,0.35)]',
-    logoHover: 'group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10',
-    link: 'border-indigo-400/40 text-indigo-600 hover:bg-indigo-500/10 dark:border-indigo-400/40 dark:text-indigo-400 dark:hover:bg-indigo-400/10'
+    chip: 'bg-tertiary/10 text-tertiary dark:bg-tertiary-fixed-dim/15 dark:text-tertiary-fixed-dim',
+    dots: 'dots-tertiary',
+    hover: 'hover:border-tertiary/40 hover:shadow-2xl',
+    logoHover: 'group-hover:bg-tertiary/5 dark:group-hover:bg-tertiary-fixed-dim/10',
+    link: 'border-tertiary/40 text-tertiary hover:bg-tertiary/10 dark:border-tertiary-fixed-dim/40 dark:text-tertiary-fixed-dim dark:hover:bg-tertiary-fixed-dim/10'
   },
   backend: {
     badge: 'bg-secondary text-on-secondary',
     chip: 'bg-emerald-500/10 text-emerald-600 dark:bg-emerald-400/15 dark:text-emerald-400',
     dots: 'dots-emerald',
-    hover: 'hover:border-emerald-400/60 hover:shadow-[0_24px_60px_-18px_rgba(16,185,129,0.45)] dark:hover:shadow-[0_24px_60px_-18px_rgba(52,211,153,0.35)]',
+    hover: 'hover:border-emerald-400/40 hover:shadow-2xl',
     logoHover: 'group-hover:bg-emerald-50 dark:group-hover:bg-emerald-500/10',
     link: 'border-emerald-400/40 text-emerald-600 hover:bg-emerald-500/10 dark:border-emerald-400/40 dark:text-emerald-400 dark:hover:bg-emerald-400/10'
   }
@@ -126,13 +126,13 @@ const getProjectBadgeLabel = (project) => {
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
         <div>
-          <span class="font-label text-xs tracking-[0.3em] uppercase text-sky-600 dark:text-sky-400 mb-3 inline-flex items-center gap-2 font-bold">
-            <span class="w-8 h-0.5 bg-sky-400 inline-block"></span>
+          <span class="font-label text-xs tracking-[0.3em] uppercase text-primary dark:text-primary-fixed-dim mb-3 inline-flex items-center gap-2 font-bold">
+            <span class="w-8 h-0.5 bg-primary inline-block"></span>
             {{ t('portfolio.featured') }}
           </span>
           <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             {{ t('portfolio.title') }}
-            <span class="text-sky-500 font-extrabold">({{ countByCategory.all }})</span>
+            <span class="text-primary font-extrabold">({{ countByCategory.all }})</span>
           </h2>
           <p class="text-slate-600 dark:text-slate-300 max-w-xl mt-3 font-medium">{{ t('portfolio.subtitle') }}</p>
         </div>
@@ -146,12 +146,12 @@ const getProjectBadgeLabel = (project) => {
             :class="[
               'px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 inline-flex items-center gap-2 border',
               activeCategory === cat.id
-                ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white border-white/30 shadow-lg shadow-sky-500/25 scale-105'
+                ? 'bg-primary text-white border-white/30 shadow-lg scale-105'
                 : 'glass-pill text-slate-700 dark:text-slate-300 hover:scale-105'
             ]"
           >
             {{ cat.name }}
-            <span :class="['text-[10px] font-extrabold px-2 py-0.5 rounded-full leading-none', activeCategory === cat.id ? 'bg-white/30 text-white' : 'bg-sky-500/15 text-sky-600 dark:text-sky-400']">{{ countByCategory[cat.id] }}</span>
+            <span :class="['text-[10px] font-extrabold px-2 py-0.5 rounded-full leading-none', activeCategory === cat.id ? 'bg-white/30 text-white' : 'bg-primary/10 text-primary dark:text-primary-fixed-dim']">{{ countByCategory[cat.id] }}</span>
           </button>
         </div>
       </div>
@@ -162,7 +162,7 @@ const getProjectBadgeLabel = (project) => {
           v-for="project in displayedPortfolio"
           :key="project.id"
           :class="[
-            'group relative rounded-3xl overflow-hidden glass-panel border transition-all duration-500 hover:scale-[1.02] hover:border-sky-400/50 hover:shadow-2xl hover:shadow-sky-500/10',
+            'group relative rounded-3xl overflow-hidden glass-panel border transition-all duration-500 hover:scale-[1.02] hover:border-primary/30 hover:shadow-2xl',
             isWide(project) ? 'lg:col-span-2' : '',
             wideSide(project)
           ]"
@@ -171,7 +171,7 @@ const getProjectBadgeLabel = (project) => {
             <div class="md:grid md:grid-cols-2 h-full">
               <div class="relative h-52 md:h-full overflow-hidden flex items-center justify-center p-6 bg-white/20 dark:bg-slate-900/30">
                 <div :class="['absolute inset-0 dots opacity-40', themeFor(project).dots]"></div>
-                <span v-if="isFeatured(project)" class="absolute bottom-4 left-5 font-label text-[10px] tracking-[0.25em] uppercase text-sky-600 dark:text-sky-400 font-extrabold">{{ t('portfolio.featured') }}</span>
+                <span v-if="isFeatured(project)" class="absolute bottom-4 left-5 font-label text-[10px] tracking-[0.25em] uppercase text-primary dark:text-primary-fixed-dim font-extrabold">{{ t('portfolio.featured') }}</span>
                 <div :class="['relative z-[1] w-40 h-40 md:w-44 md:h-44 rounded-2xl bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 shadow-xl backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:-rotate-2', themeFor(project).logoHover]">
                   <NuxtImg
                     :src="project.image"
@@ -190,14 +190,14 @@ const getProjectBadgeLabel = (project) => {
               </div>
               <div class="p-6 md:p-7 flex flex-col justify-center relative">
                 <div v-if="isFeatured(project)" class="flex items-center gap-2 mb-3">
-                  <span class="inline-flex items-center gap-1.5 font-label text-[11px] tracking-[0.25em] uppercase text-sky-600 dark:text-sky-400 font-extrabold">
-                    <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+                  <span class="inline-flex items-center gap-1.5 font-label text-[11px] tracking-[0.25em] uppercase text-primary dark:text-primary-fixed-dim font-extrabold">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
                     {{ t('portfolio.featured') }}
                   </span>
                 </div>
                 <div v-else class="h-6 mb-3"></div>
-                <h3 class="font-headline text-xl md:text-2xl font-extrabold mb-2 text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors tracking-tight">{{ project.title }}</h3>
-                <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-medium">{{ project.description }}</p>
+                <h3 class="font-headline text-xl md:text-2xl font-extrabold mb-2 text-slate-900 dark:text-white group-hover:text-primary transition-colors tracking-tight">{{ project.title }}</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-medium max-w-prose">{{ project.description }}</p>
                 <div class="flex flex-wrap gap-1.5 mb-5">
                   <span v-for="tag in project.tags" :key="tag" :class="['text-[10px] font-bold px-2.5 py-1 rounded-lg border border-white/40 dark:border-white/10 shadow-sm', themeFor(project).chip]">{{ tag }}</span>
                 </div>
@@ -257,7 +257,7 @@ const getProjectBadgeLabel = (project) => {
             </div>
 
             <div class="p-6 pt-4">
-              <h3 class="font-headline text-lg font-extrabold mb-1.5 text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors tracking-tight">{{ project.title }}</h3>
+              <h3 class="font-headline text-lg font-extrabold mb-1.5 text-slate-900 dark:text-white group-hover:text-primary transition-colors tracking-tight">{{ project.title }}</h3>
               <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-medium">{{ project.description }}</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
                 <span v-for="tag in project.tags" :key="tag" :class="['text-[10px] font-bold px-2.5 py-1 rounded-lg border border-white/40 dark:border-white/10 shadow-sm', themeFor(project).chip]">{{ tag }}</span>
@@ -311,8 +311,8 @@ const getProjectBadgeLabel = (project) => {
   background-size: 14px 14px;
 }
 
-.dots-indigo {
-  background-image: radial-gradient(rgba(99, 102, 241, 0.16) 1.2px, transparent 1.2px);
+.dots-tertiary {
+  background-image: radial-gradient(rgba(144, 77, 0, 0.16) 1.2px, transparent 1.2px);
   background-size: 14px 14px;
 }
 
@@ -322,12 +322,12 @@ const getProjectBadgeLabel = (project) => {
 }
 
 .dark .dots-blue {
-  background-image: radial-gradient(rgba(56, 189, 248, 0.14) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(152, 203, 255, 0.14) 1.2px, transparent 1.2px);
   background-size: 14px 14px;
 }
 
-.dark .dots-indigo {
-  background-image: radial-gradient(rgba(129, 140, 248, 0.14) 1.2px, transparent 1.2px);
+.dark .dots-tertiary {
+  background-image: radial-gradient(rgba(255, 183, 125, 0.14) 1.2px, transparent 1.2px);
   background-size: 14px 14px;
 }
 

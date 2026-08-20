@@ -19,7 +19,7 @@ const education = computed(() => {
       <div class="text-center mb-12">
         <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-2 tracking-tight text-slate-900 dark:text-white">{{ t('education.title') }}</h2>
         <p class="text-slate-600 dark:text-slate-300 text-sm font-medium">{{ t('education.subtitle') }}</p>
-        <div class="w-20 h-1 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full mx-auto mt-6 shadow-sm"></div>
+        <div class="w-20 h-1 bg-primary rounded-full mx-auto mt-6 shadow-sm"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -35,16 +35,16 @@ const education = computed(() => {
 
             <div class="flex-1">
               <h3 class="text-lg md:text-xl font-headline font-extrabold leading-tight text-slate-900 dark:text-white mb-1 tracking-tight">{{ edu.degree }}</h3>
-              <p class="text-sky-600 dark:text-sky-400 text-base md:text-lg font-extrabold mb-4">{{ edu.school }}</p>
+              <p class="text-primary dark:text-primary-fixed-dim text-base md:text-lg font-extrabold mb-4">{{ edu.school }}</p>
 
               <div class="flex flex-wrap items-center gap-2 mb-4">
-                <span class="inline-flex items-center gap-1.5 bg-sky-500/15 text-sky-700 dark:text-sky-300 px-3 py-1 rounded-xl text-xs font-bold border border-sky-400/20">
+                <span class="inline-flex items-center gap-1.5 bg-primary/10 text-on-primary-fixed-variant dark:text-primary-fixed-dim px-3 py-1 rounded-xl text-xs font-bold border border-primary/20">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3.75v2.5m7.5-2.5v2.5M4.5 9.5h15M6.75 5.75h10.5A2.25 2.25 0 0 1 19.5 8v9.25a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 17.25V8a2.25 2.25 0 0 1 2.25-2.25Z" />
                   </svg>
                   {{ edu.period }}
                 </span>
-                <span class="inline-flex items-center gap-1.5 bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-xl text-xs font-bold border border-indigo-400/20">
+                <span class="inline-flex items-center gap-1.5 bg-secondary/10 text-secondary dark:text-secondary-fixed-dim px-3 py-1 rounded-xl text-xs font-bold border border-secondary/20">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m12 3.75 2.55 5.16 5.7.83-4.13 4.03.97 5.68L12 16.81l-5.1 2.66.97-5.68-4.13-4.03 5.7-.83L12 3.75Z" />
                   </svg>
@@ -58,8 +58,8 @@ const education = computed(() => {
 
           <div class="border-t border-white/40 dark:border-white/10 mt-6 pt-4 flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-indigo-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
             </div>
             <span class="text-base font-extrabold text-slate-800 dark:text-slate-200">{{ edu.year }}</span>

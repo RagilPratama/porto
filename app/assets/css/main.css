@@ -49,7 +49,7 @@
       transparent 1px,
       transparent 36px
     );
-  box-shadow: 0 55px 110px rgba(0, 51, 90, 0.24), inset 0 0 40px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 55px 110px rgba(0, 0, 0, 0.18), inset 0 0 40px rgba(255, 255, 255, 0.12);
   transform: rotateX(68deg) rotateZ(-10deg) translateZ(-70px);
   animation: hero-depth-float 7.4s ease-in-out infinite alternate;
   opacity: 0.8;
@@ -161,7 +161,7 @@
 .tech-card {
   opacity: 0;
   transform: translateY(20px) scale(0.95);
-  animation: tech-card-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: tech-card-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: var(--tech-delay, 0ms);
 }
 
@@ -203,7 +203,7 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 20px 50px rgba(0, 98, 157, 0.08), inset 0 1px 1.5px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), inset 0 1px 1.5px rgba(255, 255, 255, 0.9);
 }
 
 .dark .glass-panel {
@@ -220,7 +220,7 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 12px 36px rgba(0, 98, 157, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -236,12 +236,12 @@
   transform: translateY(-4px) scale(1.01);
   background: rgba(255, 255, 255, 0.75);
   border-color: rgba(0, 163, 255, 0.4);
-  box-shadow: 0 24px 60px rgba(0, 98, 157, 0.15), inset 0 1.5px 2px rgba(255, 255, 255, 1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15), inset 0 1.5px 2px rgba(255, 255, 255, 1);
 }
 
 .dark .glass-card-interactive:hover {
   background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(56, 189, 248, 0.35);
+  border-color: rgba(0, 163, 255, 0.35);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), inset 0 1.5px 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -250,7 +250,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 16px rgba(0, 98, 157, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 .dark .glass-pill {
@@ -286,8 +286,8 @@
 
 .dark .glass-input:focus {
   background: rgba(30, 41, 59, 0.75);
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 163, 255, 0.5);
+  box-shadow: 0 0 0 4px rgba(0, 163, 255, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 }
 
 /* Floating Glass Ambient Light Orbs */

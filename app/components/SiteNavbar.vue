@@ -20,12 +20,12 @@ const switchLanguage = () => {
 <template>
   <nav class="sticky top-0 z-50 w-full bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl border-b border-white/50 dark:border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.05)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300">
     <!-- Glowing light reflection accent bar -->
-    <div class="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-sky-400/50 dark:via-blue-500/50 to-transparent"></div>
+    <div class="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent dark:via-slate-600/50"></div>
 
     <div class="flex justify-between items-center max-w-7xl mx-auto px-6 sm:px-8 py-3">
       <!-- Logo / Brand Mark -->
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-blue-600 text-white font-bold flex items-center justify-center shadow-lg shadow-sky-500/20 border border-white/40">
+        <div class="w-9 h-9 rounded-xl bg-primary text-white font-bold flex items-center justify-center shadow-lg border border-white/40">
           R
         </div>
         <!-- <div class="text-xl sm:text-2xl font-bold tracking-tighter text-slate-900 dark:text-white font-headline transition-all">
@@ -42,7 +42,7 @@ const switchLanguage = () => {
            :class="[
              'capitalize px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300',
              activeSection === link
-               ? 'bg-sky-500/20 text-sky-600 dark:text-sky-300 border border-sky-400/30 shadow-[0_0_15px_rgba(56,189,248,0.2)] scale-105'
+               ? 'bg-primary/10 text-primary dark:text-primary-fixed-dim border border-primary/20 scale-105'
                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-white/40 dark:hover:bg-white/5'
            ]">
           {{ t(`nav.links.${link}`) }}
@@ -54,7 +54,7 @@ const switchLanguage = () => {
         <!-- Language Switcher -->
         <button
           @click="switchLanguage"
-          class="w-9 h-9 p-1.5 rounded-xl bg-white/40 dark:bg-slate-800/40 border border-white/60 dark:border-white/10 hover:border-sky-400/40 hover:bg-white/70 dark:hover:bg-slate-800/80 transition-all duration-300 shadow-sm backdrop-blur-sm"
+          class="w-9 h-9 p-1.5 rounded-xl bg-white/40 dark:bg-slate-800/40 border border-white/60 dark:border-white/10 hover:border-primary/30 hover:bg-white/70 dark:hover:bg-slate-800/80 transition-all duration-300 shadow-sm backdrop-blur-sm"
           :aria-label="t('nav.switchLanguage')"
         >
           <svg v-if="locale === 'en'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" class="w-full h-full rounded" aria-hidden="true">
@@ -89,21 +89,21 @@ const switchLanguage = () => {
         <!-- Theme Switcher -->
         <button
           @click="toggleColorMode"
-          class="w-9 h-9 p-1.5 rounded-xl bg-white/40 dark:bg-slate-800/40 border border-white/60 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-sky-400/40 hover:bg-white/70 dark:hover:bg-slate-800/80 transition-all duration-300 group shadow-sm backdrop-blur-sm"
+          class="w-9 h-9 p-1.5 rounded-xl bg-white/40 dark:bg-slate-800/40 border border-white/60 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-primary/30 hover:bg-white/70 dark:hover:bg-slate-800/80 transition-all duration-300 group shadow-sm backdrop-blur-sm"
           :aria-label="t('nav.toggleTheme')"
         >
           <client-only>
             <svg v-if="colorMode.value === 'dark'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-amber-400 group-hover:rotate-45 transition-transform">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
             </svg>
-            <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-sky-600 group-hover:-rotate-12 transition-transform">
+            <svg v-else xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-primary group-hover:-rotate-12 transition-transform">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
             </svg>
           </client-only>
         </button>
 
         <!-- Hire Me CTA -->
-        <a @click.prevent="scrollTo('contact')" href="#" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white px-5 py-2 rounded-xl font-semibold shadow-lg shadow-sky-500/25 border border-white/20 active:scale-[0.97] transition-all duration-300 text-sm">
+        <a @click.prevent="scrollTo('contact')" href="#" class="hidden sm:inline-flex items-center gap-2 bg-primary hover:bg-on-primary-fixed-variant text-white px-5 py-2 rounded-xl font-semibold shadow-lg border border-white/20 active:scale-[0.97] transition-all duration-300 text-sm">
           <span>{{ t('nav.hireMe') }}</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
@@ -113,7 +113,7 @@ const switchLanguage = () => {
         <!-- Mobile Menu Toggle -->
         <button
           @click="isMobileMenuOpen = !isMobileMenuOpen"
-          class="md:hidden w-9 h-9 p-1.5 rounded-xl bg-white/40 dark:bg-slate-800/40 border border-white/60 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-sky-400/30 transition-all duration-300"
+          class="md:hidden w-9 h-9 p-1.5 rounded-xl bg-white/40 dark:bg-slate-800/40 border border-white/60 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-primary/30 transition-all duration-300"
           :aria-label="t('nav.toggleMenu')"
         >
           <svg v-if="!isMobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
@@ -143,11 +143,11 @@ const switchLanguage = () => {
              href="#"
              :class="[
                'px-4 py-3 rounded-xl transition-all font-semibold text-sm',
-               activeSection === link ? 'bg-sky-500/20 text-sky-600 dark:text-sky-300 border border-sky-400/30' : 'text-slate-700 dark:text-slate-300 hover:bg-white/40 dark:hover:bg-white/5'
+               activeSection === link ? 'bg-primary/10 text-primary dark:text-primary-fixed-dim border border-primary/20' : 'text-slate-700 dark:text-slate-300 hover:bg-white/40 dark:hover:bg-white/5'
              ]">
               {{ t(`nav.links.${link}`) }}
             </a>
-          <button @click="scrollTo('contact'); isMobileMenuOpen = false" class="mt-2 w-full bg-gradient-to-r from-sky-500 to-blue-600 text-white py-3 rounded-xl font-bold shadow-lg shadow-sky-500/20 border border-white/20 text-sm">
+          <button @click="scrollTo('contact'); isMobileMenuOpen = false" class="mt-2 w-full bg-primary hover:bg-on-primary-fixed-variant text-white py-3 rounded-xl font-bold shadow-lg border border-white/20 text-sm">
             {{ t('nav.hireMe') }}
           </button>
         </div>

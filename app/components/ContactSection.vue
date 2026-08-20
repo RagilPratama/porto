@@ -90,7 +90,7 @@ const handleInquiry = async () => {
         <!-- Left Contact Info -->
         <div class="lg:col-span-5 text-center lg:text-left">
           <h2 class="font-headline text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight text-slate-900 dark:text-white">
-            {{ t('contact.title') }} <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">{{ t('contact.titleAccent') }}</span>
+            {{ t('contact.title') }} <span class="text-primary dark:text-primary-fixed-dim">{{ t('contact.titleAccent') }}</span>
           </h2>
           <p class="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed font-medium">
             {{ t('contact.description') }}
@@ -98,7 +98,7 @@ const handleInquiry = async () => {
 
           <div class="space-y-4">
             <a href="mailto:ragilpratamaaa@gmail.com" class="glass-panel p-5 rounded-2xl flex items-center gap-5 group hover:translate-x-2 transition-all duration-300">
-              <div class="w-12 h-12 rounded-xl bg-sky-500/15 text-sky-600 dark:text-sky-400 flex items-center justify-center border border-sky-400/30 shrink-0">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary dark:text-primary-fixed-dim flex items-center justify-center border border-primary/20 shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-6 h-6" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6.75h-6A5.25 5.25 0 0 0 5.25 12v0A5.25 5.25 0 0 0 10.5 17.25h6a2.25 2.25 0 0 0 2.25-2.25V12A6.75 6.75 0 1 0 12 18.75" />
                 </svg>
@@ -110,7 +110,7 @@ const handleInquiry = async () => {
             </a>
 
             <div class="glass-panel p-5 rounded-2xl flex items-center gap-5 group">
-              <div class="w-12 h-12 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center border border-indigo-400/30 shrink-0">
+              <div class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary dark:text-secondary-fixed-dim flex items-center justify-center border border-secondary/20 shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-6 h-6" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z" />
                   <circle cx="12" cy="10" r="2.25" />
@@ -123,11 +123,11 @@ const handleInquiry = async () => {
             </div>
           </div>
 
-          <div class="mt-8 w-full h-44 rounded-3xl overflow-hidden relative shadow-lg glass-panel p-1.5 border border-white/60 dark:border-white/10">
-            <div class="w-full h-full rounded-2xl overflow-hidden relative">
+          <div class="mt-8 w-full h-44 rounded-3xl overflow-hidden relative shadow-lg border border-white/60 dark:border-white/10">
+            <div class="w-full h-full relative">
               <NuxtImg format="webp" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ" :alt="t('contact.mapAlt')" loading="lazy" />
-              <div class="absolute inset-0 flex items-center justify-center bg-sky-500/10 backdrop-blur-[1px]">
-                <div class="w-10 h-10 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg shadow-sky-500/40 animate-bounce">
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/10 backdrop-blur-[1px]">
+                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg animate-pulse">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" aria-hidden="true">
                     <path d="M12 2.75a7.25 7.25 0 0 0-7.25 7.25c0 5.22 5.44 10.34 6.41 11.2a1.25 1.25 0 0 0 1.68 0c.97-.86 6.41-5.98 6.41-11.2A7.25 7.25 0 0 0 12 2.75Zm0 9.75a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/>
                   </svg>
@@ -201,7 +201,7 @@ const handleInquiry = async () => {
 
             <button
               :disabled="isSubmitting"
-              class="w-full py-4 rounded-2xl font-bold text-lg shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 transition-all active:scale-[0.98] flex items-center justify-center gap-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white border border-white/30">
+              class="w-full py-4 rounded-2xl font-bold text-lg shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3 bg-primary hover:bg-on-primary-fixed-variant text-white border border-white/30">
               <span v-if="isSubmitting" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
               {{ isSubmitting ? t('contact.form.sending') : t('contact.form.send') }}
             </button>

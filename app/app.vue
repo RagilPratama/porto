@@ -14,9 +14,9 @@
     isolation: isolate;
     background-color: #f0f4f9;
     background-image:
-        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.15), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(99, 102, 241, 0.12), transparent 35%),
-        radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.1), transparent 40%),
+        radial-gradient(circle at 10% 10%, rgba(0, 163, 255, 0.15), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(0, 98, 157, 0.12), transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(0, 98, 157, 0.1), transparent 40%),
         radial-gradient(circle, rgba(0, 98, 157, 0.06) 1px, transparent 1px);
     background-size: auto, auto, auto, 32px 32px;
     background-position: center;
@@ -37,15 +37,15 @@
 .dark .blueprint-bg {
     background-color: #030712;
     background-image:
-        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.18), transparent 32%),
-        radial-gradient(circle at 90% 20%, rgba(129, 140, 248, 0.14), transparent 35%),
-        radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.12), transparent 42%),
+        radial-gradient(circle at 10% 10%, rgba(0, 163, 255, 0.18), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(152, 203, 255, 0.14), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(0, 98, 157, 0.12), transparent 42%),
         radial-gradient(circle, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
 }
 
 .dark .blueprint-bg::before {
     background:
-        radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(56, 189, 248, 0.1), transparent 40%),
+        radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(0, 163, 255, 0.1), transparent 40%),
         linear-gradient(135deg, rgba(15, 23, 42, 0.4), transparent 40%),
         repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.025) 0, rgba(148, 163, 184, 0.025) 1px, transparent 1px, transparent 24px);
     opacity: 0.85;
@@ -64,7 +64,7 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     color: #0f172a;
-    box-shadow: 0 8px 32px rgba(0, 98, 157, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 .dark .glass-card {
@@ -127,36 +127,36 @@
 .dark .tech-pattern-bg,
 .dark .section-texture-tech {
     background-image:
-        radial-gradient(circle at 18% 20%, rgba(56, 189, 248, 0.12), transparent 28%),
-        radial-gradient(circle at 82% 12%, rgba(59, 130, 246, 0.08), transparent 24%),
+        radial-gradient(circle at 18% 20%, rgba(0, 163, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(0, 98, 157, 0.08), transparent 24%),
         repeating-linear-gradient(135deg, rgba(148, 163, 184, 0.07) 0, rgba(148, 163, 184, 0.07) 1px, transparent 1px, transparent 22px);
 }
 
 .dark .section-texture-experience {
     background-image:
-        radial-gradient(circle at 14% 18%, rgba(56, 189, 248, 0.1), transparent 26%),
-        radial-gradient(circle at 88% 82%, rgba(59, 130, 246, 0.08), transparent 24%),
+        radial-gradient(circle at 14% 18%, rgba(0, 163, 255, 0.1), transparent 26%),
+        radial-gradient(circle at 88% 82%, rgba(0, 98, 157, 0.08), transparent 24%),
         repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 28px);
 }
 
 .dark .section-texture-education {
     background-image:
-        radial-gradient(circle at 80% 18%, rgba(56, 189, 248, 0.1), transparent 24%),
-        radial-gradient(circle at 18% 80%, rgba(59, 130, 246, 0.07), transparent 22%),
+        radial-gradient(circle at 80% 18%, rgba(0, 163, 255, 0.1), transparent 24%),
+        radial-gradient(circle at 18% 80%, rgba(0, 98, 157, 0.07), transparent 22%),
         repeating-linear-gradient(135deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 26px);
 }
 
 .dark .section-texture-portfolio {
     background-image:
-        radial-gradient(circle at 12% 14%, rgba(56, 189, 248, 0.1), transparent 24%),
-        radial-gradient(circle at 88% 24%, rgba(59, 130, 246, 0.07), transparent 22%),
+        radial-gradient(circle at 12% 14%, rgba(0, 163, 255, 0.1), transparent 24%),
+        radial-gradient(circle at 88% 24%, rgba(0, 98, 157, 0.07), transparent 22%),
         repeating-linear-gradient(45deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 30px);
 }
 
 .dark .section-texture-contact {
     background-image:
-        radial-gradient(circle at 20% 18%, rgba(56, 189, 248, 0.1), transparent 24%),
-        radial-gradient(circle at 82% 68%, rgba(59, 130, 246, 0.07), transparent 24%),
+        radial-gradient(circle at 20% 18%, rgba(0, 163, 255, 0.1), transparent 24%),
+        radial-gradient(circle at 82% 68%, rgba(0, 98, 157, 0.07), transparent 24%),
         repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.05) 0, rgba(148, 163, 184, 0.05) 1px, transparent 1px, transparent 30px);
 }
 
@@ -167,9 +167,9 @@
 .hero-seahorse-wave {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.5), transparent 24%),
-                radial-gradient(circle at 70% 15%, rgba(59, 130, 246, 0.4), transparent 22%),
-                radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.3), transparent 18%);
+    background: radial-gradient(circle at 20% 20%, rgba(0, 163, 255, 0.5), transparent 24%),
+                radial-gradient(circle at 70% 15%, rgba(0, 98, 157, 0.4), transparent 22%),
+                radial-gradient(circle at 40% 60%, rgba(0, 98, 157, 0.3), transparent 18%);
     mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.85), transparent 80%);
     animation: seahorseWave 12s linear infinite;
 }
@@ -180,8 +180,8 @@
     top: 12%;
     width: min(420px, 38vw);
     height: min(520px, 48vw);
-    background-image: radial-gradient(circle at 20% 18%, rgba(56, 189, 248, 0.22), transparent 28%),
-                      radial-gradient(circle at 72% 26%, rgba(59, 130, 246, 0.16), transparent 24%);
+    background-image: radial-gradient(circle at 20% 18%, rgba(0, 163, 255, 0.22), transparent 28%),
+                      radial-gradient(circle at 72% 26%, rgba(0, 98, 157, 0.16), transparent 24%);
     filter: blur(0.6px);
     border-radius: 48% 52% 50% 50% / 35% 42% 55% 50%;
     transform: rotate(14deg);
@@ -193,7 +193,7 @@
     content: '';
     position: absolute;
     border-radius: 999px;
-    background: rgba(59, 130, 246, 0.14);
+    background: rgba(0, 98, 157, 0.14);
 }
 
 .hero-seahorse-svg::before {
@@ -201,7 +201,7 @@
     height: 160px;
     top: 18%;
     left: 12%;
-    box-shadow: inset 0 0 80px rgba(56, 189, 248, 0.35), 0 0 0 1px rgba(59, 130, 246, 0.12);
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 98, 157, 0.12);
 }
 
 .hero-seahorse-svg::after {
@@ -209,14 +209,14 @@
     height: 120px;
     bottom: 8%;
     right: 10%;
-    box-shadow: inset 0 0 60px rgba(56, 189, 248, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.10);
+    box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 98, 157, 0.10);
 }
 
 .hero-seahorse-bubble {
     position: absolute;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 0 24px rgba(59, 130, 246, 0.12);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.12);
     animation: seahorseBubble 8s ease-in-out infinite;
 }
 
