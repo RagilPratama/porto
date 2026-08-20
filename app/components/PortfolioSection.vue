@@ -121,58 +121,58 @@ const getProjectBadgeLabel = (project) => {
 </script>
 
 <template>
-  <section class="py-24 bg-surface dark:bg-slate-950 scroll-mt-40 relative overflow-hidden" id="portfolio">
-    <div class="absolute inset-0 pointer-events-none section-texture section-texture-portfolio"></div>
+  <section class="py-24 scroll-mt-40 relative overflow-hidden" id="portfolio">
+    <div class="absolute inset-0 pointer-events-none section-texture section-texture-portfolio opacity-70"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
         <div>
-          <span class="font-label text-xs tracking-[0.3em] uppercase text-primary/70 dark:text-blue-400/70 mb-3 inline-flex items-center gap-2">
-            <span class="w-8 h-px bg-primary/50 dark:bg-blue-400/50 inline-block"></span>
+          <span class="font-label text-xs tracking-[0.3em] uppercase text-sky-600 dark:text-sky-400 mb-3 inline-flex items-center gap-2 font-bold">
+            <span class="w-8 h-0.5 bg-sky-400 inline-block"></span>
             {{ t('portfolio.featured') }}
           </span>
-          <h2 class="font-headline text-4xl md:text-5xl font-bold dark:text-white">
+          <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
             {{ t('portfolio.title') }}
-            <span class="text-primary dark:text-blue-400">({{ countByCategory.all }})</span>
+            <span class="text-sky-500 font-extrabold">({{ countByCategory.all }})</span>
           </h2>
-          <p class="text-on-surface-variant dark:text-slate-400 max-w-xl mt-3">{{ t('portfolio.subtitle') }}</p>
+          <p class="text-slate-600 dark:text-slate-300 max-w-xl mt-3 font-medium">{{ t('portfolio.subtitle') }}</p>
         </div>
 
+        <!-- Glass Filter Pills -->
         <div class="flex flex-wrap gap-2.5 shrink-0">
           <button
             v-for="cat in categories"
             :key="cat.id"
             @click="activeCategory = cat.id"
             :class="[
-              'px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 inline-flex items-center gap-2 border',
+              'px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 inline-flex items-center gap-2 border',
               activeCategory === cat.id
-                ? 'bg-primary text-on-primary border-primary shadow-lg shadow-primary/25 scale-105'
-                : 'bg-surface-container text-on-surface-variant border-transparent hover:bg-surface-container-high hover:scale-105'
+                ? 'bg-gradient-to-r from-sky-500 to-blue-600 text-white border-white/30 shadow-lg shadow-sky-500/25 scale-105'
+                : 'glass-pill text-slate-700 dark:text-slate-300 hover:scale-105'
             ]"
           >
             {{ cat.name }}
-            <span :class="['text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none', activeCategory === cat.id ? 'bg-white/25' : 'bg-primary/10 text-primary dark:bg-blue-400/15 dark:text-blue-400']">{{ countByCategory[cat.id] }}</span>
+            <span :class="['text-[10px] font-extrabold px-2 py-0.5 rounded-full leading-none', activeCategory === cat.id ? 'bg-white/30 text-white' : 'bg-sky-500/15 text-sky-600 dark:text-sky-400']">{{ countByCategory[cat.id] }}</span>
           </button>
         </div>
       </div>
 
-      <!-- Bento grid: featured spans 2 cols, rest 1 col, 3 per row -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Bento grid with frosted glass cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           v-for="project in displayedPortfolio"
           :key="project.id"
           :class="[
-            'group relative rounded-3xl overflow-hidden bg-surface-container-lowest dark:bg-slate-900 border-2 transition-all duration-500',
-            themeFor(project).hover,
+            'group relative rounded-3xl overflow-hidden glass-panel border transition-all duration-500 hover:scale-[1.02] hover:border-sky-400/50 hover:shadow-2xl hover:shadow-sky-500/10',
             isWide(project) ? 'lg:col-span-2' : '',
             wideSide(project)
           ]"
         >
           <template v-if="isWide(project)">
             <div class="md:grid md:grid-cols-2 h-full">
-              <div class="relative h-52 md:h-full overflow-hidden flex items-center justify-center">
-                <div :class="['absolute inset-0 dots', themeFor(project).dots]"></div>
-                <span v-if="isFeatured(project)" class="absolute bottom-4 left-5 font-label text-[10px] tracking-[0.25em] uppercase text-primary/60 dark:text-blue-400/60">{{ t('portfolio.featured') }}</span>
-                <div :class="['relative z-[1] w-40 h-40 md:w-44 md:h-44 rounded-2xl bg-white/80 dark:bg-slate-800/70 border border-white/60 dark:border-slate-700/60 shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:-rotate-2', themeFor(project).logoHover]">
+              <div class="relative h-52 md:h-full overflow-hidden flex items-center justify-center p-6 bg-white/20 dark:bg-slate-900/30">
+                <div :class="['absolute inset-0 dots opacity-40', themeFor(project).dots]"></div>
+                <span v-if="isFeatured(project)" class="absolute bottom-4 left-5 font-label text-[10px] tracking-[0.25em] uppercase text-sky-600 dark:text-sky-400 font-extrabold">{{ t('portfolio.featured') }}</span>
+                <div :class="['relative z-[1] w-40 h-40 md:w-44 md:h-44 rounded-2xl bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 shadow-xl backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:-rotate-2', themeFor(project).logoHover]">
                   <NuxtImg
                     :src="project.image"
                     :alt="project.title"
@@ -183,28 +183,28 @@ const getProjectBadgeLabel = (project) => {
                   />
                 </div>
                 <div class="absolute top-3.5 left-4">
-                  <span :class="['text-[10px] font-bold px-2.5 py-1 rounded-full', themeFor(project).badge]">
+                  <span :class="['text-[10px] font-extrabold px-3 py-1 rounded-full border border-white/30 shadow-sm', themeFor(project).badge]">
                     {{ getProjectBadgeLabel(project) }}
                   </span>
                 </div>
               </div>
               <div class="p-6 md:p-7 flex flex-col justify-center relative">
                 <div v-if="isFeatured(project)" class="flex items-center gap-2 mb-3">
-                  <span class="inline-flex items-center gap-1.5 font-label text-[11px] tracking-[0.25em] uppercase text-primary/70 dark:text-blue-400/70">
-                    <span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-blue-400 animate-pulse"></span>
+                  <span class="inline-flex items-center gap-1.5 font-label text-[11px] tracking-[0.25em] uppercase text-sky-600 dark:text-sky-400 font-extrabold">
+                    <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
                     {{ t('portfolio.featured') }}
                   </span>
                 </div>
                 <div v-else class="h-6 mb-3"></div>
-                <h3 class="font-headline text-xl md:text-2xl font-bold mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">{{ project.title }}</h3>
-                <p class="text-on-surface-variant dark:text-slate-400 text-[13px] leading-relaxed mb-4">{{ project.description }}</p>
+                <h3 class="font-headline text-xl md:text-2xl font-extrabold mb-2 text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors tracking-tight">{{ project.title }}</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-medium">{{ project.description }}</p>
                 <div class="flex flex-wrap gap-1.5 mb-5">
-                  <span v-for="tag in project.tags" :key="tag" :class="['text-[10px] font-semibold px-2 py-0.5 rounded-md', themeFor(project).chip]">{{ tag }}</span>
+                  <span v-for="tag in project.tags" :key="tag" :class="['text-[10px] font-bold px-2.5 py-1 rounded-lg border border-white/40 dark:border-white/10 shadow-sm', themeFor(project).chip]">{{ tag }}</span>
                 </div>
                 <div class="flex flex-wrap items-center gap-3">
                   <template v-if="project.web">
-                    <a :href="project.web" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                    <a :href="project.web" target="_blank" :class="['text-xs font-bold rounded-full border border-white/60 dark:border-white/20 px-4 py-1.5 inline-flex items-center gap-1.5 transition-all shadow-sm hover:scale-105', themeFor(project).link]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                         <circle cx="12" cy="12" r="10" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20" />
@@ -213,8 +213,8 @@ const getProjectBadgeLabel = (project) => {
                     </a>
                   </template>
                   <template v-if="project.appStore">
-                    <a :href="project.appStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                    <a :href="project.appStore" target="_blank" :class="['text-xs font-bold rounded-full border border-white/60 dark:border-white/20 px-4 py-1.5 inline-flex items-center gap-1.5 transition-all shadow-sm hover:scale-105', themeFor(project).link]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 2c1 .5 2 2 2 5" />
                       </svg>
@@ -222,24 +222,24 @@ const getProjectBadgeLabel = (project) => {
                     </a>
                   </template>
                   <template v-if="project.playStore">
-                    <a :href="project.playStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                    <a :href="project.playStore" target="_blank" :class="['text-xs font-bold rounded-full border border-white/60 dark:border-white/20 px-4 py-1.5 inline-flex items-center gap-1.5 transition-all shadow-sm hover:scale-105', themeFor(project).link]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                       </svg>
                       {{ t('portfolio.playStore') }}
                     </a>
                   </template>
-                  <span v-if="project.info" class="text-[11px] text-on-surface-variant dark:text-slate-400 italic">{{ project.info }}</span>
+                  <span v-if="project.info" class="text-xs text-slate-500 dark:text-slate-400 italic font-medium">{{ project.info }}</span>
                 </div>
               </div>
             </div>
           </template>
 
           <template v-else>
-            <div class="relative h-36 md:h-40 overflow-hidden flex items-center justify-center">
-              <div :class="['absolute inset-0 dots', themeFor(project).dots]"></div>
-              <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface-container-lowest/90 dark:from-slate-900/90 to-transparent"></div>
-              <div :class="['relative z-[1] w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-white/80 dark:bg-slate-800/70 border border-white/60 dark:border-slate-700/60 shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:-rotate-2', themeFor(project).logoHover]">
+            <div class="relative h-40 overflow-hidden flex items-center justify-center bg-white/20 dark:bg-slate-900/30">
+              <div :class="['absolute inset-0 dots opacity-40', themeFor(project).dots]"></div>
+              <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/40 dark:from-slate-900/40 to-transparent"></div>
+              <div :class="['relative z-[1] w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-white/70 dark:bg-slate-800/70 border border-white/80 dark:border-white/10 shadow-lg backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:-rotate-2', themeFor(project).logoHover]">
                 <NuxtImg
                   :src="project.image"
                   :alt="project.title"
@@ -250,22 +250,22 @@ const getProjectBadgeLabel = (project) => {
                 />
               </div>
               <div class="absolute top-3.5 left-4">
-                <span :class="['text-[10px] font-bold px-2.5 py-1 rounded-full', themeFor(project).badge]">
+                <span :class="['text-[10px] font-extrabold px-3 py-1 rounded-full border border-white/30 shadow-sm', themeFor(project).badge]">
                   {{ getProjectBadgeLabel(project) }}
                 </span>
               </div>
             </div>
 
-            <div class="p-5 md:p-6 pt-4">
-              <h3 class="font-headline text-lg font-bold mb-1.5 dark:text-white group-hover:text-primary dark:group-hover:text-blue-400 transition-colors">{{ project.title }}</h3>
-              <p class="text-on-surface-variant dark:text-slate-400 text-[13px] leading-relaxed mb-4">{{ project.description }}</p>
+            <div class="p-6 pt-4">
+              <h3 class="font-headline text-lg font-extrabold mb-1.5 text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors tracking-tight">{{ project.title }}</h3>
+              <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-[13px] leading-relaxed mb-4 font-medium">{{ project.description }}</p>
               <div class="flex flex-wrap gap-1.5 mb-4">
-                <span v-for="tag in project.tags" :key="tag" :class="['text-[10px] font-semibold px-2 py-0.5 rounded-md', themeFor(project).chip]">{{ tag }}</span>
+                <span v-for="tag in project.tags" :key="tag" :class="['text-[10px] font-bold px-2.5 py-1 rounded-lg border border-white/40 dark:border-white/10 shadow-sm', themeFor(project).chip]">{{ tag }}</span>
               </div>
               <div class="flex flex-wrap items-center gap-2.5">
                 <template v-if="project.web">
-                  <a :href="project.web" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                  <a :href="project.web" target="_blank" :class="['text-xs font-bold rounded-full border border-white/60 dark:border-white/20 px-4 py-1.5 inline-flex items-center gap-1.5 transition-all shadow-sm hover:scale-105', themeFor(project).link]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                       <circle cx="12" cy="12" r="10" />
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                       <path stroke-linecap="round" stroke-linejoin="round" d="M2 12h20" />
@@ -274,8 +274,8 @@ const getProjectBadgeLabel = (project) => {
                   </a>
                 </template>
                 <template v-if="project.appStore">
-                  <a :href="project.appStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                  <a :href="project.appStore" target="_blank" :class="['text-xs font-bold rounded-full border border-white/60 dark:border-white/20 px-4 py-1.5 inline-flex items-center gap-1.5 transition-all shadow-sm hover:scale-105', themeFor(project).link]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" />
                       <path stroke-linecap="round" stroke-linejoin="round" d="M10 2c1 .5 2 2 2 5" />
                     </svg>
@@ -283,14 +283,14 @@ const getProjectBadgeLabel = (project) => {
                   </a>
                 </template>
                 <template v-if="project.playStore">
-                  <a :href="project.playStore" target="_blank" :class="['text-[11px] font-bold rounded-full border px-3.5 py-1.5 inline-flex items-center gap-1.5 transition-colors', themeFor(project).link]">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-3.5 h-3.5" aria-hidden="true">
+                  <a :href="project.playStore" target="_blank" :class="['text-xs font-bold rounded-full border border-white/60 dark:border-white/20 px-4 py-1.5 inline-flex items-center gap-1.5 transition-all shadow-sm hover:scale-105', themeFor(project).link]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                     </svg>
                     {{ t('portfolio.playStore') }}
                   </a>
                 </template>
-                <span v-if="project.info" class="text-[11px] text-on-surface-variant dark:text-slate-400 italic">{{ project.info }}</span>
+                <span v-if="project.info" class="text-xs text-slate-500 dark:text-slate-400 italic font-medium">{{ project.info }}</span>
               </div>
             </div>
           </template>

@@ -89,66 +89,71 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section :class="['py-24 bg-surface dark:bg-slate-950 scroll-mt-40 relative overflow-hidden', { 'experience-visible': experienceVisible }]" id="experience">
-    <div class="absolute inset-0 pointer-events-none section-texture section-texture-experience"></div>
+  <section :class="['py-24 scroll-mt-40 relative overflow-hidden', { 'experience-visible': experienceVisible }]" id="experience">
+    <div class="absolute inset-0 pointer-events-none section-texture section-texture-experience opacity-70"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="text-center mb-16">
-        <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">{{ t('experience.title') }}</h2>
-        <p class="text-on-surface-variant dark:text-slate-400">{{ t('experience.subtitle') }}</p>
+        <h2 class="font-headline text-4xl font-extrabold mb-4 text-slate-900 dark:text-white tracking-tight">{{ t('experience.title') }}</h2>
+        <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto font-medium">{{ t('experience.subtitle') }}</p>
       </div>
 
       <div class="relative">
-        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-px bg-outline-variant/30 dark:bg-slate-800"></div>
-        <div class="md:hidden absolute left-[19px] top-2 bottom-2 w-px bg-outline-variant/40 dark:bg-slate-700"></div>
+        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5 bg-gradient-to-b from-sky-400/40 via-blue-500/40 to-indigo-500/10"></div>
+        <div class="md:hidden absolute left-[19px] top-2 bottom-2 w-0.5 bg-sky-400/30"></div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-6">
           <article
             v-for="(exp, idx) in experiences"
             :key="`exp-${idx}-${exp.company}`"
             :class="['relative experience-card', idx % 2 !== 0 ? 'md:mt-10' : '', exp.role === 'Quality Assurance' ? 'md:col-span-2 md:mt-0' : '']"
             :style="{ '--exp-delay': `${idx * 100}ms` }"
           >
-            <div :class="['hidden md:block absolute top-6 w-3.5 h-3.5 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-primary ring-primary/20' : 'bg-surface-container-highest ring-surface-container-low dark:bg-slate-700 dark:ring-slate-900']" :style="exp.role === 'Quality Assurance' ? { left: '50%', transform: 'translateX(-50%)' } : idx % 2 === 0 ? { left: 'calc(100% + 16px)', transform: 'translateX(-50%)' } : { left: '-16px', transform: 'translateX(-50%)' }"></div>
-            <div :class="['md:hidden absolute left-[7px] top-5 w-[26px] h-[26px] rounded-full border-2 z-10 flex items-center justify-center', exp.isCurrent ? 'border-primary bg-primary/10 dark:bg-primary/20' : 'border-outline-variant dark:border-slate-600 bg-surface dark:bg-slate-900']">
-              <div :class="['w-2.5 h-2.5 rounded-full', exp.isCurrent ? 'bg-primary animate-pulse' : 'bg-on-surface-variant/40 dark:bg-slate-500']"></div>
+            <div :class="['hidden md:block absolute top-6 w-4 h-4 rounded-full ring-4 z-10', exp.isCurrent ? 'bg-sky-500 ring-sky-400/30 shadow-[0_0_12px_rgba(56,189,248,0.6)]' : 'bg-slate-300 ring-white/60 dark:bg-slate-600 dark:ring-slate-800']" :style="exp.role === 'Quality Assurance' ? { left: '50%', transform: 'translateX(-50%)' } : idx % 2 === 0 ? { left: 'calc(100% + 16px)', transform: 'translateX(-50%)' } : { left: '-16px', transform: 'translateX(-50%)' }"></div>
+            <div :class="['md:hidden absolute left-[7px] top-5 w-[26px] h-[26px] rounded-full border-2 z-10 flex items-center justify-center', exp.isCurrent ? 'border-sky-400 bg-sky-500/20' : 'border-slate-400 dark:border-slate-600 bg-slate-100 dark:bg-slate-900']">
+              <div :class="['w-2.5 h-2.5 rounded-full', exp.isCurrent ? 'bg-sky-400 animate-pulse' : 'bg-slate-400 dark:bg-slate-500']"></div>
             </div>
 
-            <div :class="['rounded-2xl border transition-all duration-300 pl-12 md:pl-0', exp.isCurrent ? 'bg-primary-fixed/30 border-primary/40 shadow-[0_12px_30px_rgba(0,98,157,0.10)] dark:bg-primary/10 dark:border-primary/30' : 'bg-surface-container-lowest dark:bg-slate-900 border-outline-variant/30 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-outline-variant/60 dark:hover:border-slate-700']">
-              <div class="p-5 md:p-6">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+            <div :class="['glass-panel rounded-3xl transition-all duration-300 pl-12 md:pl-0', exp.isCurrent ? 'border-sky-400/50 dark:border-sky-400/30 shadow-[0_16px_40px_rgba(56,189,248,0.15)] ring-1 ring-sky-400/20' : 'hover:border-sky-400/30']">
+              <div class="p-6 md:p-7">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
                   <div>
-                    <h3 class="text-xl md:text-2xl font-headline font-bold text-on-surface dark:text-white leading-tight">{{ exp.role }}</h3>
-                    <p class="text-primary dark:text-blue-400 font-bold text-base mt-1">{{ exp.company }}</p>
+                    <h3 class="text-xl md:text-2xl font-headline font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">{{ exp.role }}</h3>
+                    <p class="text-sky-600 dark:text-sky-400 font-extrabold text-base mt-1">{{ exp.company }}</p>
                   </div>
                   <div class="flex flex-wrap gap-2 md:justify-end shrink-0">
-                    <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold bg-primary text-on-primary">{{ t('experience.current') }}</span>
-                    <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-secondary-container text-on-secondary-fixed-variant">{{ exp.type }}</span>
-                    <span class="inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold bg-surface-container-high dark:bg-slate-800 text-on-surface-variant dark:text-slate-300">{{ exp.period }}</span>
+                    <span v-if="exp.isCurrent" class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-sm shadow-sky-500/20 border border-white/30">{{ t('experience.current') }}</span>
+                    <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/60 dark:bg-slate-800/60 border border-white/80 dark:border-white/10 text-slate-700 dark:text-slate-300">{{ exp.type }}</span>
+                    <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/60 dark:bg-slate-800/60 border border-white/80 dark:border-white/10 text-slate-600 dark:text-slate-400">{{ exp.period }}</span>
                   </div>
                 </div>
 
-                <p class="text-xs text-on-surface-variant dark:text-slate-400 mb-4">{{ exp.location }}</p>
+                <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-1.5">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5 text-sky-500">
+                    <path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.307-.066l.003-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.624-.388 1.454-.977 2.37-1.782C15.556 14.908 17.5 12.05 17.5 8.5a7.5 7.5 0 00-15 0c0 3.55 1.944 6.408 3.765 8.07.916.805 1.746 1.394 2.37 1.782.311.193.57.337.757.433a5.742 5.742 0 00.282.14l.017.008.006.003zM10 11.25a2.75 2.75 0 100-5.5 2.75 2.75 0 000 5.5z" clip-rule="evenodd" />
+                  </svg>
+                  {{ exp.location }}
+                </p>
 
-                <div class="mb-4 rounded-xl bg-surface-container dark:bg-slate-800/50 p-3 border border-outline-variant/20 dark:border-slate-700">
-                  <p class="text-sm font-medium text-on-surface dark:text-slate-200">{{ exp.impact }}</p>
+                <div class="mb-4 rounded-2xl bg-white/40 dark:bg-slate-900/40 p-4 border border-white/60 dark:border-white/10 shadow-inner">
+                  <p class="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{{ exp.impact }}</p>
                 </div>
 
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
                     v-for="stack in exp.tech"
                     :key="stack"
-                    class="text-[11px] px-2 py-1 rounded-md bg-white dark:bg-slate-800 border border-outline-variant/30 dark:border-slate-700 text-on-surface-variant dark:text-slate-400 font-semibold"
+                    class="text-[11px] px-2.5 py-1 rounded-lg bg-white/70 dark:bg-slate-800/70 border border-white/90 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold shadow-sm"
                   >
                     {{ stack }}
                   </span>
                 </div>
 
-                <ul class="space-y-2 text-sm text-on-surface-variant dark:text-slate-400 leading-relaxed list-none">
-                  <li v-for="point in exp.points" :key="point" class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 mt-0.5 text-primary shrink-0" aria-hidden="true">
+                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none">
+                  <li v-for="point in exp.points" :key="point" class="flex gap-2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 mt-0.5 text-sky-500 shrink-0" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" d="m5 12 4 4 10-10" />
                     </svg>
-                    <span>{{ point }}</span>
+                    <span class="font-medium">{{ point }}</span>
                   </li>
                 </ul>
               </div>

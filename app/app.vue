@@ -12,12 +12,12 @@
 .blueprint-bg {
     position: relative;
     isolation: isolate;
-    background-color: #f7f9fb;
+    background-color: #f0f4f9;
     background-image:
-        radial-gradient(circle at 12% 12%, rgba(0, 163, 255, 0.08), transparent 26%),
-        radial-gradient(circle at 88% 18%, rgba(0, 98, 157, 0.06), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(0, 163, 255, 0.05), transparent 34%),
-        radial-gradient(circle, #00629d11 1px, transparent 1px);
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.15), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(99, 102, 241, 0.12), transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(14, 165, 233, 0.1), transparent 40%),
+        radial-gradient(circle, rgba(0, 98, 157, 0.06) 1px, transparent 1px);
     background-size: auto, auto, auto, 32px 32px;
     background-position: center;
 }
@@ -28,49 +28,52 @@
     inset: 0;
     pointer-events: none;
     background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 35%),
-        repeating-linear-gradient(90deg, rgba(0, 98, 157, 0.025) 0, rgba(0, 98, 157, 0.025) 1px, transparent 1px, transparent 24px);
-    opacity: 0.55;
-    mix-blend-mode: soft-light;
+        radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(255, 255, 255, 0.4), transparent 40%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 40%),
+        repeating-linear-gradient(90deg, rgba(0, 98, 157, 0.02) 0, rgba(0, 98, 157, 0.02) 1px, transparent 1px, transparent 24px);
+    opacity: 0.7;
 }
 
 .dark .blueprint-bg {
-    background-color: #020617;
+    background-color: #030712;
     background-image:
-        radial-gradient(circle at 12% 12%, rgba(56, 189, 248, 0.08), transparent 26%),
-        radial-gradient(circle at 88% 18%, rgba(59, 130, 246, 0.06), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(15, 23, 42, 0.72), transparent 42%),
-        radial-gradient(circle, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.18), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(129, 140, 248, 0.14), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.12), transparent 42%),
+        radial-gradient(circle, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
 }
 
 .dark .blueprint-bg::before {
     background:
-        linear-gradient(135deg, rgba(15, 23, 42, 0.35), transparent 38%),
-        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.03) 0, rgba(148, 163, 184, 0.03) 1px, transparent 1px, transparent 24px);
-    opacity: 0.7;
-    mix-blend-mode: screen;
+        radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 30%), rgba(56, 189, 248, 0.1), transparent 40%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.4), transparent 40%),
+        repeating-linear-gradient(90deg, rgba(148, 163, 184, 0.025) 0, rgba(148, 163, 184, 0.025) 1px, transparent 1px, transparent 24px);
+    opacity: 0.85;
 }
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-16px); }
     100% { transform: translateY(0px); }
 }
 .animate-float {
     animation: float 6s ease-in-out infinite;
 }
 .glass-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
     color: #0f172a;
+    box-shadow: 0 8px 32px rgba(0, 98, 157, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 .dark .glass-card {
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: #f1f5f9;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .section-texture {

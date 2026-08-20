@@ -11,14 +11,15 @@ const backendItems = computed(() => props.techStack.find(g => g.group === 'backe
 </script>
 
 <template>
-  <section class="py-24 bg-surface-container-low dark:bg-slate-900/50 overflow-hidden scroll-mt-40 relative" id="tech">
-    <!-- Animated diagonal stripes background -->
-    <div class="absolute inset-0 pointer-events-none tech-pattern-bg"></div>
+  <section class="py-24 overflow-hidden scroll-mt-40 relative" id="tech">
+    <!-- Ambient Glass glow background -->
+    <div class="absolute inset-0 pointer-events-none tech-pattern-bg opacity-70"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-72 bg-gradient-to-r from-sky-400/10 via-indigo-500/10 to-purple-500/10 blur-[100px] pointer-events-none rounded-full"></div>
 
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="mb-16 text-center">
-        <h2 class="font-headline text-4xl font-bold mb-4 dark:text-white">{{ t('tech.title') }}</h2>
-        <p class="text-on-surface-variant dark:text-slate-400 max-w-2xl mx-auto">{{ t('tech.description') }}</p>
+        <h2 class="font-headline text-4xl font-extrabold mb-4 text-slate-900 dark:text-white tracking-tight">{{ t('tech.title') }}</h2>
+        <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">{{ t('tech.description') }}</p>
       </div>
 
       <!-- Infinite logo marquees -->
@@ -29,10 +30,12 @@ const backendItems = computed(() => props.techStack.find(g => g.group === 'backe
               <div
                 v-for="tech in frontendItems"
                 :key="tech.name"
-                class="bg-white/80 dark:bg-slate-800/80 border border-primary/10 dark:border-slate-700/50 rounded-xl px-4 py-3 flex items-center gap-3 shrink-0 transition-colors hover:border-primary/30 dark:hover:border-blue-500/50"
+                class="glass-pill rounded-2xl px-5 py-3.5 flex items-center gap-3.5 shrink-0 transition-all duration-300 hover:scale-105 hover:border-sky-400/50 hover:shadow-lg hover:shadow-sky-500/15"
               >
-                <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                <span class="font-semibold text-sm text-on-surface dark:text-slate-200 whitespace-nowrap">{{ tech.name }}</span>
+                <div class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-800/60 flex items-center justify-center p-1.5 border border-white/80 dark:border-white/10 shadow-inner">
+                  <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain" />
+                </div>
+                <span class="font-bold text-sm text-slate-800 dark:text-slate-200 whitespace-nowrap tracking-tight">{{ tech.name }}</span>
               </div>
             </div>
           </div>
@@ -44,29 +47,31 @@ const backendItems = computed(() => props.techStack.find(g => g.group === 'backe
               <div
                 v-for="tech in backendItems"
                 :key="tech.name"
-                class="bg-white/80 dark:bg-slate-800/80 border border-primary/10 dark:border-slate-700/50 rounded-xl px-4 py-3 flex items-center gap-3 shrink-0 transition-colors hover:border-primary/30 dark:hover:border-blue-500/50"
+                class="glass-pill rounded-2xl px-5 py-3.5 flex items-center gap-3.5 shrink-0 transition-all duration-300 hover:scale-105 hover:border-indigo-400/50 hover:shadow-lg hover:shadow-indigo-500/15"
               >
-                <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                <span class="font-semibold text-sm text-on-surface dark:text-slate-200 whitespace-nowrap">{{ tech.name }}</span>
+                <div class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-800/60 flex items-center justify-center p-1.5 border border-white/80 dark:border-white/10 shadow-inner">
+                  <NuxtImg format="webp" :src="tech.icon" :alt="tech.name" class="w-full h-full object-contain" />
+                </div>
+                <span class="font-bold text-sm text-slate-800 dark:text-slate-200 whitespace-nowrap tracking-tight">{{ tech.name }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Stats Section -->
-      <div class="mt-16 grid grid-cols-3 gap-6">
-        <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
-          <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">{{ totalTechCount }}+</div>
-          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">{{ t('tech.technologies') }}</div>
+      <!-- Stats Section with Glass Cards -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel text-center p-8 rounded-3xl transition-all hover:scale-[1.02]">
+          <div class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600 mb-2">{{ totalTechCount }}+</div>
+          <div class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-bold uppercase tracking-wider">{{ t('tech.technologies') }}</div>
         </div>
-        <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
-          <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">7+</div>
-          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">{{ t('tech.years') }}</div>
+        <div class="glass-panel text-center p-8 rounded-3xl transition-all hover:scale-[1.02]">
+          <div class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600 mb-2">7+</div>
+          <div class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-bold uppercase tracking-wider">{{ t('tech.years') }}</div>
         </div>
-        <div class="text-center p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border border-primary/10 dark:border-slate-700/50">
-          <div class="text-3xl md:text-4xl font-bold text-primary dark:text-blue-400 mb-2">10+</div>
-          <div class="text-xs md:text-sm text-on-surface-variant dark:text-slate-400 font-semibold">{{ t('tech.projects') }}</div>
+        <div class="glass-panel text-center p-8 rounded-3xl transition-all hover:scale-[1.02]">
+          <div class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600 mb-2">10+</div>
+          <div class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-bold uppercase tracking-wider">{{ t('tech.projects') }}</div>
         </div>
       </div>
     </div>
