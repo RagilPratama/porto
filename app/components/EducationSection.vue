@@ -16,7 +16,7 @@ const education = computed(() => {
   <section class="py-24 scroll-mt-40 relative overflow-hidden" id="education">
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-education opacity-70"></div>
     <div class="max-w-6xl mx-auto px-8 relative z-10">
-      <div class="text-center mb-12">
+      <div class="text-center mb-12" data-animate="fade-up">
         <h2 class="font-headline text-3xl md:text-4xl font-extrabold mb-2 tracking-tight text-slate-900 dark:text-white">{{ t('education.title') }}</h2>
         <p class="text-slate-600 dark:text-slate-300 text-sm font-medium">{{ t('education.subtitle') }}</p>
         <div class="w-20 h-1 bg-primary rounded-full mx-auto mt-6 shadow-sm"></div>
@@ -26,6 +26,8 @@ const education = computed(() => {
         <article
           v-for="(edu, idx) in education"
           :key="idx"
+          data-animate="fade-up"
+          :data-delay="idx * 150"
           class="glass-panel rounded-3xl p-7 transition-all duration-300 hover:scale-[1.02]"
         >
           <div class="flex flex-col md:flex-row md:items-start gap-5">

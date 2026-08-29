@@ -7,7 +7,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <footer class="bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl border-t border-white/50 dark:border-white/10 w-full py-12 transition-all relative">
+  <footer data-animate="fade-up" class="bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl border-t border-white/50 dark:border-white/10 w-full py-12 transition-all relative">
     <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent dark:via-slate-600/40"></div>
     <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-start">
       <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">

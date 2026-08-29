@@ -1,6 +1,25 @@
+<script setup>
+const showWelcome = ref(true)
+const scrollReady = ref(false)
+
+function onWelcomeComplete() {
+  showWelcome.value = false
+  nextTick(() => {
+    scrollReady.value = true
+  })
+}
+
+provide('scrollReady', scrollReady)
+</script>
+
 <template>
   <div class="scroll-smooth scroll-pt-20">
-    <NuxtPage />
+    <ClientOnly>
+      <WelcomeScreen v-if="showWelcome" @complete="onWelcomeComplete" />
+    </ClientOnly>
+    <div :class="{ 'invisible': showWelcome }">
+      <NuxtPage />
+    </div>
   </div>
 </template>
 

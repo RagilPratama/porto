@@ -94,22 +94,22 @@ onBeforeUnmount(() => {
     <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
       <div class="lg:col-span-7 z-10 text-center lg:text-left">
         <!-- Glass Badge -->
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/60 dark:border-white/10 text-primary dark:text-primary-fixed-dim text-xs font-bold tracking-wider mb-6 shadow-sm">
+        <span data-animate="fade-down" data-delay="100" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/60 dark:border-white/10 text-primary dark:text-primary-fixed-dim text-xs font-bold tracking-wider mb-6 shadow-sm">
           <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
           {{ t('hero.badge') }}
         </span>
 
-        <h1 class="font-sans md:font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8">
+        <h1 data-animate="fade-right" data-delay="200" class="font-sans md:font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8">
           {{ t('hero.title') }} <br/>
           <span class="block mt-2 text-3xl sm:text-4xl md:text-6xl text-primary dark:text-primary-fixed-dim transition-all duration-300">{{ heroTitleTyped }}<span class="animate-pulse text-primary">|</span></span>
         </h1>
 
-        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mb-10 leading-relaxed mx-auto lg:mx-0 font-medium">
+        <p data-animate="fade-right" data-delay="400" class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mb-10 leading-relaxed mx-auto lg:mx-0 font-medium">
           {{ t('hero.description') }}
         </p>
 
         <!-- Glass Action Buttons -->
-        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+        <div data-animate="fade-up" data-delay="600" class="flex flex-wrap gap-4 justify-center lg:justify-start">
           <button @click="scrollTo('contact')" class="bg-primary hover:bg-on-primary-fixed-variant text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl border border-white/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center gap-2">
             <span>{{ t('hero.ctaPrimary') }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
       </div>
 
       <!-- Right Visual Showcase with Frosted Glass -->
-      <div class="lg:col-span-5 relative">
+      <div data-animate="zoom-in" data-delay="300" class="lg:col-span-5 relative">
         <div class="relative w-full aspect-square flex items-center justify-center">
           <div class="absolute inset-0 border-[1px] border-primary/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
           <div class="absolute inset-4 border-[1px] border-primary/15 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>

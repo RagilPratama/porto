@@ -125,7 +125,7 @@ const getProjectBadgeLabel = (project) => {
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-portfolio opacity-70"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-        <div>
+        <div data-animate="fade-right">
           <span class="font-label text-xs tracking-[0.3em] uppercase text-primary dark:text-primary-fixed-dim mb-3 inline-flex items-center gap-2 font-bold">
             <span class="w-8 h-0.5 bg-primary inline-block"></span>
             {{ t('portfolio.featured') }}
@@ -138,7 +138,7 @@ const getProjectBadgeLabel = (project) => {
         </div>
 
         <!-- Glass Filter Pills -->
-        <div class="flex flex-wrap gap-2.5 shrink-0">
+        <div data-animate="fade-left" class="flex flex-wrap gap-2.5 shrink-0">
           <button
             v-for="cat in categories"
             :key="cat.id"
@@ -161,6 +161,8 @@ const getProjectBadgeLabel = (project) => {
         <div
           v-for="project in displayedPortfolio"
           :key="project.id"
+          data-animate="zoom-in"
+          :data-delay="50"
           :class="[
             'group relative rounded-3xl overflow-hidden glass-panel border transition-all duration-500 hover:scale-[1.02] hover:border-primary/30 hover:shadow-2xl',
             isWide(project) ? 'lg:col-span-2' : '',

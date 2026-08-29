@@ -1,23 +1,26 @@
 <script setup>
 const { navLinks, techStack, totalTechCount, socials } = useSiteData();
 const { setupSectionObserver, stopSectionObserver } = useSectionNavigation();
+const { initScrollAnimation, cleanup } = useScrollAnimation();
+const scrollReady = inject('scrollReady', ref(true));
 
 onMounted(() => {
-  // Defer non-critical observer work to keep the initial paint path lighter.
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(() => {
-      setupSectionObserver();
-    }, { timeout: 1200 });
-    return;
+  setupSectionObserver();
+
+  if (scrollReady.value) {
+    nextTick(() => initScrollAnimation());
   }
 
-  setTimeout(() => {
-    setupSectionObserver();
-  }, 200);
+  watch(scrollReady, (ready) => {
+    if (ready) {
+      nextTick(() => initScrollAnimation());
+    }
+  });
 });
 
 onBeforeUnmount(() => {
   stopSectionObserver();
+  cleanup();
 });
 </script>
 

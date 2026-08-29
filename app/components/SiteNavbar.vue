@@ -23,16 +23,6 @@ const switchLanguage = () => {
     <div class="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent dark:via-slate-600/50"></div>
 
     <div class="flex justify-between items-center max-w-7xl mx-auto px-6 sm:px-8 py-3">
-      <!-- Logo / Brand Mark -->
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-primary text-white font-bold flex items-center justify-center shadow-lg border border-white/40">
-          R
-        </div>
-        <!-- <div class="text-xl sm:text-2xl font-bold tracking-tighter text-slate-900 dark:text-white font-headline transition-all">
-          <span>M. Ragil Pratama</span>
-        </div> -->
-      </div>
-
       <!-- Desktop Nav Links -->
       <div class="hidden md:flex items-center gap-1.5 p-1.5 rounded-full bg-white/30 dark:bg-slate-900/40 border border-white/50 dark:border-white/10 backdrop-blur-md shadow-inner">
         <a v-for="link in navLinks"

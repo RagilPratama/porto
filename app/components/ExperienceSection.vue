@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
   <section :class="['py-24 scroll-mt-40 relative overflow-hidden', { 'experience-visible': experienceVisible }]" id="experience">
     <div class="absolute inset-0 pointer-events-none section-texture section-texture-experience opacity-70"></div>
     <div class="max-w-7xl mx-auto px-8 relative z-10">
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-animate="fade-up">
         <h2 class="font-headline text-4xl font-extrabold mb-4 text-slate-900 dark:text-white tracking-tight">{{ t('experience.title') }}</h2>
         <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto font-medium">{{ t('experience.subtitle') }}</p>
       </div>

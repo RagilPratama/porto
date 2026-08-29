@@ -88,7 +88,7 @@ const handleInquiry = async () => {
     <div class="max-w-7xl mx-auto px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <!-- Left Contact Info -->
-        <div class="lg:col-span-5 text-center lg:text-left">
+        <div data-animate="fade-right" class="lg:col-span-5 text-center lg:text-left">
           <h2 class="font-headline text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight text-slate-900 dark:text-white">
             {{ t('contact.title') }} <span class="text-primary dark:text-primary-fixed-dim">{{ t('contact.titleAccent') }}</span>
           </h2>
@@ -138,7 +138,7 @@ const handleInquiry = async () => {
         </div>
 
         <!-- Right Glass Form -->
-        <div :class="['lg:col-span-7 glass-panel rounded-3xl p-8 md:p-10 transition-all shadow-2xl', { 'animate-shake border-red-500/50 shadow-red-500/10': isShaking }]">
+        <div data-animate="fade-left" :class="['lg:col-span-7 glass-panel rounded-3xl p-8 md:p-10 transition-all shadow-2xl', { 'animate-shake border-red-500/50 shadow-red-500/10': isShaking }]">
           <form @submit.prevent="handleInquiry" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2 relative">
