@@ -26,7 +26,7 @@ export function useScrollAnimation() {
           }
         })
       },
-      { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
+      { threshold: 0.01, rootMargin: '50px 0px 0px 0px' }
     )
 
     observeElements()
@@ -39,6 +39,12 @@ export function useScrollAnimation() {
       childList: true,
       subtree: true
     })
+
+    setTimeout(() => {
+      document.querySelectorAll('[data-animate]:not(.is-visible)').forEach((el) => {
+        el.classList.add('is-visible')
+      })
+    }, 2000)
   }
 
   const cleanup = () => {

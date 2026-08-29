@@ -1,23 +1,27 @@
 <script setup>
 const showWelcome = ref(true)
-const scrollReady = ref(false)
+const showContent = ref(false)
 
 function onWelcomeComplete() {
   showWelcome.value = false
   nextTick(() => {
-    scrollReady.value = true
+    showContent.value = true
   })
 }
-
-provide('scrollReady', scrollReady)
 </script>
 
 <template>
   <div class="scroll-smooth scroll-pt-20">
+    <!-- Welcome screen - always render on client, hidden via CSS on server -->
     <ClientOnly>
       <WelcomeScreen v-if="showWelcome" @complete="onWelcomeComplete" />
+      <template #fallback>
+        <div class="fixed inset-0 z-[9999] bg-[#030014]" />
+      </template>
     </ClientOnly>
-    <div :class="{ 'invisible': showWelcome }">
+
+    <!-- Page content - hidden until welcome completes -->
+    <div :style="showContent ? {} : { visibility: 'hidden', height: '100vh', overflow: 'hidden' }">
       <NuxtPage />
     </div>
   </div>
