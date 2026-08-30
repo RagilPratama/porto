@@ -1,11 +1,15 @@
 <script setup>
 const showWelcome = ref(true)
 const showContent = ref(false)
+const scrollReady = ref(false)
+
+provide('scrollReady', scrollReady)
 
 function onWelcomeComplete() {
   showWelcome.value = false
   nextTick(() => {
     showContent.value = true
+    scrollReady.value = true
   })
 }
 </script>
