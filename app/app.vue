@@ -6,9 +6,9 @@ const scrollReady = ref(false)
 provide('scrollReady', scrollReady)
 
 function onWelcomeComplete() {
-  showWelcome.value = false
+  showContent.value = true
   nextTick(() => {
-    showContent.value = true
+    showWelcome.value = false
     scrollReady.value = true
   })
 }
