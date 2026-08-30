@@ -218,10 +218,7 @@ onMounted(() => {
         <a
           v-for="link in navLinks"
           :key="`m-${link}`"
-          @click.prevent="
-            scrollTo(link)
-            isMobileMenuOpen = false
-          "
+          @click.prevent="scrollTo(link); isMobileMenuOpen = false"
           href="#"
           :class="[
             'flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200',
@@ -239,10 +236,7 @@ onMounted(() => {
         </a>
         <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
           <a
-            @click.prevent="
-              scrollTo('contact')
-              isMobileMenuOpen = false
-            "
+            @click.prevent="scrollTo('contact'); isMobileMenuOpen = false"
             href="#"
             class="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-cyan-500 text-white py-2.5 rounded-xl font-bold text-sm shadow-lg"
           >
