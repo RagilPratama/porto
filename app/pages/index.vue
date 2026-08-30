@@ -1,31 +1,33 @@
 <script setup>
-const { navLinks, techStack, totalTechCount, socials } = useSiteData();
-const { setupSectionObserver, stopSectionObserver } = useSectionNavigation();
-const { initScrollAnimation, cleanup } = useScrollAnimation();
-const scrollReady = inject('scrollReady', ref(true));
+const { navLinks, techStack, totalTechCount, socials } = useSiteData()
+const { setupSectionObserver, stopSectionObserver } = useSectionNavigation()
+const { initScrollAnimation, cleanup } = useScrollAnimation()
+const scrollReady = inject('scrollReady', ref(true))
 
 onMounted(() => {
-  setupSectionObserver();
+  setupSectionObserver()
 
   if (scrollReady.value) {
-    nextTick(() => initScrollAnimation());
+    nextTick(() => initScrollAnimation())
   }
 
   watch(scrollReady, (ready) => {
     if (ready) {
-      nextTick(() => initScrollAnimation());
+      nextTick(() => initScrollAnimation())
     }
-  });
-});
+  })
+})
 
 onBeforeUnmount(() => {
-  stopSectionObserver();
-  cleanup();
-});
+  stopSectionObserver()
+  cleanup()
+})
 </script>
 
 <template>
-  <div class="min-h-screen bg-surface dark:bg-slate-950 font-body text-on-surface dark:text-slate-200 transition-colors duration-500">
+  <div
+    class="min-h-screen bg-surface dark:bg-slate-950 font-body text-on-surface dark:text-slate-200 transition-colors duration-500"
+  >
     <SiteNavbar :nav-links="navLinks" />
 
     <main class="blueprint-bg">

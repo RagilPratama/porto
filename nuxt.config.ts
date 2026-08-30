@@ -7,17 +7,17 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/google-fonts',
     '@nuxtjs/color-mode',
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
   i18n: {
     locales: [
       { code: 'en', name: 'English', file: 'en.json' },
-      { code: 'id', name: 'Bahasa Indonesia', file: 'id.json' },
+      { code: 'id', name: 'Bahasa Indonesia', file: 'id.json' }
     ],
     defaultLocale: 'en',
     langDir: 'locales',
     strategy: 'no_prefix',
-    detectBrowserLanguage: false,
+    detectBrowserLanguage: false
   },
   colorMode: {
     classSuffix: '',
@@ -27,7 +27,7 @@ export default defineNuxtConfig({
   googleFonts: {
     families: {
       'Plus Jakarta Sans': [400, 600, 700, 800],
-      'Outfit': [400, 600, 700]
+      Outfit: [400, 600, 700]
     },
     display: 'swap',
     download: true,
@@ -57,24 +57,51 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Professional Fullstack Developer with 7+ years of experience in Vue.js, React, Node.js, and Laravel. Building high-performing, scalable digital solutions.' },
+        {
+          name: 'description',
+          content:
+            'Professional Fullstack Developer with 7+ years of experience in Vue.js, React, Node.js, and Laravel. Building high-performing, scalable digital solutions.'
+        },
         { name: 'author', content: 'M. Ragil Pratama ' },
-        { name: 'keywords', content: 'Fullstack Developer, Vue.js, React, Node.js, Laravel, Portfolio, Web Development, Software Engineer, Jakarta, Bogor' },
-        { name: 'google-site-verification', content: 'oLDOT4WEB8TLHCcSwnK_pMdOpL5GMfTAM5bvARv0rQc' },
-        
+        {
+          name: 'keywords',
+          content:
+            'Fullstack Developer, Vue.js, React, Node.js, Laravel, Portfolio, Web Development, Software Engineer, Jakarta, Bogor'
+        },
+        {
+          name: 'google-site-verification',
+          content: 'oLDOT4WEB8TLHCcSwnK_pMdOpL5GMfTAM5bvARv0rQc'
+        },
+
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: 'https://ragilpratama.com/' },
         { property: 'og:title', content: 'M. Ragil Pratama  | Fullstack Developer' },
-        { property: 'og:description', content: 'Building high-performing, scalable digital solutions with modern tech stacks like Vue.js, React, Laravel, and Node.js.' },
-        { property: 'og:image', content: 'https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg' },
+        {
+          property: 'og:description',
+          content:
+            'Building high-performing, scalable digital solutions with modern tech stacks like Vue.js, React, Laravel, and Node.js.'
+        },
+        {
+          property: 'og:image',
+          content:
+            'https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg'
+        },
 
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'M. Ragil Pratama  | Fullstack Developer' },
-        { name: 'twitter:description', content: 'Building high-performing, scalable digital solutions with modern tech stacks like Vue.js, React, Laravel, and Node.js.' },
-        { name: 'twitter:image', content: 'https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg' },
-        
+        {
+          name: 'twitter:description',
+          content:
+            'Building high-performing, scalable digital solutions with modern tech stacks like Vue.js, React, Laravel, and Node.js.'
+        },
+        {
+          name: 'twitter:image',
+          content:
+            'https://instagram.fcgk31-1.fna.fbcdn.net/v/t51.82787-15/657737607_18451619035110514_6738889570991742381_n.jpg'
+        },
+
         { name: 'format-detection', content: 'telephone=no' }
       ],
       link: [
