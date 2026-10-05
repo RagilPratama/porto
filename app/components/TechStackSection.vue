@@ -26,11 +26,11 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
             >{{ t('nav.links.tech') }}</span
           >
         </div>
-        <h2
+        <WordReveal
+          :text="t('tech.title')"
+          tag="h2"
           class="font-display text-4xl md:text-5xl font-bold mb-4 text-ink dark:text-white tracking-tighter"
-        >
-          {{ t('tech.title') }}
-        </h2>
+        />
         <p class="text-ink/60 dark:text-slate-300 max-w-2xl mx-auto font-medium">
           {{ t('tech.description') }}
         </p>
@@ -122,7 +122,9 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
           data-delay="0"
           class="bg-primary-container text-ink border-[3px] border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
-          <div class="text-5xl md:text-6xl font-display font-bold mb-2">{{ totalTechCount }}+</div>
+          <div class="text-5xl md:text-6xl font-display font-bold mb-2">
+            <CountUp :to="totalTechCount" suffix="+" />
+          </div>
           <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
             {{ t('tech.technologies') }}
           </div>
@@ -135,7 +137,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
           <div
             class="text-5xl md:text-6xl font-display font-bold mb-2 text-primary dark:text-primary-fixed-dim"
           >
-            7+
+            <CountUp :to="7" suffix="+" />
           </div>
           <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
             {{ t('tech.years') }}
@@ -146,7 +148,9 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
           data-delay="200"
           class="bg-primary text-white border-[3px] border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
-          <div class="text-5xl md:text-6xl font-display font-bold mb-2">10+</div>
+          <div class="text-5xl md:text-6xl font-display font-bold mb-2">
+            <CountUp :to="10" suffix="+" />
+          </div>
           <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
             {{ t('tech.projects') }}
           </div>

@@ -18,6 +18,29 @@ const showSuccess = ref(false)
 const formTouched = ref(false)
 const isShaking = ref(false)
 
+// Neo-brutalist confetti burst on successful submit (skips if reduced motion)
+const fireConfetti = async () => {
+  if (typeof window === 'undefined') return
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  try {
+    const confetti = (await import('canvas-confetti')).default
+    const colors = ['#6C3EF4', '#C8F94E', '#FF5A1F', '#1452FF', '#111111']
+    confetti({
+      particleCount: 120,
+      spread: 75,
+      origin: { y: 0.7 },
+      colors,
+      disableForReducedMotion: true
+    })
+    setTimeout(() => {
+      confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0, y: 0.7 }, colors })
+      confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1, y: 0.7 }, colors })
+    }, 180)
+  } catch {
+    // confetti is non-critical; ignore load failures
+  }
+}
+
 const isFormValid = computed(() => {
   return form.name.trim() && /^\S+@\S+\.\S+$/.test(form.email) && form.message.trim()
 })
@@ -71,6 +94,8 @@ const handleInquiry = async () => {
     form.email = ''
     form.message = ''
 
+    fireConfetti()
+
     setTimeout(() => {
       showSuccess.value = false
     }, 5000)
@@ -101,7 +126,7 @@ const handleInquiry = async () => {
           <h2
             class="font-display text-4xl sm:text-5xl font-bold mb-6 tracking-tighter text-ink dark:text-white"
           >
-            {{ t('contact.title') }}
+            <WordReveal :text="t('contact.title')" tag="span" />
             <span class="text-primary dark:text-primary-fixed-dim">{{
               t('contact.titleAccent')
             }}</span>
@@ -356,6 +381,7 @@ const handleInquiry = async () => {
             </div>
 
             <button
+              data-magnetic
               :disabled="isSubmitting"
               class="w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 bg-primary text-white border-[3px] border-ink nb-shadow nb-press"
             >

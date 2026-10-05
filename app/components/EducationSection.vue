@@ -26,11 +26,11 @@ const education = computed(() => {
             >{{ t('nav.links.education') }}</span
           >
         </div>
-        <h2
+        <WordReveal
+          :text="t('education.title')"
+          tag="h2"
           class="font-display text-4xl md:text-5xl font-bold mb-2 tracking-tighter text-ink dark:text-white"
-        >
-          {{ t('education.title') }}
-        </h2>
+        />
         <p class="text-ink/60 dark:text-slate-300 text-sm font-medium">
           {{ t('education.subtitle') }}
         </p>

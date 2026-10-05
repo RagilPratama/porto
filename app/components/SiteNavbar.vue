@@ -147,6 +147,7 @@ onMounted(() => {
 
           <!-- CTA (hidden on mobile) -->
           <a
+            data-magnetic
             @click.prevent="scrollTo('contact')"
             href="#"
             class="hidden sm:inline-flex items-center gap-1.5 bg-primary-container text-ink border-[3px] border-ink pl-4 pr-3 py-1.5 rounded-none text-sm font-bold nb-shadow-sm nb-press"

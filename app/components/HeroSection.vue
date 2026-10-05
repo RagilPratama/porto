@@ -72,11 +72,9 @@ onBeforeUnmount(() => {
         </span>
 
         <h1
-          data-animate="fade-right"
-          data-delay="200"
           class="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-ink dark:text-white leading-[0.95] mb-7"
         >
-          {{ t('hero.title') }}
+          <WordReveal :text="t('hero.title')" tag="span" :stagger="70" />
           <span class="block mt-4">
             <span
               class="inline-flex items-center min-h-[1.2em] bg-primary-container text-ink border-[3px] border-ink rounded-xl px-3 py-1 nb-shadow text-3xl sm:text-4xl md:text-5xl -rotate-1"
@@ -100,6 +98,7 @@ onBeforeUnmount(() => {
           class="flex flex-wrap gap-4 justify-center lg:justify-start"
         >
           <button
+            data-magnetic
             @click="scrollTo('contact')"
             class="bg-primary text-white px-7 py-3.5 rounded-xl font-bold text-lg border-[3px] border-ink nb-shadow nb-press flex items-center gap-2"
           >
@@ -118,6 +117,7 @@ onBeforeUnmount(() => {
             </svg>
           </button>
           <button
+            data-magnetic
             @click="scrollTo('experience')"
             class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white px-7 py-3.5 rounded-xl font-bold text-lg border-[3px] border-ink nb-shadow nb-press"
           >

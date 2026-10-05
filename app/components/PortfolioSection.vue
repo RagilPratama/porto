@@ -1,6 +1,10 @@
 <script setup>
+import { useAutoAnimate } from '@formkit/auto-animate/vue'
+
 const { t } = useI18n()
 const localized = useLocalizedData()
+
+const [gridRef] = useAutoAnimate()
 
 const categories = computed(() => [
   { id: 'all', name: t('portfolio.categories.all') },
@@ -216,7 +220,7 @@ const linkClass =
           <h2
             class="font-display text-4xl md:text-5xl font-bold text-ink dark:text-white tracking-tighter"
           >
-            {{ t('portfolio.title') }}
+            <WordReveal :text="t('portfolio.title')" tag="span" />
             <span
               class="inline-flex items-center justify-center bg-primary-container text-ink border-[3px] border-ink px-2.5 nb-shadow-sm -rotate-2 text-2xl md:text-3xl align-middle"
               >{{ countByCategory.all }}</span
@@ -255,7 +259,7 @@ const linkClass =
       </div>
 
       <!-- Bento grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div ref="gridRef" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           v-for="project in displayedPortfolio"
           :key="project.id"

@@ -111,11 +111,11 @@ onBeforeUnmount(() => {
             >{{ t('nav.links.experience') }}</span
           >
         </div>
-        <h2
+        <WordReveal
+          :text="t('experience.title')"
+          tag="h2"
           class="font-display text-4xl md:text-5xl font-bold mb-4 text-ink dark:text-white tracking-tighter"
-        >
-          {{ t('experience.title') }}
-        </h2>
+        />
         <p class="text-ink/60 dark:text-slate-300 max-w-xl mx-auto font-medium">
           {{ t('experience.subtitle') }}
         </p>

@@ -28,6 +28,14 @@ onBeforeUnmount(() => {
   <div
     class="min-h-screen bg-surface dark:bg-paper-dark font-body text-on-surface dark:text-slate-200 transition-colors duration-500"
   >
+    <div class="nb-grain" aria-hidden="true"></div>
+
+    <ClientOnly>
+      <ScrollProgress />
+      <NeoCursor />
+      <BackToTop />
+    </ClientOnly>
+
     <SiteNavbar :nav-links="navLinks" />
 
     <main class="blueprint-bg">
