@@ -57,7 +57,7 @@ onMounted(() => {
         </div>
 
         <!-- Right: Actions -->
-        <div class="flex items-center gap-2 shrink-0">
+        <div class="flex items-center gap-2 shrink-0 ml-auto">
           <!-- Language -->
           <button
             @click="switchLanguage"
