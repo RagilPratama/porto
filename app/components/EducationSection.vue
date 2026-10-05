@@ -18,7 +18,7 @@ const education = computed(() => {
       <div class="text-center mb-12" data-animate="fade-up">
         <div class="inline-flex items-center gap-2 mb-4">
           <span
-            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-none px-2 py-0.5 font-label font-bold text-xs"
             >03</span
           >
           <span
@@ -35,7 +35,7 @@ const education = computed(() => {
           {{ t('education.subtitle') }}
         </p>
         <div
-          class="w-20 h-1.5 bg-primary-container border-2 border-ink rounded-full mx-auto mt-6"
+          class="w-24 h-2 bg-primary-container border-[3px] border-ink rounded-none mx-auto mt-6"
         ></div>
       </div>
 
@@ -49,7 +49,7 @@ const education = computed(() => {
         >
           <div class="flex flex-col md:flex-row md:items-start gap-5">
             <div
-              class="w-16 h-16 rounded-2xl bg-white dark:bg-[#141414] flex items-center justify-center p-3 shrink-0 border-2 border-ink"
+              class="w-16 h-16 rounded-2xl bg-white dark:bg-[#141414] flex items-center justify-center p-3 shrink-0 border-[3px] border-ink"
             >
               <NuxtImg
                 format="webp"
@@ -78,7 +78,7 @@ const education = computed(() => {
 
               <div class="flex flex-wrap items-center gap-2 mb-4">
                 <span
-                  class="inline-flex items-center gap-1.5 bg-primary-container text-ink px-3 py-1 rounded-full text-xs font-bold border-2 border-ink"
+                  class="inline-flex items-center gap-1.5 bg-primary-container text-ink px-3 py-1 rounded-none text-xs font-bold font-label border-[3px] border-ink"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ const education = computed(() => {
                   {{ edu.period }}
                 </span>
                 <span
-                  class="inline-flex items-center gap-1.5 bg-white dark:bg-[#1e1e1e] text-ink dark:text-slate-200 px-3 py-1 rounded-full text-xs font-bold border-2 border-ink"
+                  class="inline-flex items-center gap-1.5 bg-white dark:bg-[#1e1e1e] text-ink dark:text-slate-200 px-3 py-1 rounded-none text-xs font-bold font-label border-[3px] border-ink"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -129,9 +129,11 @@ const education = computed(() => {
             class="border-t-2 border-ink/10 dark:border-white/10 mt-6 pt-4 flex items-center justify-between"
           >
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-primary-container border-2 border-ink"></span>
-              <span class="w-3 h-3 rounded-full bg-primary border-2 border-ink"></span>
-              <span class="w-3 h-3 rounded-full bg-tertiary border-2 border-ink"></span>
+              <span
+                class="w-3 h-3 rounded-full bg-primary-container border-[3px] border-ink"
+              ></span>
+              <span class="w-3 h-3 rounded-full bg-primary border-[3px] border-ink"></span>
+              <span class="w-3 h-3 rounded-full bg-tertiary border-[3px] border-ink"></span>
             </div>
             <span class="font-display text-xl font-bold text-ink dark:text-white">{{
               edu.year

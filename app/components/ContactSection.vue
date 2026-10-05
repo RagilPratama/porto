@@ -90,7 +90,7 @@ const handleInquiry = async () => {
         <div data-animate="fade-right" class="lg:col-span-5 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 mb-4">
             <span
-              class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+              class="bg-ink text-paper dark:bg-white dark:text-ink rounded-none px-2 py-0.5 font-label font-bold text-xs"
               >05</span
             >
             <span
@@ -116,7 +116,7 @@ const handleInquiry = async () => {
               class="glass-panel nb-press p-5 rounded-2xl flex items-center gap-5 group"
             >
               <div
-                class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center border-2 border-ink shrink-0"
+                class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center border-[3px] border-ink shrink-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@ const handleInquiry = async () => {
 
             <div class="glass-panel p-5 rounded-2xl flex items-center gap-5 group">
               <div
-                class="w-12 h-12 rounded-xl bg-primary-container text-ink flex items-center justify-center border-2 border-ink shrink-0"
+                class="w-12 h-12 rounded-xl bg-primary-container text-ink flex items-center justify-center border-[3px] border-ink shrink-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -176,37 +176,6 @@ const handleInquiry = async () => {
                 <p class="text-base sm:text-lg font-bold text-ink dark:text-white">
                   {{ t('contact.locationValue') }}
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="mt-8 w-full h-44 rounded-3xl overflow-hidden relative border-2 border-ink nb-shadow"
-          >
-            <div class="w-full h-full relative">
-              <NuxtImg
-                format="webp"
-                class="w-full h-full object-cover opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ"
-                :alt="t('contact.mapAlt')"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 flex items-center justify-center bg-primary/10">
-                <div
-                  class="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center border-2 border-ink nb-shadow-sm animate-pulse"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="w-6 h-6"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12 2.75a7.25 7.25 0 0 0-7.25 7.25c0 5.22 5.44 10.34 6.41 11.2a1.25 1.25 0 0 0 1.68 0c.97-.86 6.41-5.98 6.41-11.2A7.25 7.25 0 0 0 12 2.75Zm0 9.75a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
-                    />
-                  </svg>
-                </div>
               </div>
             </div>
           </div>
@@ -348,7 +317,7 @@ const handleInquiry = async () => {
 
             <div
               v-if="showSuccess"
-              class="p-4 bg-emerald-300 text-ink border-2 border-ink nb-shadow-sm rounded-2xl text-sm font-bold flex items-center gap-2.5"
+              class="p-4 bg-emerald-300 text-ink border-[3px] border-ink nb-shadow-sm rounded-2xl text-sm font-bold flex items-center gap-2.5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -371,7 +340,7 @@ const handleInquiry = async () => {
 
             <div
               v-if="!isFormValid && formTouched"
-              class="p-4 bg-error/10 border-2 border-ink rounded-2xl space-y-2 animate-shake"
+              class="p-4 bg-error/10 border-[3px] border-ink rounded-2xl space-y-2 animate-shake"
             >
               <p class="text-xs font-bold text-error uppercase tracking-widest">
                 {{ t('contact.form.requiredFields') }}
@@ -388,7 +357,7 @@ const handleInquiry = async () => {
 
             <button
               :disabled="isSubmitting"
-              class="w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 bg-primary text-white border-2 border-ink nb-shadow nb-press"
+              class="w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 bg-primary text-white border-[3px] border-ink nb-shadow nb-press"
             >
               <span
                 v-if="isSubmitting"

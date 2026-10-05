@@ -26,8 +26,9 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
+      Syne: [700, 800],
       'Space Grotesk': [400, 500, 600, 700],
-      'Plus Jakarta Sans': [400, 600, 700, 800],
+      'Space Mono': [400, 700],
       Outfit: [400, 600, 700]
     },
     display: 'swap',

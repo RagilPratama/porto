@@ -78,24 +78,30 @@ module.exports = {
         'on-error-container': '#5c0010'
       },
       fontFamily: {
-        headline: ["'Space Grotesk'", "'Plus Jakarta Sans'", 'sans-serif'],
-        display: ["'Space Grotesk'", 'sans-serif'],
-        body: ['Outfit', 'sans-serif'],
-        label: ["'Space Grotesk'", 'Outfit', 'sans-serif']
+        // Impact display face for headlines (quirky grotesque)
+        display: ['Syne', "'Space Grotesk'", 'sans-serif'],
+        // Geometric sans for section/card headings
+        headline: ["'Space Grotesk'", 'sans-serif'],
+        // Mechanical mono for labels / kickers / tokens
+        label: ["'Space Mono'", 'monospace'],
+        body: ['Outfit', 'sans-serif']
       },
       borderRadius: {
-        DEFAULT: '0.375rem',
-        lg: '0.625rem',
-        xl: '0.875rem',
-        '2xl': '1rem',
-        '3xl': '1.25rem',
+        // Neubrutalism: square corners — the outline defines the object
+        none: '0',
+        DEFAULT: '0',
+        sm: '0',
+        lg: '0',
+        xl: '0',
+        '2xl': '0',
+        '3xl': '0',
         full: '9999px'
       },
       boxShadow: {
-        brutal: '4px 4px 0 0 #111111',
-        'brutal-sm': '2px 2px 0 0 #111111',
-        'brutal-lg': '6px 6px 0 0 #111111',
-        'brutal-xl': '8px 8px 0 0 #111111'
+        brutal: '5px 5px 0 0 #111111',
+        'brutal-sm': '3px 3px 0 0 #111111',
+        'brutal-lg': '8px 8px 0 0 #111111',
+        'brutal-xl': '10px 10px 0 0 #111111'
       }
     }
   },

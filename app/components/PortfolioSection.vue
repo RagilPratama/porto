@@ -195,7 +195,7 @@ const getProjectBadgeLabel = (project) => {
 
 // Shared link-button classes (neo-brutalist)
 const linkClass =
-  'text-xs font-bold rounded-full border-2 border-ink bg-white dark:bg-[#1e1e1e] text-ink dark:text-white px-4 py-1.5 inline-flex items-center gap-1.5 nb-shadow-sm nb-press'
+  'text-xs font-bold rounded-none border-[3px] border-ink bg-white dark:bg-[#1e1e1e] text-ink dark:text-white px-4 py-1.5 inline-flex items-center gap-1.5 nb-shadow-sm nb-press'
 </script>
 
 <template>
@@ -205,7 +205,7 @@ const linkClass =
         <div data-animate="fade-right">
           <div class="inline-flex items-center gap-2 mb-4">
             <span
-              class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+              class="bg-ink text-paper dark:bg-white dark:text-ink rounded-none px-2 py-0.5 font-label font-bold text-xs"
               >04</span
             >
             <span
@@ -218,7 +218,7 @@ const linkClass =
           >
             {{ t('portfolio.title') }}
             <span
-              class="inline-flex items-center justify-center bg-primary-container text-ink border-2 border-ink rounded-xl px-2.5 nb-shadow-sm -rotate-2 text-2xl md:text-3xl align-middle"
+              class="inline-flex items-center justify-center bg-primary-container text-ink border-[3px] border-ink px-2.5 nb-shadow-sm -rotate-2 text-2xl md:text-3xl align-middle"
               >{{ countByCategory.all }}</span
             >
           </h2>
@@ -234,7 +234,7 @@ const linkClass =
             :key="cat.id"
             @click="activeCategory = cat.id"
             :class="[
-              'px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-150 inline-flex items-center gap-2 border-2 border-ink nb-shadow-sm',
+              'px-4 py-2 rounded-none text-xs sm:text-sm font-bold transition-all duration-150 inline-flex items-center gap-2 border-[3px] border-ink nb-shadow-sm',
               activeCategory === cat.id
                 ? 'bg-primary text-white'
                 : 'bg-white dark:bg-[#1e1e1e] text-ink dark:text-slate-200 nb-press'
@@ -243,9 +243,9 @@ const linkClass =
             {{ cat.name }}
             <span
               :class="[
-                'text-[10px] font-bold px-2 py-0.5 rounded-full leading-none border border-ink',
+                'text-[10px] font-bold px-2 py-0.5 rounded-none leading-none border-2 border-ink',
                 activeCategory === cat.id
-                  ? 'bg-white/25 text-white border-white/40'
+                  ? 'bg-white/25 text-white !border-white/50'
                   : 'bg-primary-container text-ink'
               ]"
               >{{ countByCategory[cat.id] }}</span
@@ -275,7 +275,7 @@ const linkClass =
                 <div :class="['absolute inset-0 dots opacity-60', themeFor(project).dots]"></div>
                 <div
                   :class="[
-                    'relative z-[1] w-40 h-40 md:w-44 md:h-44 rounded-2xl bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow transition-transform duration-300 group-hover:-rotate-2',
+                    'relative z-[1] w-40 h-40 md:w-44 md:h-44 bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow transition-transform duration-300 group-hover:-rotate-2',
                     themeFor(project).logoHover
                   ]"
                 >
@@ -291,7 +291,7 @@ const linkClass =
                 <div class="absolute top-3.5 left-4">
                   <span
                     :class="[
-                      'text-[10px] font-bold px-3 py-1 rounded-full border-2 border-ink nb-shadow-sm',
+                      'text-[10px] font-bold px-3 py-1 rounded-none border-[3px] border-ink nb-shadow-sm uppercase font-label',
                       themeFor(project).badge
                     ]"
                   >
@@ -302,7 +302,7 @@ const linkClass =
               <div class="p-6 md:p-7 flex flex-col justify-center relative">
                 <div v-if="isFeatured(project)" class="flex items-center gap-2 mb-3">
                   <span
-                    class="inline-flex items-center gap-1.5 bg-primary-container text-ink border-2 border-ink rounded-full px-2.5 py-0.5 text-[11px] tracking-wider uppercase font-bold"
+                    class="inline-flex items-center gap-1.5 bg-primary-container text-ink border-[3px] border-ink rounded-none px-2.5 py-0.5 text-[11px] tracking-wider uppercase font-bold font-label"
                   >
                     <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
                     {{ t('portfolio.featured') }}
@@ -323,7 +323,7 @@ const linkClass =
                   <span
                     v-for="tag in project.tags"
                     :key="tag"
-                    class="text-[10px] font-bold px-2.5 py-1 rounded-full border-2 border-ink bg-paper dark:bg-[#141414] text-ink dark:text-slate-200"
+                    class="text-[10px] font-bold px-2.5 py-1 rounded-none border-2 border-ink bg-paper dark:bg-[#141414] text-ink dark:text-slate-200"
                     >{{ tag }}</span
                   >
                 </div>
@@ -412,7 +412,7 @@ const linkClass =
               <div :class="['absolute inset-0 dots opacity-60', themeFor(project).dots]"></div>
               <div
                 :class="[
-                  'relative z-[1] w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow transition-transform duration-300 group-hover:-rotate-2',
+                  'relative z-[1] w-28 h-28 md:w-32 md:h-32 bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow transition-transform duration-300 group-hover:-rotate-2',
                   themeFor(project).logoHover
                 ]"
               >
@@ -428,7 +428,7 @@ const linkClass =
               <div class="absolute top-3.5 left-4">
                 <span
                   :class="[
-                    'text-[10px] font-bold px-3 py-1 rounded-full border-2 border-ink nb-shadow-sm',
+                    'text-[10px] font-bold px-3 py-1 rounded-none border-[3px] border-ink nb-shadow-sm uppercase font-label',
                     themeFor(project).badge
                   ]"
                 >
@@ -452,7 +452,7 @@ const linkClass =
                 <span
                   v-for="tag in project.tags"
                   :key="tag"
-                  class="text-[10px] font-bold px-2.5 py-1 rounded-full border-2 border-ink bg-paper dark:bg-[#141414] text-ink dark:text-slate-200"
+                  class="text-[10px] font-bold px-2.5 py-1 rounded-none border-2 border-ink bg-paper dark:bg-[#141414] text-ink dark:text-slate-200"
                   >{{ tag }}</span
                 >
               </div>

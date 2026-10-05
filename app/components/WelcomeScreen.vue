@@ -49,10 +49,10 @@ onMounted(() => {
 
       <!-- Floating sticker blocks -->
       <div
-        class="absolute top-[18%] left-[14%] w-14 h-14 rounded-xl bg-[#C8F94E] border-2 border-black rotate-12 animate-float pointer-events-none"
+        class="absolute top-[18%] left-[14%] w-14 h-14 rounded-xl bg-[#C8F94E] border-[3px] border-black rotate-12 animate-float pointer-events-none"
       />
       <div
-        class="absolute bottom-[20%] right-[16%] w-12 h-12 rounded-full bg-[#6C3EF4] border-2 border-black -rotate-6 animate-float pointer-events-none"
+        class="absolute bottom-[20%] right-[16%] w-12 h-12 rounded-full bg-[#6C3EF4] border-[3px] border-black -rotate-6 animate-float pointer-events-none"
         style="animation-delay: -2s"
       />
 
@@ -73,7 +73,7 @@ onMounted(() => {
               <span
                 v-for="(word, i) in line2Words"
                 :key="word"
-                class="welcome-word welcome-word-up inline-block px-3 py-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black border-2 border-black rounded-xl tracking-tighter"
+                class="welcome-word welcome-word-up inline-block px-3 py-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black border-[3px] border-black rounded-xl tracking-tighter"
                 :class="i === 0 ? 'bg-[#C8F94E] -rotate-1' : 'bg-[#6C3EF4] !text-white rotate-1'"
                 :style="{ animationDelay: `${800 + i * 200}ms` }"
                 >{{ word }}</span
@@ -85,7 +85,7 @@ onMounted(() => {
         <!-- CTA link -->
         <div class="welcome-cta text-center" style="animation-delay: 1200ms">
           <span
-            class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-white border-2 border-black"
+            class="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-none bg-white border-[3px] border-black nb-shadow-sm"
           >
             <svg
               class="w-4 h-4 sm:w-5 sm:h-5 text-[#6C3EF4]"

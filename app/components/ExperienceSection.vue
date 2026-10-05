@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
       <div class="text-center mb-16" data-animate="fade-up">
         <div class="inline-flex items-center gap-2 mb-4">
           <span
-            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-none px-2 py-0.5 font-label font-bold text-xs"
             >02</span
           >
           <span
@@ -185,15 +185,15 @@ onBeforeUnmount(() => {
                   <div class="flex flex-wrap gap-2 md:justify-end shrink-0">
                     <span
                       v-if="exp.isCurrent"
-                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-primary text-white border-2 border-ink"
+                      class="inline-flex items-center rounded-none px-3 py-1 text-xs font-bold uppercase font-label bg-primary text-white border-[3px] border-ink"
                       >{{ t('experience.current') }}</span
                     >
                     <span
-                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white dark:bg-[#1e1e1e] border-2 border-ink text-ink dark:text-slate-300"
+                      class="inline-flex items-center rounded-none px-3 py-1 text-xs font-bold bg-white dark:bg-[#1e1e1e] border-2 border-ink text-ink dark:text-slate-300"
                       >{{ exp.type }}</span
                     >
                     <span
-                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white dark:bg-[#1e1e1e] border-2 border-ink text-ink/70 dark:text-slate-400"
+                      class="inline-flex items-center rounded-none px-3 py-1 text-xs font-bold bg-white dark:bg-[#1e1e1e] border-2 border-ink text-ink/70 dark:text-slate-400 font-label"
                       >{{ exp.period }}</span
                     >
                   </div>
@@ -229,7 +229,7 @@ onBeforeUnmount(() => {
                   <span
                     v-for="stack in exp.tech"
                     :key="stack"
-                    class="text-[11px] px-2.5 py-1 rounded-full bg-paper dark:bg-[#141414] border-2 border-ink text-ink dark:text-slate-300 font-bold"
+                    class="text-[11px] px-2.5 py-1 rounded-none bg-paper dark:bg-[#141414] border-2 border-ink text-ink dark:text-slate-300 font-bold"
                   >
                     {{ stack }}
                   </span>

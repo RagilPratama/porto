@@ -23,7 +23,7 @@ const { t } = useI18n()
           :key="social.name"
           :href="social.url"
           target="_blank"
-          class="glass-pill nb-press px-4 py-1.5 rounded-full text-xs font-bold text-ink dark:text-slate-200 hover:text-primary dark:hover:text-primary-fixed-dim"
+          class="glass-pill nb-press px-4 py-1.5 rounded-none text-xs font-bold text-ink dark:text-slate-200 hover:text-primary dark:hover:text-primary-fixed-dim"
         >
           {{ social.name }}
         </a>

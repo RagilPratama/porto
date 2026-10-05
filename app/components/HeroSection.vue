@@ -44,11 +44,11 @@ onBeforeUnmount(() => {
   <section class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 scroll-mt-40" id="hero">
     <!-- Decorative rotated color blocks -->
     <!-- <div
-      class="hidden md:block absolute -top-6 right-[42%] w-16 h-16 rounded-xl bg-primary-container border-2 border-ink rotate-12 animate-float -z-0"
+      class="hidden md:block absolute -top-6 right-[42%] w-16 h-16 rounded-xl bg-primary-container border-[3px] border-ink rotate-12 animate-float -z-0"
       aria-hidden="true"
     ></div>
     <div
-      class="hidden lg:block absolute bottom-16 left-[46%] w-10 h-10 rounded-full bg-tertiary border-2 border-ink -rotate-6 -z-0"
+      class="hidden lg:block absolute bottom-16 left-[46%] w-10 h-10 rounded-full bg-tertiary border-[3px] border-ink -rotate-6 -z-0"
       aria-hidden="true"
     ></div> -->
 
@@ -60,7 +60,7 @@ onBeforeUnmount(() => {
         <span
           data-animate="fade-down"
           data-delay="100"
-          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm text-ink dark:text-white text-xs font-bold uppercase tracking-wider mb-6"
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow-sm text-ink dark:text-white text-xs font-bold font-label uppercase tracking-wider mb-6"
         >
           <span class="relative flex h-2.5 w-2.5">
             <span
@@ -79,7 +79,7 @@ onBeforeUnmount(() => {
           {{ t('hero.title') }}
           <span class="block mt-4">
             <span
-              class="inline-flex items-center min-h-[1.2em] bg-primary-container text-ink border-2 border-ink rounded-xl px-3 py-1 nb-shadow text-3xl sm:text-4xl md:text-5xl -rotate-1"
+              class="inline-flex items-center min-h-[1.2em] bg-primary-container text-ink border-[3px] border-ink rounded-xl px-3 py-1 nb-shadow text-3xl sm:text-4xl md:text-5xl -rotate-1"
               >{{ heroTitleTyped }}<span class="animate-blink ml-0.5">|</span></span
             >
           </span>
@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
         >
           <button
             @click="scrollTo('contact')"
-            class="bg-primary text-white px-7 py-3.5 rounded-xl font-bold text-lg border-2 border-ink nb-shadow nb-press flex items-center gap-2"
+            class="bg-primary text-white px-7 py-3.5 rounded-xl font-bold text-lg border-[3px] border-ink nb-shadow nb-press flex items-center gap-2"
           >
             <span>{{ t('hero.ctaPrimary') }}</span>
             <svg
@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
           </button>
           <button
             @click="scrollTo('experience')"
-            class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white px-7 py-3.5 rounded-xl font-bold text-lg border-2 border-ink nb-shadow nb-press"
+            class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white px-7 py-3.5 rounded-xl font-bold text-lg border-[3px] border-ink nb-shadow nb-press"
           >
             {{ t('hero.ctaSecondary') }}
           </button>
@@ -131,17 +131,17 @@ onBeforeUnmount(() => {
         <div class="relative w-full max-w-sm mx-auto aspect-[4/5]">
           <!-- Offset color blocks behind portrait -->
           <div
-            class="absolute inset-0 rounded-3xl bg-primary-container border-2 border-ink translate-x-4 translate-y-4"
+            class="absolute inset-0 rounded-3xl bg-primary-container border-[3px] border-ink translate-x-4 translate-y-4"
             aria-hidden="true"
           ></div>
           <div
-            class="absolute inset-0 rounded-3xl bg-primary border-2 border-ink translate-x-2 translate-y-2"
+            class="absolute inset-0 rounded-3xl bg-primary border-[3px] border-ink translate-x-2 translate-y-2"
             aria-hidden="true"
           ></div>
 
           <!-- Portrait frame -->
           <div
-            class="relative w-full h-full rounded-3xl overflow-hidden border-2 border-ink bg-white"
+            class="relative w-full h-full rounded-3xl overflow-hidden border-[3px] border-ink bg-white"
           >
             <NuxtImg
               format="webp"
@@ -160,7 +160,7 @@ onBeforeUnmount(() => {
 
           <!-- Sticker Badge 1: Frontend -->
           <div
-            class="absolute -top-4 -right-3 sm:-right-5 bg-primary-container text-ink px-3.5 py-2.5 rounded-xl border-2 border-ink nb-shadow z-30 animate-float rotate-3"
+            class="absolute -top-4 -right-3 sm:-right-5 bg-primary-container text-ink px-3.5 py-2.5 rounded-xl border-[3px] border-ink nb-shadow z-30 animate-float rotate-3"
           >
             <div class="flex items-center gap-2">
               <svg
@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
 
           <!-- Sticker Badge 2: Backend -->
           <div
-            class="absolute bottom-10 -left-3 sm:-left-6 bg-tertiary text-white px-3.5 py-2.5 rounded-xl border-2 border-ink nb-shadow z-30 animate-float -rotate-3"
+            class="absolute bottom-10 -left-3 sm:-left-6 bg-tertiary text-white px-3.5 py-2.5 rounded-xl border-[3px] border-ink nb-shadow z-30 animate-float -rotate-3"
             style="animation-delay: -2s"
           >
             <div class="flex items-center gap-2">

@@ -18,7 +18,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
       <div class="mb-14 text-center" data-animate="fade-up">
         <div class="inline-flex items-center gap-2 mb-4">
           <span
-            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-none px-2 py-0.5 font-label font-bold text-xs"
             >01</span
           >
           <span
@@ -55,10 +55,10 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
               <div
                 v-for="tech in frontendItems"
                 :key="tech.name"
-                class="glass-pill rounded-full px-5 py-3 flex items-center gap-3 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
+                class="glass-pill rounded-none px-5 py-3 flex items-center gap-3 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
-                  class="w-9 h-9 rounded-lg bg-paper dark:bg-[#141414] flex items-center justify-center p-1.5 border-2 border-ink"
+                  class="w-9 h-9 rounded-lg bg-paper dark:bg-[#141414] flex items-center justify-center p-1.5 border-[3px] border-ink"
                 >
                   <NuxtImg
                     format="webp"
@@ -93,10 +93,10 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
               <div
                 v-for="tech in backendItems"
                 :key="tech.name"
-                class="glass-pill rounded-full px-5 py-3 flex items-center gap-3 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
+                class="glass-pill rounded-none px-5 py-3 flex items-center gap-3 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
-                  class="w-9 h-9 rounded-lg bg-paper dark:bg-[#141414] flex items-center justify-center p-1.5 border-2 border-ink"
+                  class="w-9 h-9 rounded-lg bg-paper dark:bg-[#141414] flex items-center justify-center p-1.5 border-[3px] border-ink"
                 >
                   <NuxtImg
                     format="webp"
@@ -120,7 +120,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
         <div
           data-animate="zoom-in"
           data-delay="0"
-          class="bg-primary-container text-ink border-2 border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
+          class="bg-primary-container text-ink border-[3px] border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
           <div class="text-5xl md:text-6xl font-display font-bold mb-2">{{ totalTechCount }}+</div>
           <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
@@ -130,7 +130,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
         <div
           data-animate="zoom-in"
           data-delay="100"
-          class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white border-2 border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
+          class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white border-[3px] border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
           <div
             class="text-5xl md:text-6xl font-display font-bold mb-2 text-primary dark:text-primary-fixed-dim"
@@ -144,7 +144,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
         <div
           data-animate="zoom-in"
           data-delay="200"
-          class="bg-primary text-white border-2 border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
+          class="bg-primary text-white border-[3px] border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
           <div class="text-5xl md:text-6xl font-display font-bold mb-2">10+</div>
           <div class="text-xs md:text-sm font-bold uppercase tracking-widest">

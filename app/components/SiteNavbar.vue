@@ -38,26 +38,8 @@ onMounted(() => {
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between h-16 gap-3">
-        <!-- Brand wordmark -->
-        <a
-          href="#"
-          @click.prevent="scrollTo('hero')"
-          class="group flex items-center gap-2 shrink-0"
-          aria-label="Ragil"
-        >
-          <span
-            class="flex items-center justify-center w-9 h-9 rounded-lg bg-primary text-white border-2 border-ink nb-shadow-sm font-display font-bold text-lg leading-none"
-            >R</span
-          >
-          <span
-            class="hidden sm:block font-display font-bold tracking-tight text-lg text-ink dark:text-white"
-          >
-            Ragil<span class="text-primary dark:text-primary-fixed-dim">.</span>
-          </span>
-        </a>
-
         <!-- Nav Links (desktop only) -->
-        <div class="hidden md:flex items-center gap-1 mx-auto">
+        <div class="hidden md:flex items-center gap-1 mr-auto">
           <a
             v-for="link in navLinks"
             :key="link"
@@ -66,7 +48,7 @@ onMounted(() => {
             class="relative px-3 py-1.5 text-sm font-bold rounded-lg transition-all duration-150"
             :class="
               activeSection === link
-                ? 'bg-primary-container text-ink border-2 border-ink nb-shadow-sm'
+                ? 'bg-primary-container text-ink border-[3px] border-ink nb-shadow-sm'
                 : 'text-ink/60 dark:text-slate-400 hover:text-ink dark:hover:text-white border-2 border-transparent'
             "
           >
@@ -79,7 +61,7 @@ onMounted(() => {
           <!-- Language -->
           <button
             @click="switchLanguage"
-            class="w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm nb-press"
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow-sm nb-press"
             :aria-label="t('nav.switchLanguage')"
           >
             <svg
@@ -126,7 +108,7 @@ onMounted(() => {
           <!-- Theme -->
           <button
             @click="toggleColorMode"
-            class="w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm nb-press group"
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow-sm nb-press group"
             :aria-label="t('nav.toggleTheme')"
           >
             <client-only>
@@ -167,7 +149,7 @@ onMounted(() => {
           <a
             @click.prevent="scrollTo('contact')"
             href="#"
-            class="hidden sm:inline-flex items-center gap-1.5 bg-primary-container text-ink border-2 border-ink pl-4 pr-3 py-1.5 rounded-full text-sm font-bold nb-shadow-sm nb-press"
+            class="hidden sm:inline-flex items-center gap-1.5 bg-primary-container text-ink border-[3px] border-ink pl-4 pr-3 py-1.5 rounded-none text-sm font-bold nb-shadow-sm nb-press"
           >
             {{ t('nav.hireMe') }}
             <svg
@@ -187,7 +169,7 @@ onMounted(() => {
           <!-- Mobile Toggle -->
           <button
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm"
+            class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow-sm"
             :aria-label="t('nav.toggleMenu')"
           >
             <div class="flex flex-col gap-1 w-4">
@@ -226,7 +208,7 @@ onMounted(() => {
     >
       <div
         v-if="isMobileMenuOpen"
-        class="md:hidden mt-2 mx-4 p-3 rounded-2xl bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-lg"
+        class="md:hidden mt-2 mx-4 p-3 rounded-2xl bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow-lg"
       >
         <a
           v-for="link in navLinks"
@@ -252,7 +234,7 @@ onMounted(() => {
           <a
             @click.prevent="goTo('contact')"
             href="#"
-            class="flex items-center justify-center gap-2 bg-primary text-white border-2 border-ink py-2.5 rounded-xl font-bold text-sm nb-shadow"
+            class="flex items-center justify-center gap-2 bg-primary text-white border-[3px] border-ink py-2.5 rounded-xl font-bold text-sm nb-shadow"
           >
             {{ t('nav.hireMe') }}
             <svg

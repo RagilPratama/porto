@@ -25,14 +25,16 @@
   --nb-accent: #c7b6ff;
 }
 
-/* ---------- Core neo-brutalist surfaces ---------- */
+/* ---------- Core neo-brutalist surfaces ----------
+   Canonical rules: 3px solid outline, square corners, hard offset
+   shadows with zero blur (sm 3px / md 5px / lg 8px). */
 .nb-card,
 .glass-card,
 .glass-panel {
   background: var(--nb-card);
-  border: 2px solid var(--nb-border);
-  border-radius: 0.875rem;
-  box-shadow: 4px 4px 0 0 var(--nb-shadow);
+  border: 3px solid var(--nb-border);
+  border-radius: 0;
+  box-shadow: 5px 5px 0 0 var(--nb-shadow);
   color: inherit;
 }
 
@@ -42,9 +44,9 @@
 
 .glass-pill {
   background: var(--nb-card);
-  border: 2px solid var(--nb-border);
-  border-radius: 9999px;
-  box-shadow: 2px 2px 0 0 var(--nb-shadow);
+  border: 3px solid var(--nb-border);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 0 var(--nb-shadow);
 }
 
 .glass-nav {
@@ -56,65 +58,65 @@
 .glass-card-interactive {
   position: relative;
   background: var(--nb-card);
-  border: 2px solid var(--nb-border);
-  border-radius: 0.875rem;
-  box-shadow: 4px 4px 0 0 var(--nb-shadow);
+  border: 3px solid var(--nb-border);
+  border-radius: 0;
+  box-shadow: 5px 5px 0 0 var(--nb-shadow);
   transition:
-    transform 0.15s cubic-bezier(0.2, 0.7, 0.2, 1),
-    box-shadow 0.15s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 .nb-interactive:hover,
 .glass-card-interactive:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 7px 7px 0 0 var(--nb-shadow);
+  box-shadow: 8px 8px 0 0 var(--nb-shadow);
 }
 
 /* Form fields */
 .glass-input,
 .nb-input {
   background: var(--nb-card);
-  border: 2px solid var(--nb-border);
-  border-radius: 0.75rem;
+  border: 3px solid var(--nb-border);
+  border-radius: 0;
   box-shadow: 3px 3px 0 0 var(--nb-shadow);
   transition:
-    transform 0.12s ease,
-    box-shadow 0.12s ease,
-    border-color 0.12s ease;
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    outline-color 0.15s ease;
 }
 
 .glass-input:focus,
 .nb-input:focus {
-  outline: none;
-  border-color: var(--nb-accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 0 var(--nb-accent);
+  outline: 3px solid var(--nb-accent);
+  outline-offset: 2px;
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 var(--nb-shadow);
 }
 
 /* Reusable hard-shadow helpers for markup */
 .nb-shadow {
-  box-shadow: 4px 4px 0 0 var(--nb-shadow);
+  box-shadow: 5px 5px 0 0 var(--nb-shadow);
 }
 .nb-shadow-sm {
-  box-shadow: 2px 2px 0 0 var(--nb-shadow);
+  box-shadow: 3px 3px 0 0 var(--nb-shadow);
 }
 .nb-shadow-lg {
-  box-shadow: 6px 6px 0 0 var(--nb-shadow);
+  box-shadow: 8px 8px 0 0 var(--nb-shadow);
 }
 .nb-border {
-  border: 2px solid var(--nb-border);
+  border: 3px solid var(--nb-border);
 }
 .nb-press {
   transition:
-    transform 0.12s cubic-bezier(0.2, 0.7, 0.2, 1),
-    box-shadow 0.12s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 .nb-press:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 0 var(--nb-shadow);
+  box-shadow: 7px 7px 0 0 var(--nb-shadow);
 }
 .nb-press:active {
-  transform: translate(2px, 2px);
+  transform: translate(3px, 3px);
   box-shadow: 0 0 0 0 var(--nb-shadow);
 }
 
@@ -338,12 +340,13 @@
   transform: translateY(0) translateX(0) scale(1) perspective(800px) rotateX(0deg);
 }
 
+/* NOTE: .marquee-track is intentionally NOT reset here, so the logo
+   marquee keeps scrolling even when the OS requests reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   [data-animate],
   .experience-card,
   .tech-card,
-  .animate-float,
-  .marquee-track {
+  .animate-float {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
