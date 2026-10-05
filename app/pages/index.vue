@@ -26,7 +26,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div
-    class="min-h-screen bg-surface dark:bg-slate-950 font-body text-on-surface dark:text-slate-200 transition-colors duration-500"
+    class="min-h-screen bg-surface dark:bg-paper-dark font-body text-on-surface dark:text-slate-200 transition-colors duration-500"
   >
     <SiteNavbar :nav-links="navLinks" />
 

@@ -9,46 +9,6 @@ let heroTypingInterval = null
 let heroTypingTimeout = null
 let heroTypingIndex = 0
 let heroTypingTargetIndex = 0
-const supportsHeroBg3d = ref(false)
-const isHeroBgInteracting = ref(false)
-const heroBgTilt = reactive({ x: 0, y: 0 })
-
-const heroBgTopStyle = computed(() => {
-  if (!supportsHeroBg3d.value || !isHeroBgInteracting.value) return {}
-
-  return {
-    transform: `translate3d(${heroBgTilt.x * 1.1}px, ${heroBgTilt.y * 1}px, 0)`
-  }
-})
-
-const heroBgBottomStyle = computed(() => {
-  if (!supportsHeroBg3d.value || !isHeroBgInteracting.value) return {}
-
-  return {
-    transform: `translate3d(${heroBgTilt.x * -1}px, ${heroBgTilt.y * -0.9}px, 0)`
-  }
-})
-
-const handleHeroBgMove = (event) => {
-  if (!supportsHeroBg3d.value) return
-
-  const section = event.currentTarget
-  if (!section) return
-
-  const rect = section.getBoundingClientRect()
-  const offsetX = (event.clientX - rect.left) / rect.width - 0.5
-  const offsetY = (event.clientY - rect.top) / rect.height - 0.5
-
-  isHeroBgInteracting.value = true
-  heroBgTilt.x = offsetX * 56
-  heroBgTilt.y = offsetY * 44
-}
-
-const resetHeroBgMove = () => {
-  isHeroBgInteracting.value = false
-  heroBgTilt.x = 0
-  heroBgTilt.y = 0
-}
 
 onMounted(() => {
   const startHeroTyping = () => {
@@ -73,7 +33,6 @@ onMounted(() => {
   }
 
   startHeroTyping()
-  supportsHeroBg3d.value = window.matchMedia('(hover: hover) and (pointer: fine)').matches
 })
 onBeforeUnmount(() => {
   if (heroTypingInterval) window.clearInterval(heroTypingInterval)
@@ -82,64 +41,59 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section
-    :class="[
-      'relative overflow-hidden pt-24 pb-20 md:pt-20 md:pb-32 scroll-mt-40',
-      { 'hero-bg-interacting': isHeroBgInteracting }
-    ]"
-    id="hero"
-    @mousemove="handleHeroBgMove"
-    @mouseleave="resetHeroBgMove"
-  >
-    <!-- Floating Ambient Orbs for Glass depth -->
-    <div
-      class="absolute top-1/4 -right-20 w-96 h-96 bg-primary/15 rounded-full blur-[120px] -z-10 animate-orb-1 hero-bg-layer hero-bg-top"
-      :style="heroBgTopStyle"
+  <section class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 scroll-mt-40" id="hero">
+    <!-- Decorative rotated color blocks -->
+    <!-- <div
+      class="hidden md:block absolute -top-6 right-[42%] w-16 h-16 rounded-xl bg-primary-container border-2 border-ink rotate-12 animate-float -z-0"
+      aria-hidden="true"
     ></div>
     <div
-      class="absolute bottom-1/4 -left-20 w-80 h-80 bg-primary-container/15 rounded-full blur-[100px] -z-10 animate-orb-2 hero-bg-layer hero-bg-bottom"
-      :style="heroBgBottomStyle"
-    ></div>
-    <div
-      class="absolute inset-x-[-10%] top-[14%] h-[72%] -z-10 pointer-events-none hero-depth-wrap"
-    >
-      <div class="hero-depth-plane"></div>
-    </div>
-    <div class="hero-seahorse-wave absolute inset-0 -z-5 pointer-events-none"></div>
+      class="hidden lg:block absolute bottom-16 left-[46%] w-10 h-10 rounded-full bg-tertiary border-2 border-ink -rotate-6 -z-0"
+      aria-hidden="true"
+    ></div> -->
 
-    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-      <div class="lg:col-span-7 z-10 text-center lg:text-left">
-        <!-- Glass Badge -->
+    <div
+      class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10"
+    >
+      <div class="lg:col-span-7 text-center lg:text-left">
+        <!-- Status Badge -->
         <span
           data-animate="fade-down"
           data-delay="100"
-          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-md border border-white/60 dark:border-white/10 text-primary dark:text-primary-fixed-dim text-xs font-bold tracking-wider mb-6 shadow-sm"
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm text-ink dark:text-white text-xs font-bold uppercase tracking-wider mb-6"
         >
-          <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+          <span class="relative flex h-2.5 w-2.5">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+            ></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+          </span>
           {{ t('hero.badge') }}
         </span>
 
         <h1
           data-animate="fade-right"
           data-delay="200"
-          class="font-sans md:font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-8"
+          class="font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-ink dark:text-white leading-[0.95] mb-7"
         >
-          {{ t('hero.title') }} <br />
-          <span
-            class="block mt-2 text-3xl sm:text-4xl md:text-6xl text-primary dark:text-primary-fixed-dim transition-all duration-300"
-            >{{ heroTitleTyped }}<span class="animate-pulse text-primary">|</span></span
-          >
+          {{ t('hero.title') }}
+          <span class="block mt-4">
+            <span
+              class="inline-flex items-center min-h-[1.2em] bg-primary-container text-ink border-2 border-ink rounded-xl px-3 py-1 nb-shadow text-3xl sm:text-4xl md:text-5xl -rotate-1"
+              >{{ heroTitleTyped }}<span class="animate-blink ml-0.5">|</span></span
+            >
+          </span>
         </h1>
 
         <p
           data-animate="fade-right"
           data-delay="400"
-          class="text-lg text-slate-600 dark:text-slate-300 max-w-xl mb-10 leading-relaxed mx-auto lg:mx-0 font-medium"
+          class="text-lg text-ink/70 dark:text-slate-300 max-w-xl mb-9 leading-relaxed mx-auto lg:mx-0 font-medium"
         >
           {{ t('hero.description') }}
         </p>
 
-        <!-- Glass Action Buttons -->
+        <!-- Action Buttons -->
         <div
           data-animate="fade-up"
           data-delay="600"
@@ -147,7 +101,7 @@ onBeforeUnmount(() => {
         >
           <button
             @click="scrollTo('contact')"
-            class="bg-primary hover:bg-on-primary-fixed-variant text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl border border-white/30 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center gap-2"
+            class="bg-primary text-white px-7 py-3.5 rounded-xl font-bold text-lg border-2 border-ink nb-shadow nb-press flex items-center gap-2"
           >
             <span>{{ t('hero.ctaPrimary') }}</span>
             <svg
@@ -165,124 +119,94 @@ onBeforeUnmount(() => {
           </button>
           <button
             @click="scrollTo('experience')"
-            class="bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl text-slate-800 dark:text-slate-200 border border-white/70 dark:border-white/10 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/70 dark:hover:bg-slate-800/70 hover:scale-[1.02] transition-all shadow-md"
+            class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white px-7 py-3.5 rounded-xl font-bold text-lg border-2 border-ink nb-shadow nb-press"
           >
             {{ t('hero.ctaSecondary') }}
           </button>
         </div>
       </div>
 
-      <!-- Right Visual Showcase with Frosted Glass -->
+      <!-- Right Visual Showcase -->
       <div data-animate="zoom-in" data-delay="300" class="lg:col-span-5 relative">
-        <div class="relative w-full aspect-square flex items-center justify-center">
+        <div class="relative w-full max-w-sm mx-auto aspect-[4/5]">
+          <!-- Offset color blocks behind portrait -->
           <div
-            class="absolute inset-0 border-[1px] border-primary/20 rounded-full animate-[spin_20s_linear_infinite]"
+            class="absolute inset-0 rounded-3xl bg-primary-container border-2 border-ink translate-x-4 translate-y-4"
+            aria-hidden="true"
           ></div>
           <div
-            class="absolute inset-4 border-[1px] border-primary/15 rounded-full animate-[spin_15s_linear_infinite_reverse]"
+            class="absolute inset-0 rounded-3xl bg-primary border-2 border-ink translate-x-2 translate-y-2"
+            aria-hidden="true"
           ></div>
 
-          <!-- Glass Floating Badge 1 -->
+          <!-- Portrait frame -->
           <div
-            class="absolute top-4 -right-4 glass-card px-4 py-3 rounded-2xl shadow-xl z-30 animate-float border border-white/80 dark:border-white/15"
+            class="relative w-full h-full rounded-3xl overflow-hidden border-2 border-ink bg-white"
           >
-            <div class="flex items-center gap-3">
-              <div
-                class="w-8 h-8 rounded-xl bg-primary/10 text-primary dark:text-primary-fixed-dim flex items-center justify-center border border-primary/20"
+            <NuxtImg
+              format="webp"
+              quality="70"
+              fetchpriority="high"
+              loading="eager"
+              width="504"
+              height="672"
+              sizes="(max-width: 768px) 78vw, (max-width: 1280px) 36vw, 504px"
+              densities="x1 x2"
+              src="/profile.jpg"
+              :alt="t('hero.portraitAlt')"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Sticker Badge 1: Frontend -->
+          <div
+            class="absolute -top-4 -right-3 sm:-right-5 bg-primary-container text-ink px-3.5 py-2.5 rounded-xl border-2 border-ink nb-shadow z-30 animate-float rotate-3"
+          >
+            <div class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                class="w-4 h-4"
+                aria-hidden="true"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  class="w-4 h-4"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M17.25 6.75 21 12l-3.75 5.25M6.75 6.75 3 12l3.75 5.25M14.25 4.5 9.75 19.5"
-                  />
-                </svg>
-              </div>
-              <span class="text-xs font-bold tracking-tight text-slate-800 dark:text-slate-200">{{
-                t('hero.frontendBadge')
-              }}</span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 6.75 21 12l-3.75 5.25M6.75 6.75 3 12l3.75 5.25M14.25 4.5 9.75 19.5"
+                />
+              </svg>
+              <span class="text-xs font-bold tracking-tight">{{ t('hero.frontendBadge') }}</span>
             </div>
           </div>
 
-          <!-- Glass Floating Badge 2 -->
+          <!-- Sticker Badge 2: Backend -->
           <div
-            class="absolute bottom-20 -left-8 glass-card px-4 py-3 rounded-2xl shadow-xl z-30 animate-float border border-white/80 dark:border-white/15"
+            class="absolute bottom-10 -left-3 sm:-left-6 bg-tertiary text-white px-3.5 py-2.5 rounded-xl border-2 border-ink nb-shadow z-30 animate-float -rotate-3"
             style="animation-delay: -2s"
           >
-            <div class="flex items-center gap-3">
-              <div
-                class="w-8 h-8 rounded-xl bg-primary/10 text-primary dark:text-primary-fixed-dim flex items-center justify-center border border-primary/20"
+            <div class="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                class="w-4 h-4"
+                aria-hidden="true"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  class="w-4 h-4"
-                  aria-hidden="true"
-                >
-                  <ellipse cx="12" cy="5.5" rx="7" ry="3" />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"
-                  />
-                </svg>
-              </div>
-              <span class="text-xs font-bold tracking-tight text-slate-800 dark:text-slate-200">{{
-                t('hero.backendBadge')
-              }}</span>
+                <ellipse cx="12" cy="5.5" rx="7" ry="3" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 5.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6M5 11.5v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"
+                />
+              </svg>
+              <span class="text-xs font-bold tracking-tight">{{ t('hero.backendBadge') }}</span>
             </div>
           </div>
-
-          <!-- Glass Portrait Container -->
-          <div class="relative w-[85%] h-[85%] group">
-            <div
-              class="absolute inset-0 bg-primary/10 rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500 backdrop-blur-md"
-            ></div>
-            <div
-              class="absolute inset-0 bg-primary-container/10 rounded-3xl rotate-3 transition-transform group-hover:rotate-0 duration-500 backdrop-blur-md"
-            ></div>
-            <div
-              class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white/40 dark:bg-slate-900/50 backdrop-blur-xl border-4 border-white/80 dark:border-white/20"
-            >
-              <NuxtImg
-                format="webp"
-                quality="70"
-                fetchpriority="high"
-                loading="eager"
-                width="504"
-                height="672"
-                sizes="(max-width: 768px) 78vw, (max-width: 1280px) 36vw, 504px"
-                densities="x1 x2"
-                src="/profile.jpg"
-                :alt="t('hero.portraitAlt')"
-                class="w-full h-full object-cover rounded-3xl"
-              />
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60"
-              ></div>
-              <div
-                class="absolute inset-0 opacity-10 pointer-events-none"
-                style="
-                  background-image: radial-gradient(#fff 1px, transparent 1px);
-                  background-size: 20px 20px;
-                "
-              ></div>
-            </div>
-          </div>
-          <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/15 blur-[100px] -z-10 rounded-full opacity-60"
-          ></div>
         </div>
       </div>
     </div>

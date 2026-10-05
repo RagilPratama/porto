@@ -99,26 +99,35 @@ onBeforeUnmount(() => {
     ]"
     id="experience"
   >
-    <div
-      class="absolute inset-0 pointer-events-none section-texture section-texture-experience opacity-70"
-    ></div>
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
       <div class="text-center mb-16" data-animate="fade-up">
+        <div class="inline-flex items-center gap-2 mb-4">
+          <span
+            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+            >02</span
+          >
+          <span
+            class="uppercase tracking-[0.25em] text-xs font-bold text-ink/50 dark:text-slate-400"
+            >{{ t('nav.links.experience') }}</span
+          >
+        </div>
         <h2
-          class="font-headline text-4xl font-extrabold mb-4 text-slate-900 dark:text-white tracking-tight"
+          class="font-display text-4xl md:text-5xl font-bold mb-4 text-ink dark:text-white tracking-tighter"
         >
           {{ t('experience.title') }}
         </h2>
-        <p class="text-slate-600 dark:text-slate-300 max-w-xl mx-auto font-medium">
+        <p class="text-ink/60 dark:text-slate-300 max-w-xl mx-auto font-medium">
           {{ t('experience.subtitle') }}
         </p>
       </div>
 
       <div class="relative">
         <div
-          class="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5 bg-primary/20"
+          class="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-0.5 bg-ink/30 dark:bg-white/20"
         ></div>
-        <div class="md:hidden absolute left-[19px] top-2 bottom-2 w-0.5 bg-primary/20"></div>
+        <div
+          class="md:hidden absolute left-[19px] top-2 bottom-2 w-0.5 bg-ink/30 dark:bg-white/20"
+        ></div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8 md:gap-y-6">
           <article
@@ -133,10 +142,8 @@ onBeforeUnmount(() => {
           >
             <div
               :class="[
-                'hidden md:block absolute top-6 w-4 h-4 rounded-full ring-4 z-10',
-                exp.isCurrent
-                  ? 'bg-primary ring-primary/30'
-                  : 'bg-slate-300 ring-white/60 dark:bg-slate-600 dark:ring-slate-800'
+                'hidden md:block absolute top-6 w-5 h-5 rounded-full border-2 border-ink z-10',
+                exp.isCurrent ? 'bg-primary' : 'bg-primary-container'
               ]"
               :style="
                 exp.role === 'Quality Assurance'
@@ -147,62 +154,53 @@ onBeforeUnmount(() => {
               "
             ></div>
             <div
-              :class="[
-                'md:hidden absolute left-[7px] top-5 w-[26px] h-[26px] rounded-full border-2 z-10 flex items-center justify-center',
-                exp.isCurrent
-                  ? 'border-primary bg-primary/10'
-                  : 'border-slate-400 dark:border-slate-600 bg-slate-100 dark:bg-slate-900'
-              ]"
+              class="md:hidden absolute left-[7px] top-5 w-[26px] h-[26px] rounded-full border-2 border-ink bg-white dark:bg-[#1e1e1e] z-10 flex items-center justify-center"
             >
               <div
                 :class="[
                   'w-2.5 h-2.5 rounded-full',
-                  exp.isCurrent ? 'bg-primary animate-pulse' : 'bg-slate-400 dark:bg-slate-500'
+                  exp.isCurrent ? 'bg-primary animate-pulse' : 'bg-primary-container'
                 ]"
               ></div>
             </div>
 
             <div
               :class="[
-                'glass-panel rounded-3xl transition-all duration-300 pl-12 md:pl-0',
-                exp.isCurrent
-                  ? 'border-primary/40 dark:border-primary/30 shadow-lg ring-1 ring-primary/10'
-                  : 'hover:border-primary/30'
+                'glass-panel nb-press rounded-3xl pl-12 md:pl-0 overflow-hidden',
+                exp.isCurrent ? '!bg-primary-container dark:!bg-[#242424]' : ''
               ]"
             >
               <div class="p-6 md:p-7">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-3">
                   <div>
                     <h3
-                      class="text-xl md:text-2xl font-headline font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight"
+                      class="text-xl md:text-2xl font-display font-bold text-ink dark:text-white leading-tight tracking-tight"
                     >
                       {{ exp.role }}
                     </h3>
-                    <p
-                      class="text-primary dark:text-primary-fixed-dim font-extrabold text-base mt-1"
-                    >
+                    <p class="text-primary dark:text-primary-fixed-dim font-bold text-base mt-1">
                       {{ exp.company }}
                     </p>
                   </div>
                   <div class="flex flex-wrap gap-2 md:justify-end shrink-0">
                     <span
                       v-if="exp.isCurrent"
-                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-extrabold bg-primary text-white shadow-sm border border-white/30"
+                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-primary text-white border-2 border-ink"
                       >{{ t('experience.current') }}</span
                     >
                     <span
-                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/60 dark:bg-slate-800/60 border border-white/80 dark:border-white/10 text-slate-700 dark:text-slate-300"
+                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white dark:bg-[#1e1e1e] border-2 border-ink text-ink dark:text-slate-300"
                       >{{ exp.type }}</span
                     >
                     <span
-                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white/60 dark:bg-slate-800/60 border border-white/80 dark:border-white/10 text-slate-600 dark:text-slate-400"
+                      class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-white dark:bg-[#1e1e1e] border-2 border-ink text-ink/70 dark:text-slate-400"
                       >{{ exp.period }}</span
                     >
                   </div>
                 </div>
 
                 <p
-                  class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4 flex items-center gap-1.5"
+                  class="text-xs font-bold text-ink/60 dark:text-slate-400 mb-4 flex items-center gap-1.5"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -221,7 +219,7 @@ onBeforeUnmount(() => {
 
                 <div class="mb-4">
                   <p
-                    class="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed border-l-2 border-primary/40 pl-4 max-w-prose"
+                    class="text-sm font-semibold text-ink/90 dark:text-slate-200 leading-relaxed border-l-4 border-primary pl-4 max-w-prose"
                   >
                     {{ exp.impact }}
                   </p>
@@ -231,14 +229,14 @@ onBeforeUnmount(() => {
                   <span
                     v-for="stack in exp.tech"
                     :key="stack"
-                    class="text-[11px] px-2.5 py-1 rounded-lg bg-white/70 dark:bg-slate-800/70 border border-white/90 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold shadow-sm"
+                    class="text-[11px] px-2.5 py-1 rounded-full bg-paper dark:bg-[#141414] border-2 border-ink text-ink dark:text-slate-300 font-bold"
                   >
                     {{ stack }}
                   </span>
                 </div>
 
                 <ul
-                  class="space-y-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed list-none"
+                  class="space-y-2 text-sm text-ink/70 dark:text-slate-300 leading-relaxed list-none"
                 >
                   <li v-for="point in exp.points" :key="point" class="flex gap-2.5">
                     <svg
@@ -246,7 +244,7 @@ onBeforeUnmount(() => {
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2.5"
+                      stroke-width="3"
                       class="w-4 h-4 mt-0.5 text-primary shrink-0"
                       aria-hidden="true"
                     >

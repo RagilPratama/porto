@@ -12,64 +12,90 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#00629d',
-        'on-primary-fixed': '#001d33',
-        'surface-container-highest': '#e0e3e5',
-        'primary-fixed-dim': '#98cbff',
-        'inverse-on-surface': '#eff1f3',
-        'inverse-primary': '#98cbff',
-        'primary-fixed': '#cfe5ff',
-        'tertiary-fixed-dim': '#ffb77d',
-        'outline-variant': '#bec7d4',
-        'on-secondary': '#ffffff',
+        // ---- Neo-brutalist palette (token names kept for backward compat) ----
+        // Ink + paper
+        ink: '#111111',
+        paper: '#FBF6EC',
+        'paper-dark': '#141414',
+
+        // Primary = electric violet (readable as text + strong as fill)
+        primary: '#6C3EF4',
         'on-primary': '#ffffff',
-        'secondary-fixed-dim': '#b9c7df',
-        'secondary-fixed': '#d5e3fc',
-        secondary: '#515f74',
-        'surface-bright': '#f7f9fb',
-        'on-error-container': '#93000a',
-        'error-container': '#ffdad6',
-        'on-surface': '#191c1e',
-        'surface-container': '#eceef0',
-        error: '#ba1a1a',
-        surface: '#f7f9fb',
+        'on-primary-fixed': '#1b0a52',
+        'on-primary-fixed-variant': '#5024d1', // used as hover:bg-* -> darker violet
+        'primary-fixed': '#e7deff',
+        'primary-fixed-dim': '#c7b6ff', // dark-mode accent text
+        'primary-container': '#C8F94E', // lime pop accent
+        'on-primary-container': '#2a3400',
+        'inverse-primary': '#c7b6ff',
+        'surface-tint': '#6C3EF4',
+
+        // Secondary = brutalist blue
+        secondary: '#1452FF',
+        'on-secondary': '#ffffff',
+        'secondary-container': '#dbe4ff',
+        'on-secondary-container': '#0a2b8a',
+        'secondary-fixed': '#dbe4ff',
+        'secondary-fixed-dim': '#a9c3ff',
+        'on-secondary-fixed': '#001a5c',
+        'on-secondary-fixed-variant': '#0a2b8a',
+
+        // Tertiary = brutalist orange (fullstack category)
+        tertiary: '#FF5A1F',
         'on-tertiary': '#ffffff',
-        'on-secondary-fixed': '#0d1c2e',
-        'on-tertiary-fixed': '#2f1500',
-        'surface-container-high': '#e6e8ea',
-        'surface-variant': '#e0e3e5',
-        'secondary-container': '#d5e3fc',
-        'on-primary-fixed-variant': '#004a77',
-        'surface-dim': '#d8dadc',
-        'surface-container-low': '#f2f4f6',
-        'on-error': '#ffffff',
-        'on-background': '#191c1e',
-        'surface-tint': '#00629d',
-        'on-primary-container': '#00375a',
-        'inverse-surface': '#2d3133',
-        'on-secondary-fixed-variant': '#3a485b',
-        'on-tertiary-fixed-variant': '#6e3900',
-        tertiary: '#904d00',
-        'tertiary-container': '#eb8104',
-        'on-surface-variant': '#3f4852',
+        'tertiary-container': '#ffd9c7',
+        'on-tertiary-container': '#4a1500',
+        'tertiary-fixed': '#ffd9c7',
+        'tertiary-fixed-dim': '#ffc9a3',
+        'on-tertiary-fixed': '#331000',
+        'on-tertiary-fixed-variant': '#8a2b00',
+
+        // Surfaces
+        background: '#FBF6EC',
+        surface: '#FBF6EC',
+        'on-surface': '#111111',
+        'on-background': '#111111',
+        'surface-bright': '#ffffff',
+        'surface-dim': '#efe9db',
         'surface-container-lowest': '#ffffff',
-        'primary-container': '#00a3ff',
-        background: '#f7f9fb',
-        'on-secondary-container': '#57657a',
-        'on-tertiary-container': '#522900',
-        outline: '#6f7883',
-        'tertiary-fixed': '#ffdcc3'
+        'surface-container-low': '#fbf6ec',
+        'surface-container': '#f5efe1',
+        'surface-container-high': '#efe9db',
+        'surface-container-highest': '#e8e2d4',
+        'surface-variant': '#e8e2d4',
+        'on-surface-variant': '#45413a',
+        'inverse-surface': '#111111',
+        'inverse-on-surface': '#fbf6ec',
+
+        // Outline / utility
+        outline: '#111111',
+        'outline-variant': '#111111',
+
+        // Status
+        error: '#e4002b',
+        'on-error': '#ffffff',
+        'error-container': '#ffdad6',
+        'on-error-container': '#5c0010'
       },
       fontFamily: {
-        headline: ["'Plus Jakarta Sans'", 'sans-serif'],
+        headline: ["'Space Grotesk'", "'Plus Jakarta Sans'", 'sans-serif'],
+        display: ["'Space Grotesk'", 'sans-serif'],
         body: ['Outfit', 'sans-serif'],
-        label: ['Outfit', 'sans-serif']
+        label: ["'Space Grotesk'", 'Outfit', 'sans-serif']
       },
       borderRadius: {
-        DEFAULT: '0.125rem',
-        lg: '0.25rem',
-        xl: '0.5rem',
-        full: '0.75rem'
+        DEFAULT: '0.375rem',
+        lg: '0.625rem',
+        xl: '0.875rem',
+        '2xl': '1rem',
+        '3xl': '1.25rem',
+        full: '9999px'
+      },
+      boxShadow: {
+        brutal: '4px 4px 0 0 #111111',
+        'brutal-sm': '2px 2px 0 0 #111111',
+        'brutal-lg': '6px 6px 0 0 #111111',
+        'brutal-xl': '8px 8px 0 0 #111111'
       }
     }
   },

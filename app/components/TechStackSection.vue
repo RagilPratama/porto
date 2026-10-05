@@ -13,27 +13,31 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
 </script>
 
 <template>
-  <section class="py-24 overflow-hidden scroll-mt-40 relative" id="tech">
-    <!-- Ambient Glass glow background -->
-    <div class="absolute inset-0 pointer-events-none tech-pattern-bg opacity-70"></div>
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-72 bg-primary/10 blur-[100px] pointer-events-none rounded-full"
-    ></div>
-
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
-      <div class="mb-16 text-center" data-animate="fade-up">
+  <section class="py-20 md:py-24 overflow-hidden scroll-mt-40 relative" id="tech">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+      <div class="mb-14 text-center" data-animate="fade-up">
+        <div class="inline-flex items-center gap-2 mb-4">
+          <span
+            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+            >01</span
+          >
+          <span
+            class="uppercase tracking-[0.25em] text-xs font-bold text-ink/50 dark:text-slate-400"
+            >{{ t('nav.links.tech') }}</span
+          >
+        </div>
         <h2
-          class="font-headline text-4xl font-extrabold mb-4 text-slate-900 dark:text-white tracking-tight"
+          class="font-display text-4xl md:text-5xl font-bold mb-4 text-ink dark:text-white tracking-tighter"
         >
           {{ t('tech.title') }}
         </h2>
-        <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-medium">
+        <p class="text-ink/60 dark:text-slate-300 max-w-2xl mx-auto font-medium">
           {{ t('tech.description') }}
         </p>
       </div>
 
       <!-- Infinite logo marquees -->
-      <div class="space-y-6">
+      <div class="space-y-5">
         <div
           data-animate="fade-right"
           data-delay="100"
@@ -51,10 +55,10 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
               <div
                 v-for="tech in frontendItems"
                 :key="tech.name"
-                class="glass-pill rounded-2xl px-5 py-3.5 flex items-center gap-3.5 shrink-0 transition-all duration-300 hover:scale-105 hover:border-primary/40 hover:shadow-lg"
+                class="glass-pill rounded-full px-5 py-3 flex items-center gap-3 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
-                  class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-800/60 flex items-center justify-center p-1.5 border border-white/80 dark:border-white/10 shadow-inner"
+                  class="w-9 h-9 rounded-lg bg-paper dark:bg-[#141414] flex items-center justify-center p-1.5 border-2 border-ink"
                 >
                   <NuxtImg
                     format="webp"
@@ -64,7 +68,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
                   />
                 </div>
                 <span
-                  class="font-bold text-sm text-slate-800 dark:text-slate-200 whitespace-nowrap tracking-tight"
+                  class="font-bold text-sm text-ink dark:text-slate-200 whitespace-nowrap tracking-tight"
                   >{{ tech.name }}</span
                 >
               </div>
@@ -89,10 +93,10 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
               <div
                 v-for="tech in backendItems"
                 :key="tech.name"
-                class="glass-pill rounded-2xl px-5 py-3.5 flex items-center gap-3.5 shrink-0 transition-all duration-300 hover:scale-105 hover:border-primary/40 hover:shadow-lg"
+                class="glass-pill rounded-full px-5 py-3 flex items-center gap-3 shrink-0 transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <div
-                  class="w-9 h-9 rounded-xl bg-white/60 dark:bg-slate-800/60 flex items-center justify-center p-1.5 border border-white/80 dark:border-white/10 shadow-inner"
+                  class="w-9 h-9 rounded-lg bg-paper dark:bg-[#141414] flex items-center justify-center p-1.5 border-2 border-ink"
                 >
                   <NuxtImg
                     format="webp"
@@ -102,7 +106,7 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
                   />
                 </div>
                 <span
-                  class="font-bold text-sm text-slate-800 dark:text-slate-200 whitespace-nowrap tracking-tight"
+                  class="font-bold text-sm text-ink dark:text-slate-200 whitespace-nowrap tracking-tight"
                   >{{ tech.name }}</span
                 >
               </div>
@@ -111,53 +115,39 @@ const backendItems = computed(() => props.techStack.find((g) => g.group === 'bac
         </div>
       </div>
 
-      <!-- Stats Section with Glass Cards -->
+      <!-- Stats Section: colorful bento cards -->
       <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div
           data-animate="zoom-in"
           data-delay="0"
-          class="glass-panel text-center p-8 rounded-3xl transition-all hover:scale-[1.02]"
+          class="bg-primary-container text-ink border-2 border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
-          <div
-            class="text-4xl md:text-5xl font-extrabold text-primary dark:text-primary-fixed-dim mb-2"
-          >
-            {{ totalTechCount }}+
-          </div>
-          <div
-            class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-bold uppercase tracking-wider"
-          >
+          <div class="text-5xl md:text-6xl font-display font-bold mb-2">{{ totalTechCount }}+</div>
+          <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
             {{ t('tech.technologies') }}
           </div>
         </div>
         <div
           data-animate="zoom-in"
           data-delay="100"
-          class="glass-panel text-center p-8 rounded-3xl transition-all hover:scale-[1.02]"
+          class="bg-white dark:bg-[#1e1e1e] text-ink dark:text-white border-2 border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
           <div
-            class="text-4xl md:text-5xl font-extrabold text-primary dark:text-primary-fixed-dim mb-2"
+            class="text-5xl md:text-6xl font-display font-bold mb-2 text-primary dark:text-primary-fixed-dim"
           >
             7+
           </div>
-          <div
-            class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-bold uppercase tracking-wider"
-          >
+          <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
             {{ t('tech.years') }}
           </div>
         </div>
         <div
           data-animate="zoom-in"
           data-delay="200"
-          class="glass-panel text-center p-8 rounded-3xl transition-all hover:scale-[1.02]"
+          class="bg-primary text-white border-2 border-ink rounded-3xl nb-shadow-lg nb-press text-center p-8"
         >
-          <div
-            class="text-4xl md:text-5xl font-extrabold text-primary dark:text-primary-fixed-dim mb-2"
-          >
-            10+
-          </div>
-          <div
-            class="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-bold uppercase tracking-wider"
-          >
+          <div class="text-5xl md:text-6xl font-display font-bold mb-2">10+</div>
+          <div class="text-xs md:text-sm font-bold uppercase tracking-widest">
             {{ t('tech.projects') }}
           </div>
         </div>

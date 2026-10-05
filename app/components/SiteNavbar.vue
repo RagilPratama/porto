@@ -17,6 +17,11 @@ const switchLanguage = () => {
   setLocale(locale.value === 'en' ? 'id' : 'en')
 }
 
+const goTo = (link) => {
+  scrollTo(link)
+  isMobileMenuOpen.value = false
+}
+
 onMounted(() => {
   window.addEventListener('scroll', () => {
     isScrolled.value = window.scrollY > 20
@@ -27,53 +32,61 @@ onMounted(() => {
 <template>
   <nav
     :class="[
-      'sticky top-0 z-50 w-full transition-all duration-300',
-      isScrolled
-        ? 'bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 shadow-[0_2px_16px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_16px_rgba(0,0,0,0.3)]'
-        : 'bg-transparent'
+      'sticky top-0 z-50 w-full transition-all duration-200 bg-paper dark:bg-paper-dark',
+      isScrolled ? 'border-b-2 border-ink' : 'border-b-2 border-transparent'
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex items-center justify-between h-14">
+      <div class="flex items-center justify-between h-16 gap-3">
+        <!-- Brand wordmark -->
+        <a
+          href="#"
+          @click.prevent="scrollTo('hero')"
+          class="group flex items-center gap-2 shrink-0"
+          aria-label="Ragil"
+        >
+          <span
+            class="flex items-center justify-center w-9 h-9 rounded-lg bg-primary text-white border-2 border-ink nb-shadow-sm font-display font-bold text-lg leading-none"
+            >R</span
+          >
+          <span
+            class="hidden sm:block font-display font-bold tracking-tight text-lg text-ink dark:text-white"
+          >
+            Ragil<span class="text-primary dark:text-primary-fixed-dim">.</span>
+          </span>
+        </a>
+
         <!-- Nav Links (desktop only) -->
-        <div class="hidden md:flex items-center gap-0.5">
+        <div class="hidden md:flex items-center gap-1 mx-auto">
           <a
             v-for="link in navLinks"
             :key="link"
             @click.prevent="scrollTo(link)"
             href="#"
-            class="relative px-3.5 py-1.5 text-sm font-medium rounded-lg transition-all duration-300 group"
+            class="relative px-3 py-1.5 text-sm font-bold rounded-lg transition-all duration-150"
             :class="
               activeSection === link
-                ? 'text-primary dark:text-cyan-400'
-                : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
+                ? 'bg-primary-container text-ink border-2 border-ink nb-shadow-sm'
+                : 'text-ink/60 dark:text-slate-400 hover:text-ink dark:hover:text-white border-2 border-transparent'
             "
           >
-            <span
-              v-if="activeSection === link"
-              class="absolute inset-0 bg-primary/8 dark:bg-cyan-400/10 rounded-lg transition-all duration-300"
-            ></span>
-            <span class="relative">{{ t(`nav.links.${link}`) }}</span>
-            <span
-              v-if="activeSection === link"
-              class="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-gradient-to-r from-primary to-cyan-400 rounded-full"
-            ></span>
+            {{ t(`nav.links.${link}`) }}
           </a>
         </div>
 
         <!-- Right: Actions -->
-        <div class="flex items-center gap-1 ml-auto">
+        <div class="flex items-center gap-2 shrink-0">
           <!-- Language -->
           <button
             @click="switchLanguage"
-            class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200"
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm nb-press"
             :aria-label="t('nav.switchLanguage')"
           >
             <svg
               v-if="locale === 'en'"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 20"
-              class="w-4 h-4 rounded-sm"
+              class="w-4 h-4 rounded-[2px]"
               aria-hidden="true"
             >
               <rect width="30" height="10" y="0" fill="#ce1126" />
@@ -83,7 +96,7 @@ onMounted(() => {
               v-else
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 30 20"
-              class="w-4 h-4 rounded-sm"
+              class="w-4 h-4 rounded-[2px]"
               aria-hidden="true"
             >
               <rect width="30" height="20" fill="#fff" />
@@ -113,7 +126,7 @@ onMounted(() => {
           <!-- Theme -->
           <button
             @click="toggleColorMode"
-            class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200 group"
+            class="w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm nb-press group"
             :aria-label="t('nav.toggleTheme')"
           >
             <client-only>
@@ -123,7 +136,7 @@ onMounted(() => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.2"
                 class="w-4 h-4 text-amber-400 group-hover:rotate-90 transition-transform duration-500"
               >
                 <path
@@ -138,8 +151,8 @@ onMounted(() => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                class="w-4 h-4 text-slate-500 group-hover:-rotate-90 transition-transform duration-500"
+                stroke-width="2.2"
+                class="w-4 h-4 text-ink group-hover:-rotate-12 transition-transform duration-500"
               >
                 <path
                   stroke-linecap="round"
@@ -154,14 +167,14 @@ onMounted(() => {
           <a
             @click.prevent="scrollTo('contact')"
             href="#"
-            class="hidden sm:inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-cyan-500 text-white pl-4 pr-3 py-1.5 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+            class="hidden sm:inline-flex items-center gap-1.5 bg-primary-container text-ink border-2 border-ink pl-4 pr-3 py-1.5 rounded-full text-sm font-bold nb-shadow-sm nb-press"
           >
             {{ t('nav.hireMe') }}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              class="w-3.5 h-3.5"
+              class="w-4 h-4"
             >
               <path
                 fill-rule="evenodd"
@@ -174,25 +187,25 @@ onMounted(() => {
           <!-- Mobile Toggle -->
           <button
             @click="isMobileMenuOpen = !isMobileMenuOpen"
-            class="md:hidden w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-100 dark:hover:bg-white/5 transition-colors duration-200"
+            class="md:hidden w-9 h-9 rounded-lg flex items-center justify-center bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-sm"
             :aria-label="t('nav.toggleMenu')"
           >
             <div class="flex flex-col gap-1 w-4">
               <span
                 :class="[
-                  'h-0.5 bg-slate-600 dark:bg-slate-300 rounded-full transition-all duration-300 origin-center',
+                  'h-0.5 bg-ink dark:bg-white rounded-full transition-all duration-300 origin-center',
                   isMobileMenuOpen ? 'rotate-45 translate-y-[3px]' : ''
                 ]"
               ></span>
               <span
                 :class="[
-                  'h-0.5 bg-slate-600 dark:bg-slate-300 rounded-full transition-all duration-300',
+                  'h-0.5 bg-ink dark:bg-white rounded-full transition-all duration-300',
                   isMobileMenuOpen ? 'opacity-0 scale-x-0' : ''
                 ]"
               ></span>
               <span
                 :class="[
-                  'h-0.5 bg-slate-600 dark:bg-slate-300 rounded-full transition-all duration-300 origin-center',
+                  'h-0.5 bg-ink dark:bg-white rounded-full transition-all duration-300 origin-center',
                   isMobileMenuOpen ? '-rotate-45 -translate-y-[3px]' : ''
                 ]"
               ></span>
@@ -204,41 +217,42 @@ onMounted(() => {
 
     <!-- Mobile Menu -->
     <Transition
-      enter-active-class="transition duration-300 ease-out"
+      enter-active-class="transition duration-200 ease-out"
       enter-from-class="opacity-0 -translate-y-4"
       enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition duration-200 ease-in"
+      leave-active-class="transition duration-150 ease-in"
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 -translate-y-4"
     >
       <div
         v-if="isMobileMenuOpen"
-        class="md:hidden mt-2 mx-4 p-3 rounded-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border border-white/30 dark:border-white/8 shadow-2xl"
+        class="md:hidden mt-2 mx-4 p-3 rounded-2xl bg-white dark:bg-[#1e1e1e] border-2 border-ink nb-shadow-lg"
       >
         <a
           v-for="link in navLinks"
           :key="`m-${link}`"
-          @click.prevent="scrollTo(link); isMobileMenuOpen = false"
+          @click.prevent="goTo(link)"
           href="#"
           :class="[
-            'flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200',
+            'flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-150 mb-1 border-2',
             activeSection === link
-              ? 'bg-primary/10 text-primary dark:text-cyan-400'
-              : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/5'
+              ? 'bg-primary-container text-ink border-ink'
+              : 'text-ink/70 dark:text-slate-300 border-transparent hover:border-ink hover:bg-paper dark:hover:bg-paper-dark'
           ]"
         >
           <span
-            v-if="activeSection === link"
-            class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-cyan-400"
+            :class="[
+              'w-2 h-2 rounded-full',
+              activeSection === link ? 'bg-primary' : 'bg-ink/30 dark:bg-slate-600'
+            ]"
           ></span>
-          <span v-else class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
           {{ t(`nav.links.${link}`) }}
         </a>
-        <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-700/60">
+        <div class="mt-2 pt-3 border-t-2 border-ink/10 dark:border-white/10">
           <a
-            @click.prevent="scrollTo('contact'); isMobileMenuOpen = false"
+            @click.prevent="goTo('contact')"
             href="#"
-            class="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-cyan-500 text-white py-2.5 rounded-xl font-bold text-sm shadow-lg"
+            class="flex items-center justify-center gap-2 bg-primary text-white border-2 border-ink py-2.5 rounded-xl font-bold text-sm nb-shadow"
           >
             {{ t('nav.hireMe') }}
             <svg

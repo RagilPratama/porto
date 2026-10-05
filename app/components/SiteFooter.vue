@@ -9,24 +9,21 @@ const { t } = useI18n()
 <template>
   <footer
     data-animate="fade-up"
-    class="bg-white/40 dark:bg-slate-950/40 backdrop-blur-2xl border-t border-white/50 dark:border-white/10 w-full py-12 transition-all relative"
+    class="bg-paper dark:bg-paper-dark border-t-2 border-ink w-full py-10 relative"
   >
     <div
-      class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent dark:via-slate-600/40"
-    ></div>
-    <div
-      class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6 text-start"
+      class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-6 sm:px-8 gap-6"
     >
-      <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-medium">
+      <p class="text-xs sm:text-sm text-ink/60 dark:text-slate-400 font-medium">
         {{ t('footer.copyright') }}
       </p>
-      <div class="flex flex-wrap gap-3">
+      <div class="flex flex-wrap gap-3 justify-center">
         <a
           v-for="social in socials"
           :key="social.name"
           :href="social.url"
           target="_blank"
-          class="glass-pill px-4 py-1.5 rounded-full text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-primary-fixed-dim hover:scale-105 transition-all shadow-sm"
+          class="glass-pill nb-press px-4 py-1.5 rounded-full text-xs font-bold text-ink dark:text-slate-200 hover:text-primary dark:hover:text-primary-fixed-dim"
         >
           {{ social.name }}
         </a>

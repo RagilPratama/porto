@@ -14,20 +14,29 @@ const education = computed(() => {
 
 <template>
   <section class="py-24 scroll-mt-40 relative overflow-hidden" id="education">
-    <div
-      class="absolute inset-0 pointer-events-none section-texture section-texture-education opacity-70"
-    ></div>
-    <div class="max-w-6xl mx-auto px-8 relative z-10">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
       <div class="text-center mb-12" data-animate="fade-up">
+        <div class="inline-flex items-center gap-2 mb-4">
+          <span
+            class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+            >03</span
+          >
+          <span
+            class="uppercase tracking-[0.25em] text-xs font-bold text-ink/50 dark:text-slate-400"
+            >{{ t('nav.links.education') }}</span
+          >
+        </div>
         <h2
-          class="font-headline text-3xl md:text-4xl font-extrabold mb-2 tracking-tight text-slate-900 dark:text-white"
+          class="font-display text-4xl md:text-5xl font-bold mb-2 tracking-tighter text-ink dark:text-white"
         >
           {{ t('education.title') }}
         </h2>
-        <p class="text-slate-600 dark:text-slate-300 text-sm font-medium">
+        <p class="text-ink/60 dark:text-slate-300 text-sm font-medium">
           {{ t('education.subtitle') }}
         </p>
-        <div class="w-20 h-1 bg-primary rounded-full mx-auto mt-6 shadow-sm"></div>
+        <div
+          class="w-20 h-1.5 bg-primary-container border-2 border-ink rounded-full mx-auto mt-6"
+        ></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -36,11 +45,11 @@ const education = computed(() => {
           :key="idx"
           data-animate="fade-up"
           :data-delay="idx * 150"
-          class="glass-panel rounded-3xl p-7 transition-all duration-300 hover:scale-[1.02]"
+          class="glass-panel nb-press rounded-3xl p-7"
         >
           <div class="flex flex-col md:flex-row md:items-start gap-5">
             <div
-              class="w-16 h-16 rounded-2xl bg-white/70 dark:bg-slate-800/70 flex items-center justify-center p-3 shadow-lg shrink-0 border border-white/80 dark:border-white/10"
+              class="w-16 h-16 rounded-2xl bg-white dark:bg-[#141414] flex items-center justify-center p-3 shrink-0 border-2 border-ink"
             >
               <NuxtImg
                 format="webp"
@@ -57,19 +66,19 @@ const education = computed(() => {
 
             <div class="flex-1">
               <h3
-                class="text-lg md:text-xl font-headline font-extrabold leading-tight text-slate-900 dark:text-white mb-1 tracking-tight"
+                class="text-lg md:text-xl font-display font-bold leading-tight text-ink dark:text-white mb-1 tracking-tight"
               >
                 {{ edu.degree }}
               </h3>
               <p
-                class="text-primary dark:text-primary-fixed-dim text-base md:text-lg font-extrabold mb-4"
+                class="text-primary dark:text-primary-fixed-dim text-base md:text-lg font-bold mb-4"
               >
                 {{ edu.school }}
               </p>
 
               <div class="flex flex-wrap items-center gap-2 mb-4">
                 <span
-                  class="inline-flex items-center gap-1.5 bg-primary/10 text-on-primary-fixed-variant dark:text-primary-fixed-dim px-3 py-1 rounded-xl text-xs font-bold border border-primary/20"
+                  class="inline-flex items-center gap-1.5 bg-primary-container text-ink px-3 py-1 rounded-full text-xs font-bold border-2 border-ink"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +98,7 @@ const education = computed(() => {
                   {{ edu.period }}
                 </span>
                 <span
-                  class="inline-flex items-center gap-1.5 bg-secondary/10 text-secondary dark:text-secondary-fixed-dim px-3 py-1 rounded-xl text-xs font-bold border border-secondary/20"
+                  class="inline-flex items-center gap-1.5 bg-white dark:bg-[#1e1e1e] text-ink dark:text-slate-200 px-3 py-1 rounded-full text-xs font-bold border-2 border-ink"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -110,21 +119,21 @@ const education = computed(() => {
                 </span>
               </div>
 
-              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed font-medium">
+              <p class="text-ink/60 dark:text-slate-300 text-sm leading-relaxed font-medium">
                 {{ edu.description }}
               </p>
             </div>
           </div>
 
           <div
-            class="border-t border-white/40 dark:border-white/10 mt-6 pt-4 flex items-center justify-between"
+            class="border-t-2 border-ink/10 dark:border-white/10 mt-6 pt-4 flex items-center justify-between"
           >
             <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span class="w-3 h-3 rounded-full bg-primary-container border-2 border-ink"></span>
+              <span class="w-3 h-3 rounded-full bg-primary border-2 border-ink"></span>
+              <span class="w-3 h-3 rounded-full bg-tertiary border-2 border-ink"></span>
             </div>
-            <span class="text-base font-extrabold text-slate-800 dark:text-slate-200">{{
+            <span class="font-display text-xl font-bold text-ink dark:text-white">{{
               edu.year
             }}</span>
           </div>

@@ -84,32 +84,39 @@ const handleInquiry = async () => {
 
 <template>
   <section class="py-24 relative overflow-hidden scroll-mt-40" id="contact">
-    <div
-      class="absolute inset-0 pointer-events-none section-texture section-texture-contact opacity-70"
-    ></div>
-    <div class="max-w-7xl mx-auto px-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <!-- Left Contact Info -->
         <div data-animate="fade-right" class="lg:col-span-5 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 mb-4">
+            <span
+              class="bg-ink text-paper dark:bg-white dark:text-ink rounded-full px-2.5 py-0.5 font-display font-bold text-xs"
+              >05</span
+            >
+            <span
+              class="uppercase tracking-[0.25em] text-xs font-bold text-ink/50 dark:text-slate-400"
+              >{{ t('nav.links.contact') }}</span
+            >
+          </div>
           <h2
-            class="font-headline text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight text-slate-900 dark:text-white"
+            class="font-display text-4xl sm:text-5xl font-bold mb-6 tracking-tighter text-ink dark:text-white"
           >
             {{ t('contact.title') }}
             <span class="text-primary dark:text-primary-fixed-dim">{{
               t('contact.titleAccent')
             }}</span>
           </h2>
-          <p class="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed font-medium">
+          <p class="text-lg text-ink/60 dark:text-slate-300 mb-10 leading-relaxed font-medium">
             {{ t('contact.description') }}
           </p>
 
           <div class="space-y-4">
             <a
               href="mailto:ragilpratamaaa@gmail.com"
-              class="glass-panel p-5 rounded-2xl flex items-center gap-5 group hover:translate-x-2 transition-all duration-300"
+              class="glass-panel nb-press p-5 rounded-2xl flex items-center gap-5 group"
             >
               <div
-                class="w-12 h-12 rounded-xl bg-primary/10 text-primary dark:text-primary-fixed-dim flex items-center justify-center border border-primary/20 shrink-0"
+                class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center border-2 border-ink shrink-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,11 +136,11 @@ const handleInquiry = async () => {
               </div>
               <div>
                 <p
-                  class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-0.5"
+                  class="text-[11px] font-bold uppercase tracking-widest text-ink/50 dark:text-slate-400 mb-0.5"
                 >
                   {{ t('contact.email') }}
                 </p>
-                <p class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                <p class="text-base sm:text-lg font-bold text-ink dark:text-white">
                   ragilpratamaaa@gmail.com
                 </p>
               </div>
@@ -141,7 +148,7 @@ const handleInquiry = async () => {
 
             <div class="glass-panel p-5 rounded-2xl flex items-center gap-5 group">
               <div
-                class="w-12 h-12 rounded-xl bg-secondary/10 text-secondary dark:text-secondary-fixed-dim flex items-center justify-center border border-secondary/20 shrink-0"
+                class="w-12 h-12 rounded-xl bg-primary-container text-ink flex items-center justify-center border-2 border-ink shrink-0"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -162,11 +169,11 @@ const handleInquiry = async () => {
               </div>
               <div>
                 <p
-                  class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-0.5"
+                  class="text-[11px] font-bold uppercase tracking-widest text-ink/50 dark:text-slate-400 mb-0.5"
                 >
                   {{ t('contact.location') }}
                 </p>
-                <p class="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+                <p class="text-base sm:text-lg font-bold text-ink dark:text-white">
                   {{ t('contact.locationValue') }}
                 </p>
               </div>
@@ -174,21 +181,19 @@ const handleInquiry = async () => {
           </div>
 
           <div
-            class="mt-8 w-full h-44 rounded-3xl overflow-hidden relative shadow-lg border border-white/60 dark:border-white/10"
+            class="mt-8 w-full h-44 rounded-3xl overflow-hidden relative border-2 border-ink nb-shadow"
           >
             <div class="w-full h-full relative">
               <NuxtImg
                 format="webp"
-                class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+                class="w-full h-full object-cover opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUB7_qSH1VP9UxZUpDpQ3GjKwT859rdwqFKFTNhQ-PqQjpmwi7lJehG4MKSzN_HznWA1AbFg_SxO9OUhqs6KhfkVjsvFCTgYD8Ss-9O4HW8T-AtIjrRXuJdkLSSvVzTCToyNvcDaYjTAWATs-0XRPe8YSMe0nPCxwSDFsXHi3bRiNZxsxe2nS5RZVK0TxkmJsAlWXuy2WuMRSv8JSuvAw3xq6cppGTrUhUv7-lFQR5ZRpOWrYjdhYeA-hBlAsPatYZCa7ye_CURdZZ"
                 :alt="t('contact.mapAlt')"
                 loading="lazy"
               />
-              <div
-                class="absolute inset-0 flex items-center justify-center bg-primary/10 backdrop-blur-[1px]"
-              >
+              <div class="absolute inset-0 flex items-center justify-center bg-primary/10">
                 <div
-                  class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-lg animate-pulse"
+                  class="w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center border-2 border-ink nb-shadow-sm animate-pulse"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -211,16 +216,16 @@ const handleInquiry = async () => {
         <div
           data-animate="fade-left"
           :class="[
-            'lg:col-span-7 glass-panel rounded-3xl p-8 md:p-10 transition-all shadow-2xl',
-            { 'animate-shake border-red-500/50 shadow-red-500/10': isShaking }
+            'lg:col-span-7 glass-panel rounded-3xl p-8 md:p-10',
+            { 'animate-shake': isShaking }
           ]"
         >
           <form @submit.prevent="handleInquiry" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2 relative">
                 <label
-                  class="text-xs font-extrabold uppercase tracking-widest text-slate-700 dark:text-slate-300 ml-1"
-                  >{{ t('contact.form.name') }} <span class="text-red-500">*</span></label
+                  class="text-xs font-bold uppercase tracking-widest text-ink dark:text-slate-200 ml-1"
+                  >{{ t('contact.form.name') }} <span class="text-error">*</span></label
                 >
                 <div class="relative">
                   <input
@@ -260,8 +265,8 @@ const handleInquiry = async () => {
 
               <div class="space-y-2 relative">
                 <label
-                  class="text-xs font-extrabold uppercase tracking-widest text-slate-700 dark:text-slate-300 ml-1"
-                  >{{ t('contact.form.email') }} <span class="text-red-500">*</span></label
+                  class="text-xs font-bold uppercase tracking-widest text-ink dark:text-slate-200 ml-1"
+                  >{{ t('contact.form.email') }} <span class="text-error">*</span></label
                 >
                 <div class="relative">
                   <input
@@ -302,8 +307,8 @@ const handleInquiry = async () => {
 
             <div class="space-y-2">
               <label
-                class="text-xs font-extrabold uppercase tracking-widest text-slate-700 dark:text-slate-300 ml-1"
-                >{{ t('contact.form.message') }} <span class="text-red-500">*</span></label
+                class="text-xs font-bold uppercase tracking-widest text-ink dark:text-slate-200 ml-1"
+                >{{ t('contact.form.message') }} <span class="text-error">*</span></label
               >
               <div class="relative">
                 <textarea
@@ -343,7 +348,7 @@ const handleInquiry = async () => {
 
             <div
               v-if="showSuccess"
-              class="p-4 bg-emerald-500/15 border border-emerald-400/30 text-emerald-700 dark:text-emerald-300 rounded-2xl text-sm font-bold flex items-center gap-2.5"
+              class="p-4 bg-emerald-300 text-ink border-2 border-ink nb-shadow-sm rounded-2xl text-sm font-bold flex items-center gap-2.5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -351,7 +356,7 @@ const handleInquiry = async () => {
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
-                class="w-5 h-5 text-emerald-500"
+                class="w-5 h-5 text-ink"
                 aria-hidden="true"
               >
                 <circle cx="12" cy="12" r="9" />
@@ -366,12 +371,12 @@ const handleInquiry = async () => {
 
             <div
               v-if="!isFormValid && formTouched"
-              class="p-4 bg-red-500/15 border border-red-400/30 rounded-2xl space-y-2 animate-shake"
+              class="p-4 bg-error/10 border-2 border-ink rounded-2xl space-y-2 animate-shake"
             >
-              <p class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-widest">
+              <p class="text-xs font-bold text-error uppercase tracking-widest">
                 {{ t('contact.form.requiredFields') }}
               </p>
-              <ul class="text-xs text-red-500 dark:text-red-400 font-medium list-disc ml-4">
+              <ul class="text-xs text-error font-medium list-disc ml-4">
                 <li v-if="!form.name.trim()">{{ t('contact.form.nameMissing') }}</li>
                 <li v-if="!form.email.trim()">{{ t('contact.form.emailMissing') }}</li>
                 <li v-if="form.email.trim() && !/^\S+@\S+\.\S+$/.test(form.email)">
@@ -383,7 +388,7 @@ const handleInquiry = async () => {
 
             <button
               :disabled="isSubmitting"
-              class="w-full py-4 rounded-2xl font-bold text-lg shadow-xl transition-all active:scale-[0.98] flex items-center justify-center gap-3 bg-primary hover:bg-on-primary-fixed-variant text-white border border-white/30"
+              class="w-full py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 bg-primary text-white border-2 border-ink nb-shadow nb-press"
             >
               <span
                 v-if="isSubmitting"

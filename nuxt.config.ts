@@ -26,6 +26,7 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
+      'Space Grotesk': [400, 500, 600, 700],
       'Plus Jakarta Sans': [400, 600, 700, 800],
       Outfit: [400, 600, 700]
     },
