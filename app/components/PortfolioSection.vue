@@ -115,6 +115,13 @@ const portfolioMeta = [
     image:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkXBQh2taVPVeoFGE2GexcKk0KbsCtw0-aHw&s',
     tags: ['Vue.js', 'Bootstrap', 'Responsive', 'Dashboard']
+  },
+  {
+    id: 16,
+    category: 'frontend',
+    image: 'https://massiveentertainment.id/logonya.webp',
+    tags: ['Vue.js', 'Tailwind CSS', 'Responsive', 'Company Profile'],
+    web: 'https://massiveentertainment.id/'
   }
 ]
 
@@ -132,7 +139,7 @@ const filteredPortfolio = computed(() => {
   return portfolio.value.filter((p) => p.category === activeCategory.value)
 })
 
-const displayOrder = [5, 2, 1, 7, 10, 9, 3, 12, 4, 15, 13, 8, 11, 6, 14]
+const displayOrder = [5, 2, 1, 7, 10, 9, 3, 12, 4, 15, 13, 8, 11, 6, 14, 16]
 
 const displayedPortfolio = computed(() => {
   const items = filteredPortfolio.value
@@ -144,7 +151,7 @@ const displayedPortfolio = computed(() => {
 const isFeatured = (project) => activeCategory.value === 'all' && project.num === 1
 
 const isWide = (project) =>
-  activeCategory.value === 'all' && [1, 2, 3, 9, 13, 15].includes(project.num)
+  activeCategory.value === 'all' && [1, 2, 3, 9, 15].includes(project.num)
 
 const wideSide = (project) => {
   if (!isWide(project)) return ''

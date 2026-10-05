@@ -197,6 +197,12 @@ export const en = {
         description:
           "A sleek and interactive frontend interface for Telkom Group's internal services, focusing on user-centric design and high-performance data visualization.",
         info: 'Pins Indonesia — Telkom Group'
+      },
+      {
+        title: 'Massive Entertainment',
+        description:
+          "A modern company profile website for Massive Entertainment, featuring sleek visual design, immersive sections, and seamless navigation to showcase the brand's creative identity and services.",
+        info: 'Massive Entertainment — Company Profile'
       }
     ]
   }
@@ -401,6 +407,12 @@ export const id = {
         description:
           'Antarmuka frontend yang ramping dan interaktif untuk layanan internal Telkom Group, berfokus pada desain berpusat pengguna dan visualisasi data berperforma tinggi.',
         info: 'Pins Indonesia — Telkom Group'
+      },
+      {
+        title: 'Massive Entertainment',
+        description:
+          'Situs web company profile modern untuk Massive Entertainment, menampilkan desain visual yang elegan, section imersif, dan navigasi yang mulus untuk menonjolkan identitas kreatif serta layanan brand.',
+        info: 'Massive Entertainment — Company Profile'
       }
     ]
   }
