@@ -126,6 +126,13 @@ const portfolioMeta = [
     image: 'https://massiveentertainment.id/logonya.webp',
     tags: ['Vue.js', 'Tailwind CSS', 'Responsive', 'Company Profile'],
     web: 'https://massiveentertainment.id/'
+  },
+  {
+    id: 17,
+    category: 'fullstack',
+    image: '/citra-sejahtera.png',
+    tags: ['Laravel', 'Vue.js', 'MySQL', 'Koperasi'],
+    web: 'https://poc-koperasi-production-8e71.up.railway.app'
   }
 ]
 
@@ -143,22 +150,25 @@ const filteredPortfolio = computed(() => {
   return portfolio.value.filter((p) => p.category === activeCategory.value)
 })
 
-const displayOrder = [5, 2, 1, 7, 10, 9, 3, 12, 4, 15, 13, 8, 11, 6, 14, 16]
+const displayOrder = [5, 2, 1, 7, 10, 9, 3, 12, 4, 15, 6, 13, 8, 16, 11, 14, 17]
 
 const displayedPortfolio = computed(() => {
   const items = filteredPortfolio.value
   if (activeCategory.value !== 'all') return items
   const byNum = Object.fromEntries(items.map((i) => [i.num, i]))
-  return displayOrder.map((n) => byNum[n]).filter(Boolean)
+  const ordered = displayOrder.map((n) => byNum[n]).filter(Boolean)
+  // new items not listed in displayOrder still show, appended at the end
+  return [...ordered, ...items.filter((i) => !displayOrder.includes(i.num))]
 })
 
 const isFeatured = (project) => activeCategory.value === 'all' && project.num === 1
 
-const isWide = (project) => activeCategory.value === 'all' && [1, 2, 3, 9, 15].includes(project.num)
+const isWide = (project) =>
+  activeCategory.value === 'all' && [1, 2, 3, 6, 9, 15, 16].includes(project.num)
 
 const wideSide = (project) => {
   if (!isWide(project)) return ''
-  return [1, 3, 13].includes(project.num) ? 'lg:col-start-1' : 'lg:col-start-2'
+  return [1, 3, 6].includes(project.num) ? 'lg:col-start-1' : 'lg:col-start-2'
 }
 
 const countByCategory = computed(() => {

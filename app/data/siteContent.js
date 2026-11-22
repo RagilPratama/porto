@@ -203,6 +203,12 @@ export const en = {
         description:
           "A modern company profile website for Massive Entertainment, featuring sleek visual design, immersive sections, and seamless navigation to showcase the brand's creative identity and services.",
         info: 'Massive Entertainment — Company Profile'
+      },
+      {
+        title: 'Citra Sejahtera Supplier',
+        description:
+          'A cooperative supplier management platform built with Laravel and Vue.js, covering member administration, goods supply records, and transaction reporting in a single dashboard.',
+        info: 'Citra Sejahtera — Koperasi & Supplier'
       }
     ]
   }
@@ -413,6 +419,12 @@ export const id = {
         description:
           'Situs web company profile modern untuk Massive Entertainment, menampilkan desain visual yang elegan, section imersif, dan navigasi yang mulus untuk menonjolkan identitas kreatif serta layanan brand.',
         info: 'Massive Entertainment — Company Profile'
+      },
+      {
+        title: 'Citra Sejahtera Supplier',
+        description:
+          'Platform manajemen koperasi dan supplier berbasis Laravel dan Vue.js, mencakup administrasi anggota, pencatatan pasokan barang, serta pelaporan transaksi dalam satu dashboard.',
+        info: 'Citra Sejahtera — Koperasi & Supplier'
       }
     ]
   }
