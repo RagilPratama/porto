@@ -7,9 +7,17 @@ const cur = { x: -100, y: -100 }
 let hovering = false
 let active = false
 let currentMag = null
+let observer = null
 
 const isInteractive = (t) =>
   t && t.closest && t.closest('a, button, [data-magnetic], [role="button"]')
+
+// A modal <dialog> lives in the top layer, which paints above every z-index.
+// Keeping the custom cursor inside the open dialog is the only way it stays visible.
+const placeCursor = () => {
+  const host = document.querySelector('dialog[open]') || document.body
+  if (cursor.value && cursor.value.parentElement !== host) host.appendChild(cursor.value)
+}
 
 function onMove(e) {
   mouse.x = e.clientX
@@ -61,11 +69,16 @@ onMounted(() => {
   window.addEventListener('mousemove', onMove, { passive: true })
   window.addEventListener('mousedown', onDown)
   window.addEventListener('mouseup', onUp)
+  placeCursor()
+  // Dialog open/close only toggles the `open` attribute, so watch that alone.
+  observer = new MutationObserver(placeCursor)
+  observer.observe(document.body, { attributes: true, attributeFilter: ['open'], subtree: true })
   render()
 })
 
 onBeforeUnmount(() => {
   if (raf) cancelAnimationFrame(raf)
+  observer?.disconnect()
   window.removeEventListener('mousemove', onMove)
   window.removeEventListener('mousedown', onDown)
   window.removeEventListener('mouseup', onUp)
