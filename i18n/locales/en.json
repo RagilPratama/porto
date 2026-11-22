@@ -86,6 +86,8 @@
     "featured": "Featured Project",
     "web": "Web",
     "appStore": "App Store",
-    "playStore": "Play Store"
+    "playStore": "Play Store",
+    "playVideo": "Play video",
+    "closeVideo": "Close"
   }
 }

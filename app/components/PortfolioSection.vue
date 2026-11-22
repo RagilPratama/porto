@@ -125,14 +125,16 @@ const portfolioMeta = [
     category: 'frontend',
     image: 'https://massiveentertainment.id/logonya.webp',
     tags: ['Vue.js', 'Tailwind CSS', 'Responsive', 'Company Profile'],
-    web: 'https://massiveentertainment.id/'
+    web: 'https://massiveentertainment.id/',
+    video: '/video/massive.mp4'
   },
   {
     id: 17,
     category: 'fullstack',
     image: '/citra-sejahtera.png',
     tags: ['Laravel', 'Vue.js', 'MySQL', 'Koperasi'],
-    web: 'https://poc-koperasi-production-8e71.up.railway.app'
+    web: 'https://poc-koperasi-production-8e71.up.railway.app',
+    video: '/video/citrasejahtera.mp4'
   }
 ]
 
@@ -205,6 +207,31 @@ const themeFor = (project) => {
 
 const getProjectBadgeLabel = (project) => {
   return project.qaLabel || t(`portfolio.categories.${project.category}`)
+}
+
+const videoDialog = ref(null)
+const videoEl = ref(null)
+const activeVideo = ref(null)
+
+const openVideo = async (project) => {
+  activeVideo.value = project
+  videoDialog.value.showModal()
+  await nextTick()
+  videoEl.value?.play().catch(() => {}) // autoplay may be refused; native controls remain
+}
+
+const onVideoClose = () => {
+  videoEl.value?.pause()
+  activeVideo.value = null
+}
+
+// Safari has no closedby="any": close on a backdrop click (target is the dialog itself)
+const onDialogClick = (e) => {
+  if ('closedBy' in HTMLDialogElement.prototype || e.target !== videoDialog.value) return
+  const r = videoDialog.value.getBoundingClientRect()
+  const inside =
+    e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom
+  if (!inside) videoDialog.value.close()
 }
 
 // Shared link-button classes (neo-brutalist)
@@ -287,10 +314,17 @@ const linkClass =
                 class="relative h-52 md:h-full overflow-hidden flex items-center justify-center p-6 bg-paper dark:bg-[#141414] border-b-2 md:border-b-0 md:border-r-2 border-ink"
               >
                 <div :class="['absolute inset-0 dots opacity-60', themeFor(project).dots]"></div>
-                <div
+                <component
+                  :is="project.video ? 'button' : 'div'"
+                  :type="project.video ? 'button' : undefined"
+                  :aria-label="
+                    project.video ? `${t('portfolio.playVideo')}: ${project.title}` : undefined
+                  "
+                  @click="project.video && openVideo(project)"
                   :class="[
                     'relative z-[1] w-40 h-40 md:w-44 md:h-44 bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow transition-transform duration-300 group-hover:-rotate-2',
-                    themeFor(project).logoHover
+                    themeFor(project).logoHover,
+                    project.video ? 'cursor-pointer nb-press' : ''
                   ]"
                 >
                   <NuxtImg
@@ -301,7 +335,16 @@ const linkClass =
                     class="w-full h-full object-contain p-3"
                     loading="lazy"
                   />
-                </div>
+                  <span
+                    v-if="project.video"
+                    class="absolute -bottom-2.5 -right-2.5 w-9 h-9 rounded-full bg-primary text-white border-[3px] border-ink grid place-items-center"
+                    aria-hidden="true"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </component>
                 <div class="absolute top-3.5 left-4">
                   <span
                     :class="[
@@ -424,10 +467,17 @@ const linkClass =
               class="relative h-40 overflow-hidden flex items-center justify-center bg-paper dark:bg-[#141414] border-b-2 border-ink"
             >
               <div :class="['absolute inset-0 dots opacity-60', themeFor(project).dots]"></div>
-              <div
+              <component
+                :is="project.video ? 'button' : 'div'"
+                :type="project.video ? 'button' : undefined"
+                :aria-label="
+                  project.video ? `${t('portfolio.playVideo')}: ${project.title}` : undefined
+                "
+                @click="project.video && openVideo(project)"
                 :class="[
                   'relative z-[1] w-28 h-28 md:w-32 md:h-32 bg-white dark:bg-[#1e1e1e] border-[3px] border-ink nb-shadow transition-transform duration-300 group-hover:-rotate-2',
-                  themeFor(project).logoHover
+                  themeFor(project).logoHover,
+                  project.video ? 'cursor-pointer nb-press' : ''
                 ]"
               >
                 <NuxtImg
@@ -438,7 +488,16 @@ const linkClass =
                   class="w-full h-full object-contain p-2.5"
                   loading="lazy"
                 />
-              </div>
+                <span
+                  v-if="project.video"
+                  class="absolute -bottom-2.5 -right-2.5 w-9 h-9 rounded-full bg-primary text-white border-[3px] border-ink grid place-items-center"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 ml-0.5">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+              </component>
               <div class="absolute top-3.5 left-4">
                 <span
                   :class="[
@@ -549,10 +608,52 @@ const linkClass =
         </div>
       </div>
     </div>
+
+    <dialog
+      ref="videoDialog"
+      closedby="any"
+      :aria-label="activeVideo ? activeVideo.title : t('portfolio.playVideo')"
+      class="video-dialog w-[min(92vw,960px)] p-0 bg-transparent"
+      @click="onDialogClick"
+      @close="onVideoClose"
+    >
+      <div class="border-[3px] border-ink nb-shadow bg-white dark:bg-[#1e1e1e]">
+        <div class="flex items-center justify-between gap-4 px-4 py-2.5 border-b-[3px] border-ink">
+          <span class="font-display font-bold text-sm text-ink dark:text-white truncate">{{
+            activeVideo?.title
+          }}</span>
+          <button
+            type="button"
+            :class="linkClass"
+            :aria-label="t('portfolio.closeVideo')"
+            @click="videoDialog.close()"
+          >
+            {{ t('portfolio.closeVideo') }}
+          </button>
+        </div>
+        <video
+          v-if="activeVideo"
+          ref="videoEl"
+          :src="activeVideo.video"
+          controls
+          playsinline
+          preload="metadata"
+          class="w-full aspect-video bg-black"
+        ></video>
+      </div>
+    </dialog>
   </section>
 </template>
 
 <style scoped>
+.video-dialog:modal {
+  overscroll-behavior: contain;
+}
+.video-dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgba(17, 17, 17, 0.6);
+}
 .dots {
   background-image: radial-gradient(rgba(17, 17, 17, 0.14) 1.4px, transparent 1.4px);
   background-size: 16px 16px;
